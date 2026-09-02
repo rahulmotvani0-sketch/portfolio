@@ -21,10 +21,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-emerald-500/30 selection:text-emerald-300">
       {/* Top Navbar */}
-      <Navbar onOpenResume={() => setIsResumeOpen(true)} />
+      <div className="print:hidden">
+        <Navbar onOpenResume={() => setIsResumeOpen(true)} />
+      </div>
 
       {/* Main Content Sections */}
-      <main className="relative">
+      <main className="relative print:hidden">
         <Hero onOpenResume={() => setIsResumeOpen(true)} />
         <RecruiterMatrix onOpenResume={() => setIsResumeOpen(true)} />
         <ProjectsSection />
@@ -37,7 +39,9 @@ export default function Home() {
       </main>
 
       {/* Footer */}
-      <Footer />
+      <div className="print:hidden">
+        <Footer />
+      </div>
 
       {/* Resume Modal */}
       <ResumeModal
