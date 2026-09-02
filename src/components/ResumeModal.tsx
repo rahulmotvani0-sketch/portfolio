@@ -34,17 +34,34 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
             </span>
           </div>
 
-          <div className="flex items-center gap-3">
+          <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
+            <a
+              href="/Rahul_Motvani_Resume.pdf"
+              download="Rahul_Motvani_Resume.pdf"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold transition-colors cursor-pointer shadow-md"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Download PDF</span>
+            </a>
+            <a
+              href="/Rahul_Motvani_Resume.docx"
+              download="Rahul_Motvani_Resume.docx"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition-colors cursor-pointer"
+            >
+              <Download className="w-3.5 h-3.5 text-cyan-400" />
+              <span>Download DOCX</span>
+            </a>
             <button
               onClick={handlePrint}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold transition-colors cursor-pointer shadow-md"
+              className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 border border-slate-700 text-xs font-medium transition-colors cursor-pointer"
+              title="Print web version"
             >
               <Printer className="w-3.5 h-3.5" />
-              <span>Print / Download PDF</span>
+              <span>Print</span>
             </button>
             <button
               onClick={onClose}
-              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors cursor-pointer"
+              className="p-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white transition-colors cursor-pointer ml-1"
               aria-label="Close modal"
             >
               <X className="w-5 h-5" />

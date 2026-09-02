@@ -24,9 +24,9 @@ export function Hero() {
                 <a href="#projects">Explore My Work</a>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <a href="/Rahul_Motvani_Resume.docx" download>
+                <a href="/Rahul_Motvani_Resume.pdf" download="Rahul_Motvani_Resume.pdf">
                   <Download className="mr-2 h-4 w-4" />
-                  Download Resume
+                  Download Resume (PDF)
                 </a>
               </Button>
             </div>

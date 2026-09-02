@@ -69,13 +69,14 @@ export default function RecruiterMatrix({ onOpenResume }: RecruiterMatrixProps) 
           </div>
           
           <div className="mt-4 md:mt-0 flex items-center gap-2">
-            <button
-              onClick={onOpenResume}
+            <a
+              href="/Rahul_Motvani_Resume.pdf"
+              download="Rahul_Motvani_Resume.pdf"
               className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold transition-all cursor-pointer shadow-md"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Download Resume (PDF)</span>
-            </button>
+            </a>
           </div>
         </div>
 
