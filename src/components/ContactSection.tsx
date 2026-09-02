@@ -13,7 +13,11 @@ import {
 import { CANDIDATE_INFO } from "@/data/portfolioData";
 import { LinkedInIcon, GitHubIcon } from "./Navbar";
 
-export default function ContactSection() {
+interface ContactSectionProps {
+  onOpenResume?: () => void;
+}
+
+export default function ContactSection({ onOpenResume }: ContactSectionProps) {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
