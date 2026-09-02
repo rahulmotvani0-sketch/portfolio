@@ -13,54 +13,67 @@ Production-quality personal portfolio application for **Rahul Motvani**, positio
 ## 🚀 Deployment Architecture
 
 ```text
-                 ┌─────────────────────┐
-                 │       GitHub        │
-                 │   portfolio repo    │
-                 └──────────┬──────────┘
-                            │
-                            ▼
-                 ┌─────────────────────┐
-                 │   GitHub Actions    │
-                 │                     │
-                 │ Install             │
-                 │ Lint                │
-                 │ Build (Export)      │
-                 └──────────┬──────────┘
-                            │
-                            ▼
-                 ┌─────────────────────┐
-                 │    Cloudflare       │
-                 │   Pages / Edge      │
-                 └──────────┬──────────┘
-                            │
-                            ▼
-                 ┌─────────────────────┐
-                 │ rahul.techiking.com │
-                 │       HTTPS         │
-                 └─────────────────────┘
+                         ┌─────────────────────┐
+                         │       GitHub        │
+                         │  portfolio repo     │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │   GitHub Actions    │
+                         │                     │
+                         │ Install             │
+                         │ Lint                │
+                         │ Build (Export)      │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │    GitHub Pages     │
+                         │   Static Hosting    │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │   Cloudflare DNS    │
+                         └──────────┬──────────┘
+                                    │
+                                    ▼
+                         ┌─────────────────────┐
+                         │ rahul.techiking.com │
+                         │       HTTPS         │
+                         └─────────────────────┘
 ```
 
-The application is deployed to **Cloudflare Pages** using Next.js Static Export (`output: 'export'`) automatically triggered by GitHub Actions on every push to `main`.
+The application is hosted on **GitHub Pages** via official GitHub Actions workflows (`actions/deploy-pages`) using Next.js Static Export (`output: 'export'`), mapped to the custom domain **`rahul.techiking.com`** via **Cloudflare DNS**.
 
 ---
 
-## 🔑 Required GitHub Actions Secrets
+## 🔧 Production Setup Guide
 
-To enable automated deployments to Cloudflare Pages, set the following secrets in GitHub (`Settings -> Secrets and variables -> Actions`):
+### 1. GitHub Repository Configuration
+1. Go to **Settings -> Pages**.
+2. Under **Build and deployment -> Source**, select **GitHub Actions**.
+3. Under **Custom domain**, enter `rahul.techiking.com` and click **Save**.
 
-| Secret Name | Description | Example / Location |
-| ----------- | ----------- | ------------------ |
-| `CLOUDFLARE_API_TOKEN` | Cloudflare API Token with Pages Edit permissions | Created in Cloudflare Dashboard -> My Profile -> API Tokens |
-| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare Account Identifier | Cloudflare Dashboard Account Overview (right sidebar) |
+### 2. Cloudflare DNS Configuration
+In Cloudflare Dashboard for domain `techiking.com`:
+1. Go to **DNS -> Records**.
+2. Create a **CNAME** record:
+   - **Type:** `CNAME`
+   - **Name:** `rahul`
+   - **Target / Value:** `rahulmotvani0-sketch.github.io`
+   - **Proxy Status:** DNS Only (Grey Cloud) initially to allow Let's Encrypt certificate issuance.
+3. Once DNS propagates and GitHub Pages verifies domain ownership, check **Enforce HTTPS** in **Settings -> Pages**.
 
 ---
 
 ## 🛠️ Architecture & Tech Stack
 
 - **Framework:** Next.js 16 (App Router, Static Export)
-- **Hosting:** Cloudflare Pages (Edge CDN, Automated Deployments)
+- **Hosting:** GitHub Pages (Static Hosting, Automated GitHub Actions Workflow)
+- **DNS & Domain Management:** Cloudflare DNS (`rahul.techiking.com`)
 - **Styling & UI:** Tailwind CSS v4, Lucide React Icons
-- **Security Headers:** Managed via `public/_headers` (HSTS, NoSniff, FrameGuard)
 - **SEO & Metadata:** Canonical URL (`https://rahul.techiking.com`), OpenGraph, `sitemap.xml`, `robots.txt`
 
 ---
@@ -103,5 +116,5 @@ npm run build
 ## 🔒 Security & Performance
 
 - Zero hardcoded credentials or exposed secrets.
-- Automatic HTTPS via Cloudflare SSL/TLS edge certificates.
+- Automatic HTTPS via GitHub Pages & Cloudflare DNS.
 - Built for WCAG 2.2 AA accessibility principles and Lighthouse performance targets.
