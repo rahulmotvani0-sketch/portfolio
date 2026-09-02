@@ -85,3 +85,67 @@
 .arch-line-h {
   @apply absolute border-t-2 border-dashed border-slate-600;
 }
+
+/* Print Optimization for Resume Modal */
+@media print {
+  @page {
+    margin: 1.2cm;
+    size: A4 portrait;
+  }
+
+  /* Hide everything on the page during print */
+  body * {
+    visibility: hidden !important;
+  }
+
+  /* Show only the printable resume container */
+  .printable-resume,
+  .printable-resume * {
+    visibility: visible !important;
+  }
+
+  /* Position printable resume at top left with full width & white print background */
+  .printable-resume {
+    position: absolute !important;
+    left: 0 !important;
+    top: 0 !important;
+    width: 100% !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    background: white !important;
+    color: black !important;
+    font-size: 10.5pt !important;
+    box-shadow: none !important;
+    overflow: visible !important;
+  }
+
+  .printable-resume h1,
+  .printable-resume h2,
+  .printable-resume strong,
+  .printable-resume span,
+  .printable-resume p,
+  .printable-resume li {
+    color: black !important;
+  }
+
+  .printable-resume .text-emerald-400,
+  .printable-resume .text-cyan-400 {
+    color: #047857 !important; /* Emerald 700 for print */
+  }
+
+  .printable-resume .border-slate-800,
+  .printable-resume .border-slate-800\/80 {
+    border-color: #cbd5e1 !important; /* Slate 300 for print */
+  }
+
+  .printable-resume .bg-slate-900\/60,
+  .printable-resume .bg-slate-900 {
+    background-color: #f8fafc !important; /* Slate 50 for print */
+    border-color: #e2e8f0 !important;
+  }
+
+  /* Ensure print utilities are hidden */
+  .print\:hidden {
+    display: none !important;
+  }
+}

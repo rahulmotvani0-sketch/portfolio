@@ -70,7 +70,7 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
         </div>
 
         {/* Printable Resume Container */}
-        <div className="p-6 sm:p-8 md:p-10 overflow-y-auto space-y-6 text-slate-200 font-sans text-xs sm:text-sm bg-slate-950 print:bg-white print:text-black print:p-0">
+        <div className="printable-resume p-6 sm:p-8 md:p-10 overflow-y-auto space-y-6 text-slate-200 font-sans text-xs sm:text-sm bg-slate-950 print:bg-white print:text-black print:p-0">
           
           {/* Resume Header */}
           <div className="border-b border-slate-800 pb-6 space-y-3">
