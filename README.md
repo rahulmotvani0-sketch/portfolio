@@ -4,40 +4,75 @@ Production-quality personal portfolio application for **Rahul Motvani**, positio
 
 ---
 
-## 🚀 Key Candidate Positioning
+## 🌐 Production Domain
 
-- **Name:** Rahul Motvani
-- **Current Position:** DevOps / DevSecOps Engineer at Azilen Technologies Pvt Ltd
-- **Experience:** 4.5+ years of hands-on cloud infrastructure, IaC, Kubernetes, CI/CD, DevSecOps, and SRE operations
-- **Target Roles:** DevOps Engineer, DevSecOps Engineer, Site Reliability Engineer (SRE), Platform Engineer, Cloud Infrastructure Engineer
-- **Security Recognition:** TryHackMe — Top 3% Global Ranking
+**Canonical Production URL:** [https://rahul.techiking.com](https://rahul.techiking.com)
+
+---
+
+## 🚀 Deployment Architecture
+
+```text
+                 ┌─────────────────────┐
+                 │       GitHub        │
+                 │   portfolio repo    │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │   GitHub Actions    │
+                 │                     │
+                 │ Install             │
+                 │ Lint                │
+                 │ Build (Export)      │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │    Cloudflare       │
+                 │   Pages / Edge      │
+                 └──────────┬──────────┘
+                            │
+                            ▼
+                 ┌─────────────────────┐
+                 │ rahul.techiking.com │
+                 │       HTTPS         │
+                 └─────────────────────┘
+```
+
+The application is deployed to **Cloudflare Pages** using Next.js Static Export (`output: 'export'`) automatically triggered by GitHub Actions on every push to `main`.
+
+---
+
+## 🔑 Required GitHub Actions Secrets
+
+To enable automated deployments to Cloudflare Pages, set the following secrets in GitHub (`Settings -> Secrets and variables -> Actions`):
+
+| Secret Name | Description | Example / Location |
+| ----------- | ----------- | ------------------ |
+| `CLOUDFLARE_API_TOKEN` | Cloudflare API Token with Pages Edit permissions | Created in Cloudflare Dashboard -> My Profile -> API Tokens |
+| `CLOUDFLARE_ACCOUNT_ID` | Cloudflare Account Identifier | Cloudflare Dashboard Account Overview (right sidebar) |
 
 ---
 
 ## 🛠️ Architecture & Tech Stack
 
-- **Framework:** Next.js (App Router, React 19, TypeScript)
+- **Framework:** Next.js 16 (App Router, Static Export)
+- **Hosting:** Cloudflare Pages (Edge CDN, Automated Deployments)
 - **Styling & UI:** Tailwind CSS v4, Lucide React Icons
-- **Database:** PostgreSQL via Drizzle ORM
-- **Database Schema:** `contact_inquiries` table storing recruiter inquiries with instant API responses
-- **SEO & Metadata:** Structured JSON-LD (`Person` schema), OpenGraph tags, `sitemap.xml`, `robots.txt`
+- **Security Headers:** Managed via `public/_headers` (HSTS, NoSniff, FrameGuard)
+- **SEO & Metadata:** Canonical URL (`https://rahul.techiking.com`), OpenGraph, `sitemap.xml`, `robots.txt`
 
 ---
 
 ## 📁 Key Features
 
-1. **Recruiter & ATS Matrix:** 30-second executive summary tailored for technical recruiters with role-focused impact filters.
-2. **Featured Case Studies:** Deep case studies for 5 priority projects:
-   - SARA-II (AI Assistant Infrastructure & Platform Engineering)
-   - LeadPulse AI (Autonomous B2B Revenue Intelligence Platform)
-   - Bitbucket Infrastructure Migration & Platform Modernization
-   - SonarQube Migration & DevSecOps Quality Gate Pipeline
-   - Terraform Multi-Cloud Infrastructure Automation & GitOps
-3. **Interactive System Topology Explorer:** Visual step-by-step architecture flow diagrams for DevSecOps, AI microservices, database migrations, and multi-cloud IaC.
+1. **Recruiter & ATS Matrix:** Executive summary tailored for technical recruiters with role-focused impact filters.
+2. **Featured Case Studies:** Deep case studies for 5 priority projects (SARA-II, LeadPulse AI, Bitbucket Migration, SonarQube DevSecOps, Terraform IaC).
+3. **Interactive System Topology Explorer:** Visual architecture flow diagrams for DevSecOps, AI microservices, database migrations, and multi-cloud IaC.
 4. **Interactive SRE Sandbox:** Real-time incident response simulator allowing recruiters to test Rahul's automated playbooks against 4 production failure scenarios.
-5. **9 Categorized Skill Domains:** Organized tech matrix with real-world hands-on use cases for every technology.
-6. **Live Resume Viewer:** Formatted printable resume modal with PDF print controls.
-7. **PostgreSQL Recruiter Contact Form:** Connected to API route `/api/contact` persisting inquiries to PostgreSQL via Drizzle ORM.
+5. **9 Categorized Skill Domains:** Organized tech matrix with real-world hands-on use cases.
+6. **Live Resume Viewer:** Printable resume modal with PDF print controls (`/Rahul_Motvani_Resume.docx`).
 
 ---
 
@@ -47,25 +82,19 @@ Production-quality personal portfolio application for **Rahul Motvani**, positio
 # Install dependencies
 npm install
 
-# Push database schema to PostgreSQL
-npx drizzle-kit push
-
 # Run development server
 npm run dev
 ```
 
 ---
 
-## 🔨 Validation & Build
+## 🔨 Validation & Static Production Build
 
 ```bash
-# Typegen
-npx next typegen
+# Run linter
+npm run lint
 
-# Type check
-npm exec tsc -- --noEmit
-
-# Production Build
+# Production Static Export (Outputs to out/)
 npm run build
 ```
 
@@ -74,5 +103,5 @@ npm run build
 ## 🔒 Security & Performance
 
 - Zero hardcoded credentials or exposed secrets.
-- Environment variables configured via process.env.
+- Automatic HTTPS via Cloudflare SSL/TLS edge certificates.
 - Built for WCAG 2.2 AA accessibility principles and Lighthouse performance targets.
