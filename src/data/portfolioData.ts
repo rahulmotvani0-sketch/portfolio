@@ -83,9 +83,9 @@ export const CANDIDATE_INFO = {
   ],
   targetLocations: "US, UK, Europe, Canada, Australia, Singapore, UAE & Global Remote Roles",
   contact: {
-    email: "rahul.motvani.devops@gmail.com",
-    linkedin: "https://linkedin.com/in/rahulmotvani",
-    github: "https://github.com/rahulmotvani",
+    email: "rahulmotvani8@gmail.com",
+    linkedin: "https://www.linkedin.com/in/rahul-motvani-720b8b18a/",
+    github: "https://github.com/rahulmotvani0-sketch",
     availability: "Immediate / Remote",
   },
   resumeLastUpdated: "March 2025",
@@ -151,7 +151,7 @@ export const PROJECTS: ProjectCaseStudy[] = [
       "Reduced Mean Time To First Token (TTFT) by 42% through vector lookup caching and provider routing.",
       "Saved 35% in API token costs by prioritizing optimized local container inference for standard tasks."
     ],
-    githubUrl: "https://github.com/rahulmotvani",
+    githubUrl: "https://github.com/rahulmotvani0-sketch",
     interviewDeepDive: {
       architectureTradeoffs: "We prioritized local vLLM hosting over pure cloud API reliance to guarantee data privacy and lower token expenses, sacrificing slight peak throughput in exchange for predictable cost and zero data leakage.",
       failureScenarioAndRecovery: "If OpenAI or primary Cloud API experiences elevated HTTP 5xx errors, the circuit breaker opens within 3 failed requests, instantly shifting incoming prompt queues to the local vLLM node with graceful parameter fallback.",
@@ -211,7 +211,7 @@ export const PROJECTS: ProjectCaseStudy[] = [
       "CI/CD pipeline execution time cut from 22 minutes to 6 minutes via layer caching and multi-stage builds.",
       "Achieved 99.95% system uptime under continuous multi-agent workload."
     ],
-    githubUrl: "https://github.com/rahulmotvani",
+    githubUrl: "https://github.com/rahulmotvani0-sketch",
     interviewDeepDive: {
       architectureTradeoffs: "Utilized Qdrant for vector search while retaining PostgreSQL for relational data, accepting dual-database synchronization complexity in order to get native 10x vector query acceleration.",
       failureScenarioAndRecovery: "If Redis task queue drops connection, FastAPI workers automatically fall back to local disk state buffering and attempt exponential backoff reconnection without dropping active user API calls.",
@@ -269,7 +269,7 @@ export const PROJECTS: ProjectCaseStudy[] = [
       "Completed live maintenance window in under 2 hours (1 hour ahead of scheduled maintenance window).",
       "Git clone and fetch operations accelerated by 40% due to updated PostgreSQL engine and Java 17 performance improvements."
     ],
-    githubUrl: "https://github.com/rahulmotvani",
+    githubUrl: "https://github.com/rahulmotvani0-sketch",
     interviewDeepDive: {
       architectureTradeoffs: "Decided on a cold maintenance window migration instead of live active-active DB replication to guarantee absolute zero data corruption during major PostgreSQL schema translation.",
       failureScenarioAndRecovery: "Rollback strategy: Automated script was pre-configured to point DNS back to legacy server and restore write privileges within 8 minutes if verification SHA checks failed.",
@@ -329,7 +329,7 @@ export const PROJECTS: ProjectCaseStudy[] = [
       "100% of pull requests automatically evaluated against security quality gates before release.",
       "Eliminated 100% of hardcoded secrets from entering source code repositories."
     ],
-    githubUrl: "https://github.com/rahulmotvani",
+    githubUrl: "https://github.com/rahulmotvani0-sketch",
     interviewDeepDive: {
       architectureTradeoffs: "Strict quality gates can slow down urgent releases if not managed properly; we added an emergency security bypass override requiring dual security lead approval with automatic audit logging.",
       failureScenarioAndRecovery: "If SonarQube server is temporarily offline, CI/CD pipeline retries 3 times before entering fail-safe mode with notification to DevSecOps team rather than silently allowing unvetted deployments.",
@@ -388,7 +388,7 @@ export const PROJECTS: ProjectCaseStudy[] = [
       "Eliminated 100% of manual cloud configuration drift across Dev, Staging, and Production environments.",
       "Achieved 100% compliance with CIS AWS Foundations Benchmarks across all Terraform modules."
     ],
-    githubUrl: "https://github.com/rahulmotvani",
+    githubUrl: "https://github.com/rahulmotvani0-sketch",
     interviewDeepDive: {
       architectureTradeoffs: "Chose pure modular Terraform with native state backends over third-party abstractions to maintain complete vendor control and zero subscription overhead.",
       failureScenarioAndRecovery: "If an automated `terraform apply` fails mid-way, state locking prevents concurrent runs; engineers review execution logs, run targeted `terraform refresh`, and apply corrective module patches.",
