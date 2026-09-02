@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+@theme {
+  --color-slate-900: #0f172a;
+  --color-slate-800: #1e293b;
+  --color-slate-700: #334155;
+  --color-cyan-400: #22d3ee;
+  --color-cyan-500: #06b6d4;
+  --color-green-400: #4ade80;
+  --color-green-500: #22c55e;
+}
+
+@layer base {
+  :root {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222.2 47.4% 11.2%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-slate-800;
+  }
+  body {
+    @apply bg-[#0B0F19] text-slate-300 font-sans antialiased overflow-x-hidden;
+    background-image: radial-gradient(
+        circle at 50% 0%,
+        rgba(34, 211, 238, 0.05) 0%,
+        transparent 50%
+      ),
+      linear-gradient(to bottom, rgba(15, 23, 42, 0) 0%, #0B0F19 100%);
+  }
+}
+
+/* Custom styles for the terminal and architecture diagrams */
+.terminal-window {
+  @apply relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/50 backdrop-blur-sm shadow-2xl;
+}
+
+.terminal-header {
+  @apply flex items-center justify-between px-4 py-3 border-b border-slate-800 bg-slate-900/80;
+}
+
+.glass-card {
+  @apply relative overflow-hidden rounded-xl border border-slate-800 bg-slate-900/40 backdrop-blur-md transition-all hover:bg-slate-800/50 hover:border-slate-700;
+}
+
+.glow-text {
+  text-shadow: 0 0 20px rgba(34, 211, 238, 0.5);
+}
+
+.arch-node {
+  @apply flex flex-col items-center justify-center p-4 rounded-lg border border-slate-700 bg-slate-800/80 text-center shadow-lg transition-transform hover:scale-105;
+}
+
+.arch-line {
+  @apply absolute border-l-2 border-dashed border-slate-600;
+}
+
+.arch-line-h {
+  @apply absolute border-t-2 border-dashed border-slate-600;
+}
