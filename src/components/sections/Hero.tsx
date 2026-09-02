@@ -31,11 +31,11 @@ export function Hero() {
               </Button>
             </div>
             <div className="flex items-center gap-4 mt-8">
-              <a href="https://linkedin.com/in/rahulmotvani" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+              <a href="https://www.linkedin.com/in/rahul-motvani-720b8b18a/" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </a>
-              <a href="https://github.com/rahulmotvani" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+              <a href="https://github.com/rahulmotvani0-sketch" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 <Github className="h-6 w-6" />
                 <span className="sr-only">GitHub</span>
               </a>
