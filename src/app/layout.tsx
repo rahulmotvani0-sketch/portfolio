@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://rahulmotvani.com", // Adjust as necessary
+    url: "https://rahul.techiking.com",
     title: "Rahul Motvani | DevOps & Cloud Infrastructure Engineer",
     description:
       "Senior DevOps, DevSecOps, and SRE Engineer building secure, automated, and reliable cloud infrastructure.",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
     creator: "@rahulmotvani",
   },
   alternates: {
-    canonical: "https://rahulmotvani.com",
+    canonical: "https://rahul.techiking.com",
   },
 };
 
@@ -56,7 +56,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${firaCode.variable} font-sans antialiased text-slate-300 bg-[#0B0F19]`}>
         <div className="min-h-screen flex flex-col relative selection:bg-cyan-500/30 selection:text-cyan-100">
           {/* Subtle grid background */}
-          <div className="absolute inset-0 bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] -z-10 opacity-20 pointer-events-none" style={{ backgroundImage: "url('/portfolio/grid.svg')" }}></div>
+          <div className="absolute inset-0 bg-center [mask-image:linear-gradient(180deg,white,rgba(255,255,255,0))] -z-10 opacity-20 pointer-events-none" style={{ backgroundImage: "url('/grid.svg')" }}></div>
           {children}
         </div>
       </body>
