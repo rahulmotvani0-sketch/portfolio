@@ -37,12 +37,12 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
   }, []);
 
   const navLinks = [
-    { name: "Recruiter Summary", href: "#recruiter-summary" },
+    { name: "Summary", href: "#recruiter-summary" },
     { name: "Projects", href: "#projects" },
     { name: "Architecture", href: "#architecture" },
     { name: "Skills", href: "#skills" },
     { name: "Experience", href: "#experience" },
-    { name: "SRE Simulator", href: "#sre-sandbox" },
+    { name: "SRE Sandbox", href: "#sre-sandbox" },
     { name: "Certifications", href: "#certifications" },
     { name: "Contact", href: "#contact" },
   ];
@@ -56,10 +56,10 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-between gap-4">
           {/* Logo & Status */}
-          <div className="flex items-center space-x-3 shrink-0">
-            <a href="#" className="flex items-center space-x-2.5 group">
+          <div className="flex items-center gap-3 shrink-0">
+            <a href="#" className="flex items-center gap-2.5 group">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:border-emerald-400/60 transition-colors shrink-0">
                 <Terminal className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
@@ -73,6 +73,9 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
               </div>
             </a>
 
+            {/* Vertical Divider */}
+            <div className="hidden 2xl:block h-5 w-px bg-slate-800/80 mx-1"></div>
+
             {/* Availability Pill */}
             <div className="hidden 2xl:flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-medium text-emerald-400 whitespace-nowrap">
               <span className="relative flex h-2 w-2">
@@ -84,7 +87,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center space-x-4 2xl:space-x-6 text-xs 2xl:text-sm font-medium text-slate-300">
+          <nav className="hidden xl:flex items-center justify-center gap-4 2xl:gap-6 text-xs 2xl:text-sm font-medium text-slate-300 mx-auto px-4 border-x border-slate-800/50">
             {navLinks.map((link) => (
               <a
                 key={link.name}
@@ -98,10 +101,10 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
           </nav>
 
           {/* Action CTAs */}
-          <div className="hidden md:flex items-center space-x-2.5 shrink-0">
+          <div className="hidden md:flex items-center gap-2.5 shrink-0">
             <button
               onClick={onOpenResume}
-              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 transition-all cursor-pointer whitespace-nowrap shadow-sm"
+              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 transition-all cursor-pointer whitespace-nowrap shadow-sm"
             >
               <Download className="w-3.5 h-3.5 text-emerald-400" />
               <span>Resume</span>

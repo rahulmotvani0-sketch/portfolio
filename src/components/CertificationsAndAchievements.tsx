@@ -10,7 +10,7 @@ import {
   CheckCircle2, 
   ExternalLink 
 } from "lucide-react";
-import { CERTIFICATIONS, ACHIEVEMENTS } from "@/data/portfolioData";
+import { CERTIFICATIONS, ACHIEVEMENTS, CANDIDATE_INFO } from "@/data/portfolioData";
 
 export default function CertificationsAndAchievements() {
   const getCertIcon = (iconName: string) => {
@@ -65,10 +65,15 @@ export default function CertificationsAndAchievements() {
           </div>
 
           <div className="shrink-0 relative z-10">
-            <span className="px-4 py-2 rounded-xl bg-amber-500/20 border border-amber-500/40 text-amber-300 text-xs font-mono font-bold flex items-center gap-2">
+            <a
+              href={CANDIDATE_INFO.contact.tryhackme}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="px-4 py-2.5 rounded-xl bg-amber-500/20 hover:bg-amber-500/30 border border-amber-500/40 text-amber-300 hover:text-amber-200 text-xs font-mono font-bold flex items-center gap-2 transition-all cursor-pointer shadow-md"
+            >
               <ShieldCheck className="w-4 h-4 text-amber-400" />
-              Verified Hands-On Security
-            </span>
+              <span>View TryHackMe Profile ↗</span>
+            </a>
           </div>
         </div>
 
