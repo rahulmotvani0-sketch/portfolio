@@ -58,23 +58,23 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo & Status */}
-          <div className="flex items-center space-x-3">
+          <div className="flex items-center space-x-3 shrink-0">
             <a href="#" className="flex items-center space-x-2.5 group">
-              <div className="w-10 h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:border-emerald-400/60 transition-colors">
-                <Terminal className="w-5 h-5" />
+              <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:border-emerald-400/60 transition-colors shrink-0">
+                <Terminal className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
-              <div className="flex flex-col">
-                <span className="font-bold text-slate-100 text-lg tracking-tight group-hover:text-emerald-400 transition-colors">
+              <div className="flex flex-col whitespace-nowrap">
+                <span className="font-bold text-slate-100 text-base sm:text-lg tracking-tight group-hover:text-emerald-400 transition-colors">
                   {CANDIDATE_INFO.name}
                 </span>
-                <span className="text-[11px] font-mono text-slate-400 flex items-center gap-1">
-                  <Cpu className="w-3 h-3 text-emerald-400" /> DevOps & DevSecOps Lead
+                <span className="text-[10px] sm:text-[11px] font-mono text-slate-400 flex items-center gap-1">
+                  <Cpu className="w-3 h-3 text-emerald-400 shrink-0" /> DevOps & DevSecOps Lead
                 </span>
               </div>
             </a>
 
             {/* Availability Pill */}
-            <div className="hidden lg:flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-medium text-emerald-400">
+            <div className="hidden 2xl:flex items-center gap-2 px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-xs font-medium text-emerald-400 whitespace-nowrap">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
@@ -84,12 +84,12 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center space-x-6 text-sm font-medium text-slate-300">
+          <nav className="hidden xl:flex items-center space-x-4 2xl:space-x-6 text-xs 2xl:text-sm font-medium text-slate-300">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="hover:text-emerald-400 transition-colors py-1 relative group"
+                className="hover:text-emerald-400 transition-colors py-1 relative group whitespace-nowrap"
               >
                 {link.name}
                 <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-emerald-400 transition-all duration-200 group-hover:w-full"></span>
@@ -98,10 +98,10 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
           </nav>
 
           {/* Action CTAs */}
-          <div className="hidden sm:flex items-center space-x-3">
+          <div className="hidden md:flex items-center space-x-2.5 shrink-0">
             <button
               onClick={onOpenResume}
-              className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 transition-all cursor-pointer"
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-xs font-semibold bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 hover:border-slate-600 transition-all cursor-pointer whitespace-nowrap shadow-sm"
             >
               <Download className="w-3.5 h-3.5 text-emerald-400" />
               <span>Resume</span>
@@ -110,7 +110,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
               href={CANDIDATE_INFO.contact.linkedin}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/80 transition-all"
+              className="p-1.5 sm:p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/80 transition-all"
               title="LinkedIn Profile"
               aria-label="LinkedIn Profile"
             >
@@ -120,7 +120,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
               href={CANDIDATE_INFO.contact.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/80 transition-all"
+              className="p-1.5 sm:p-2 rounded-lg bg-slate-800/80 hover:bg-slate-700 text-slate-300 hover:text-white border border-slate-700/80 transition-all"
               title="GitHub Profile"
               aria-label="GitHub Profile"
             >
@@ -128,21 +128,21 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
             </a>
           </div>
 
-          {/* Mobile Menu Toggle Button */}
-          <div className="flex xl:hidden items-center gap-2">
+          {/* Mobile/Tablet Menu Toggle Button */}
+          <div className="flex xl:hidden items-center gap-2 shrink-0">
             <button
               onClick={onOpenResume}
-              className="sm:hidden inline-flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 text-slate-200 text-xs border border-slate-700"
+              className="md:hidden inline-flex items-center gap-1 px-2.5 py-1 rounded bg-slate-800 text-slate-200 text-xs border border-slate-700 whitespace-nowrap"
             >
               <Download className="w-3 h-3 text-emerald-400" />
               <span>Resume</span>
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white border border-slate-700 focus:outline-none"
+              className="p-2 rounded-lg bg-slate-800 text-slate-300 hover:text-white border border-slate-700 focus:outline-none cursor-pointer"
               aria-label="Toggle menu"
             >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {mobileMenuOpen ? <X className="w-5 h-5 sm:w-6 sm:h-6" /> : <Menu className="w-5 h-5 sm:w-6 sm:h-6" />}
             </button>
           </div>
         </div>
