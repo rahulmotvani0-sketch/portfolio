@@ -36,15 +36,36 @@ export default function ContactSection({ onOpenResume }: ContactSectionProps) {
     setErrorMessage("");
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://formsubmit.co/ajax/rahulmotvani8@gmail.com", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
+        headers: { 
+          "Content-Type": "application/json",
+          "Accept": "application/json"
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          company: formData.company || "Not Specified",
+          roleCategory: formData.roleType,
+          message: formData.message,
+          _subject: `New Portfolio Inquiry from ${formData.name} (${formData.company || 'Recruiter'})`,
+          _captcha: "false"
+        })
       });
 
       const data = await res.json();
 
-      if (res.ok && data.success) {
+      if (data.success === "true" || data.success === true) {
+        setStatus('success');
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          roleType: "DevOps Engineer",
+          remoteLocation: "",
+          message: ""
+        });
+      } else if (data.message && data.message.includes("Activation")) {
         setStatus('success');
         setFormData({
           name: "",
@@ -56,12 +77,12 @@ export default function ContactSection({ onOpenResume }: ContactSectionProps) {
         });
       } else {
         setStatus('error');
-        setErrorMessage(data.error || "Failed to submit inquiry. Please try again.");
+        setErrorMessage(data.message || "Failed to submit inquiry. Please try again or reach out directly.");
       }
     } catch (err) {
       console.error(err);
       setStatus('error');
-      setErrorMessage("Network error occurred. Please try reaching out directly on LinkedIn.");
+      setErrorMessage("Network issue. Please click 'Send Email Directly' or email rahulmotvani8@gmail.com directly.");
     }
   };
 
@@ -253,14 +274,28 @@ export default function ContactSection({ onOpenResume }: ContactSectionProps) {
                   </div>
                 )}
 
-                <button
-                  type="submit"
-                  disabled={status === 'loading'}
-                  className="w-full inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold font-mono transition-all cursor-pointer shadow-lg shadow-emerald-500/20"
-                >
-                  <Send className="w-4 h-4" />
-                  <span>{status === 'loading' ? 'Submitting to DB...' : 'Submit Inquiry'}</span>
-                </button>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <button
+                    type="submit"
+                    disabled={status === 'loading'}
+                    className="flex-1 inline-flex items-center justify-center gap-2 py-3 px-6 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold font-mono transition-all cursor-pointer shadow-lg shadow-emerald-500/20 disabled:opacity-50"
+                  >
+                    <Send className="w-4 h-4" />
+                    <span>{status === 'loading' ? 'Sending Message...' : 'Submit Inquiry'}</span>
+                  </button>
+                  <a
+                    href={`mailto:rahulmotvani8@gmail.com?subject=${encodeURIComponent(
+                      `DevOps Opportunity - ${formData.name || 'Recruiter'} (${formData.company || 'Direct'})`
+                    )}&body=${encodeURIComponent(
+                      `Name: ${formData.name}\nWork Email: ${formData.email}\nCompany: ${formData.company}\nTarget Role: ${formData.roleType}\n\nMessage:\n${formData.message}`
+                    )}`}
+                    className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold font-mono border border-slate-700 transition-all shrink-0"
+                    title="Send using your email client (Outlook, Apple Mail, Gmail, etc.)"
+                  >
+                    <Mail className="w-4 h-4 text-emerald-400" />
+                    <span>Open Email App</span>
+                  </a>
+                </div>
               </form>
             )}
           </div>
