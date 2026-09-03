@@ -296,7 +296,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               <div className="p-4 rounded-xl bg-emerald-500/10 border border-emerald-500/30 flex items-center gap-3">
                 <ShieldCheck className="w-5 h-5 text-emerald-400 shrink-0" />
                 <p className="text-xs text-slate-200">
-                  This section prepares for senior technical interview questions on architecture trade-offs, failure modes, cost engineering, and scaling.
+                  This section prepares for technical interview questions on architecture trade-offs, failure modes, cost engineering, and scaling.
                 </p>
               </div>
 
