@@ -11,7 +11,7 @@ export function Hero() {
           <div>
             <div className="inline-flex items-center rounded-full border border-cyan-500/30 bg-cyan-500/10 px-3 py-1 text-sm text-cyan-400 mb-6 backdrop-blur-sm">
               <span className="flex h-2 w-2 rounded-full bg-cyan-400 animate-pulse mr-2"></span>
-              Senior DevOps & Cloud Engineer
+              DevOps & Cloud Engineer
             </div>
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight text-white mb-6">
               Building <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">secure</span>, <span className="text-transparent bg-clip-text bg-gradient-to-r from-green-400 to-emerald-500">automated</span>, and reliable cloud infrastructure.

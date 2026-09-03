@@ -8,7 +8,7 @@ const firaCode = Fira_Code({ subsets: ["latin"], variable: "--font-fira" });
 export const metadata: Metadata = {
   title: "Rahul Motvani | DevOps & Cloud Infrastructure Engineer",
   description:
-    "Senior DevOps, DevSecOps, and SRE Engineer with 4.5+ years of experience building secure, automated, and reliable cloud infrastructure on AWS, Azure, and GCP.",
+    "DevOps, DevSecOps, and SRE Engineer with 4.5+ years of experience building secure, automated, and reliable cloud infrastructure on AWS, Azure, and GCP.",
   keywords: [
     "DevOps Engineer",
     "DevSecOps",
@@ -31,14 +31,14 @@ export const metadata: Metadata = {
     url: "https://rahul.techiking.com",
     title: "Rahul Motvani | DevOps & Cloud Infrastructure Engineer",
     description:
-      "Senior DevOps, DevSecOps, and SRE Engineer building secure, automated, and reliable cloud infrastructure.",
+      "DevOps, DevSecOps, and SRE Engineer building secure, automated, and reliable cloud infrastructure.",
     siteName: "Rahul Motvani Portfolio",
   },
   twitter: {
     card: "summary_large_image",
     title: "Rahul Motvani | DevOps & Cloud Infrastructure Engineer",
     description:
-      "Senior DevOps, DevSecOps, and SRE Engineer building secure, automated, and reliable cloud infrastructure.",
+      "DevOps, DevSecOps, and SRE Engineer building secure, automated, and reliable cloud infrastructure.",
     creator: "@rahulmotvani",
   },
   alternates: {

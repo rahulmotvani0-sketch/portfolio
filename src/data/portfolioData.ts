@@ -72,7 +72,7 @@ export const CANDIDATE_INFO = {
   totalExperience: "4.5+ Years",
   currentRole: "DevOps / DevSecOps Engineer at Azilen Technologies Pvt Ltd",
   tagline: "Building secure, automated, and highly reliable cloud infrastructure & CI/CD platforms.",
-  heroDescription: "Senior DevOps & DevSecOps Engineer with 4.5+ years of hands-on experience designing, automating, securing, and operating cloud infrastructure across AWS, Azure, and GCP. Specializing in Kubernetes, Terraform IaC, DevSecOps pipeline integration (SonarQube/Snyk), and Site Reliability Engineering (SRE).",
+  heroDescription: "DevOps & DevSecOps Engineer with 4.5+ years of hands-on experience designing, automating, securing, and operating cloud infrastructure across AWS, Azure, and GCP. Specializing in Kubernetes, Terraform IaC, DevSecOps pipeline integration (SonarQube/Snyk), and Site Reliability Engineering (SRE).",
   targetRoles: [
     "DevOps Engineer",
     "DevSecOps Engineer",
