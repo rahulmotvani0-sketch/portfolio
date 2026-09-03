@@ -36,36 +36,27 @@ export default function ContactSection({ onOpenResume }: ContactSectionProps) {
     setErrorMessage("");
 
     try {
+      const bodyData = new FormData();
+      bodyData.append("Name", formData.name);
+      bodyData.append("Work Email", formData.email);
+      bodyData.append("Company / Organization", formData.company || "Not Specified");
+      bodyData.append("Target Role Category", formData.roleType);
+      bodyData.append("Message / Opportunity Details", formData.message);
+      bodyData.append("_replyto", formData.email);
+      bodyData.append("_subject", `New Portfolio Inquiry: ${formData.name} (${formData.company || 'Recruiter'})`);
+      bodyData.append("_captcha", "false");
+
       const res = await fetch("https://formsubmit.co/ajax/rahulmotvani8@gmail.com", {
         method: "POST",
         headers: { 
-          "Content-Type": "application/json",
           "Accept": "application/json"
         },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          company: formData.company || "Not Specified",
-          roleCategory: formData.roleType,
-          message: formData.message,
-          _subject: `New Portfolio Inquiry from ${formData.name} (${formData.company || 'Recruiter'})`,
-          _captcha: "false"
-        })
+        body: bodyData
       });
 
       const data = await res.json();
 
       if (data.success === "true" || data.success === true) {
-        setStatus('success');
-        setFormData({
-          name: "",
-          email: "",
-          company: "",
-          roleType: "DevOps Engineer",
-          remoteLocation: "",
-          message: ""
-        });
-      } else if (data.message && data.message.includes("Activation")) {
         setStatus('success');
         setFormData({
           name: "",
@@ -82,7 +73,7 @@ export default function ContactSection({ onOpenResume }: ContactSectionProps) {
     } catch (err) {
       console.error(err);
       setStatus('error');
-      setErrorMessage("Network issue. Please click 'Send Email Directly' or email rahulmotvani8@gmail.com directly.");
+      setErrorMessage("Network issue. Please click 'Open Email App' or email rahulmotvani8@gmail.com directly.");
     }
   };
 
