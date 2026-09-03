@@ -34,6 +34,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="p-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 transition-colors"
               aria-label="LinkedIn"
+              title="LinkedIn Profile"
             >
               <LinkedInIcon className="w-4 h-4" />
             </a>
@@ -43,8 +44,19 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="p-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-300 hover:text-white border border-slate-800 transition-colors"
               aria-label="GitHub"
+              title="GitHub Profile"
             >
               <GitHubIcon className="w-4 h-4" />
+            </a>
+            <a
+              href={CANDIDATE_INFO.contact.tryhackme}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="p-2.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-amber-400 hover:text-amber-300 border border-slate-800 transition-colors"
+              aria-label="TryHackMe Profile"
+              title="TryHackMe Top 3% Profile"
+            >
+              <Shield className="w-4 h-4 text-amber-400" />
             </a>
             <a
               href={`mailto:${CANDIDATE_INFO.contact.email}`}

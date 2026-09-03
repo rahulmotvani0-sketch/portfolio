@@ -86,6 +86,7 @@ export const CANDIDATE_INFO = {
     email: "rahulmotvani8@gmail.com",
     linkedin: "https://www.linkedin.com/in/rahul-motvani-720b8b18a/",
     github: "https://github.com/rahulmotvani0-sketch",
+    tryhackme: "https://tryhackme.com/p/rahulmotvani8gma",
     availability: "Immediate / Remote",
   },
   resumeLastUpdated: "March 2025",

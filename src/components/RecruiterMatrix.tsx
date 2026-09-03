@@ -116,7 +116,15 @@ export default function RecruiterMatrix({ onOpenResume }: RecruiterMatrixProps) 
                 <span className="text-slate-400 flex items-center gap-1.5 font-mono">
                   <ShieldCheck className="w-3.5 h-3.5 text-amber-400" /> Security Rank:
                 </span>
-                <span className="font-semibold text-amber-400 font-mono">TryHackMe Top 3%</span>
+                <a
+                  href={CANDIDATE_INFO.contact.tryhackme}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-semibold text-amber-400 hover:text-amber-300 hover:underline font-mono flex items-center gap-1 transition-colors"
+                  title="View TryHackMe Profile"
+                >
+                  TryHackMe Top 3% ↗
+                </a>
               </div>
 
               <div className="flex justify-between items-center text-slate-300">
@@ -143,24 +151,34 @@ export default function RecruiterMatrix({ onOpenResume }: RecruiterMatrixProps) 
             </div>
 
             {/* External Links */}
-            <div className="flex gap-2 pt-2 border-t border-slate-800">
+            <div className="grid grid-cols-3 gap-2 pt-2 border-t border-slate-800">
               <a
                 href={CANDIDATE_INFO.contact.linkedin}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-semibold border border-slate-800 transition-colors"
+                className="inline-flex items-center justify-center gap-1 py-2 px-2 rounded bg-slate-900 hover:bg-slate-800 text-slate-200 text-[11px] font-semibold border border-slate-800 transition-colors"
               >
-                <LinkedInIcon className="w-3.5 h-3.5 text-emerald-400" />
+                <LinkedInIcon className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
                 <span>LinkedIn</span>
               </a>
               <a
                 href={CANDIDATE_INFO.contact.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex-1 inline-flex items-center justify-center gap-1.5 py-2 px-3 rounded bg-slate-900 hover:bg-slate-800 text-slate-200 text-xs font-semibold border border-slate-800 transition-colors"
+                className="inline-flex items-center justify-center gap-1 py-2 px-2 rounded bg-slate-900 hover:bg-slate-800 text-slate-200 text-[11px] font-semibold border border-slate-800 transition-colors"
               >
-                <GitHubIcon className="w-3.5 h-3.5 text-cyan-400" />
+                <GitHubIcon className="w-3.5 h-3.5 text-cyan-400 shrink-0" />
                 <span>GitHub</span>
+              </a>
+              <a
+                href={CANDIDATE_INFO.contact.tryhackme}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-1 py-2 px-2 rounded bg-slate-900 hover:bg-slate-800 text-amber-400 hover:text-amber-300 text-[11px] font-semibold border border-slate-800 transition-colors"
+                title="TryHackMe Profile"
+              >
+                <ShieldCheck className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+                <span>TryHackMe</span>
               </a>
             </div>
           </div>
