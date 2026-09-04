@@ -1,13 +1,15 @@
 "use client";
 
 import { useState } from "react";
-import { 
-  FolderGit2, 
-  ArrowUpRight, 
-  Layers, 
-  Cpu, 
-  Terminal
+import {
+  FolderGit2,
+  ArrowUpRight,
+  Layers,
+  Cpu,
+  Terminal,
+  FileText
 } from "lucide-react";
+import Link from "next/link";
 import { PROJECTS, ProjectCaseStudy } from "@/data/portfolioData";
 import ProjectModal from "./ProjectModal";
 
@@ -117,13 +119,22 @@ export default function ProjectsSection() {
 
               {/* Card Footer CTAs */}
               <div className="px-6 py-4 bg-slate-950/80 border-t border-slate-800/80 flex items-center justify-between">
-                <button
-                  onClick={() => setActiveProjectModal(project)}
-                  className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-emerald-400 hover:text-emerald-300 transition-colors cursor-pointer group/btn"
-                >
-                  <span>View Case Study & Architecture <span className="sr-only">for {project.title}</span></span>
-                  <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
-                </button>
+                <div className="flex items-center gap-4">
+                  <button
+                    onClick={() => setActiveProjectModal(project)}
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-emerald-400 hover:text-emerald-300 transition-colors cursor-pointer group/btn"
+                  >
+                    <span>Quick View<span className="sr-only"> for {project.title}</span></span>
+                    <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                  </button>
+                  <Link
+                    href={`/projects/${project.id}`}
+                    className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
+                  >
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>Full Case Study</span>
+                  </Link>
+                </div>
 
                 <div className="flex items-center gap-2 text-xs text-slate-400 font-mono">
                   <Layers className="w-3.5 h-3.5 text-slate-400" />
