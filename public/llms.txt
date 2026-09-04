@@ -3,10 +3,12 @@
 ## Identity & Contact
 - **Name:** Rahul Motvani
 - **Current Role:** DevOps / DevSecOps Engineer at Azilen Technologies Pvt Ltd
-- **Location Availability:** Remote / Global
+- **Experience:** 4.5+ years
+- **Location Availability:** Remote / Global (US, UK, EU, Canada, Australia, Singapore, UAE)
 - **Email:** rahulmotvani8@gmail.com
 - **LinkedIn:** https://www.linkedin.com/in/rahul-motvani-720b8b18a/
 - **GitHub:** https://github.com/rahulmotvani0-sketch
+- **TryHackMe:** https://tryhackme.com/p/rahulmotvani8gma
 - **Portfolio:** https://rahul.techiking.com
 
 ## Summary
@@ -23,12 +25,28 @@ DevOps & DevSecOps Engineer with 4.5+ years of hands-on experience designing, au
 - **OS & Scripting:** Linux, Bash Shell Scripting, Python Automation
 - **Databases:** PostgreSQL, Redis, MySQL, MongoDB
 
-## Featured Projects
-- **SARA-II:** AI Assistant Infrastructure & Platform Engineering
-- **LeadPulse AI:** Autonomous B2B Revenue Intelligence Platform
-- **Bitbucket Infrastructure Migration:** Platform Modernization
-- **SonarQube Migration:** DevSecOps Quality Gate Pipeline
-- **Terraform Multi-Cloud:** IaC Automation & GitOps
+## Project Case Studies
+Detailed case studies are available at the following URLs:
+
+- **SARA-II — AI Assistant Infrastructure & Platform Engineering**
+  https://rahul.techiking.com/projects/sara-ii
+  High-concurrency, event-driven infrastructure platform supporting local and cloud LLM runtime isolation and TTS pipelines. Technologies: Docker, Python, FastAPI, vLLM, Qdrant, Redis, Nginx, Prometheus.
+
+- **LeadPulse AI — Autonomous B2B Revenue Intelligence Platform**
+  https://rahul.techiking.com/projects/leadpulse-ai
+  Multi-agent AI data engine with DevSecOps pipelines. Technologies: FastAPI, React, PostgreSQL, Qdrant, Redis, Docker, Snyk, SonarQube.
+
+- **Bitbucket Infrastructure Migration & Platform Modernization**
+  https://rahul.techiking.com/projects/bitbucket-migration
+  Zero-downtime migration of enterprise Bitbucket platform with PostgreSQL upgrade and Java compatibility modernization. Technologies: Docker, PostgreSQL, Java 17, Bash, Linux.
+
+- **SonarQube Migration & DevSecOps Quality Gate Pipeline**
+  https://rahul.techiking.com/projects/sonarqube-devsecops
+  Shift-left DevSecOps automation integrating SonarQube SAST, Snyk vulnerability scanning, and automated quality gates. Technologies: SonarQube, Snyk, Bitbucket Pipelines, Docker.
+
+- **Terraform Multi-Cloud Infrastructure Automation & GitOps**
+  https://rahul.techiking.com/projects/terraform-iac-cloud
+  Modular IaC framework automating multi-region AWS, Azure, and GCP provisioning with state locking and security compliance. Technologies: Terraform, AWS, Azure, GCP, Kubernetes, Checkov.
 
 ## Certifications & Achievements
 - TryHackMe — Top 3% Global Ranking
@@ -36,3 +54,9 @@ DevOps & DevSecOps Engineer with 4.5+ years of hands-on experience designing, au
 - Introduction to Cybersecurity - Cisco Networking Academy
 - Networking Basics - Cisco Networking Academy
 - Google Cloud Certificate Course - Coursera
+
+## Frequently Asked Questions
+- What is your primary tech stack for Cloud Infrastructure?
+- Do you have experience with DevSecOps?
+- Are you available for remote work?
+- What monitoring and observability tools do you use?

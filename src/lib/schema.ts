@@ -1,4 +1,4 @@
-import { CANDIDATE_INFO, CERTIFICATIONS } from '../data/portfolioData';
+import { CANDIDATE_INFO, CERTIFICATIONS, FAQS } from '../data/portfolioData';
 
 export function getProfilePageSchema() {
   return {
@@ -11,6 +11,7 @@ export function getProfilePageSchema() {
       "name": CANDIDATE_INFO.name,
       "url": "https://rahul.techiking.com",
       "image": "https://rahul.techiking.com/profile.jpg",
+      "description": CANDIDATE_INFO.heroDescription,
       "jobTitle": "DevOps / DevSecOps Engineer",
       "email": `mailto:${CANDIDATE_INFO.contact.email}`,
       "worksFor": {
@@ -49,7 +50,6 @@ export function getWebSiteSchema() {
 }
 
 export function getFAQPageSchema() {
-  const { FAQS } = require('../data/portfolioData');
   return {
     "@context": "https://schema.org",
     "@type": "FAQPage",
