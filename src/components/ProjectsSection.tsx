@@ -121,7 +121,7 @@ export default function ProjectsSection() {
                   onClick={() => setActiveProjectModal(project)}
                   className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-emerald-400 hover:text-emerald-300 transition-colors cursor-pointer group/btn"
                 >
-                  <span>View Case Study & Architecture</span>
+                  <span>View Case Study & Architecture <span className="sr-only">for {project.title}</span></span>
                   <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                 </button>
 
