@@ -57,11 +57,12 @@ export default function Hero({ onOpenResume }: HeroProps) {
             {/* Candidate Name & Titles */}
             <div className="space-y-4">
               <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-emerald-500/30 relative bg-slate-800">
-                <Image 
-                  src="/profile.jpg" 
-                  alt={CANDIDATE_INFO.name} 
+                <Image
+                  src="/profile.jpg"
+                  alt={`${CANDIDATE_INFO.name} — DevOps & Cloud Infrastructure Engineer`}
                   fill
                   className="object-cover"
+                  priority
                   unoptimized
                 />
               </div>

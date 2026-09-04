@@ -11,23 +11,38 @@ export function generateStaticParams() {
   }));
 }
 
-export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
-  const project = PROJECTS.find((p) => p.id === params.slug);
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params;
+  const project = PROJECTS.find((p) => p.id === slug);
   if (!project) return {};
+
+  const url = `https://rahul.techiking.com/projects/${project.id}`;
 
   return {
     title: `${project.title} | Case Study | ${CANDIDATE_INFO.name}`,
     description: project.subtitle,
+    alternates: {
+      canonical: url,
+    },
     openGraph: {
       title: `${project.title} | Case Study`,
       description: project.subtitle,
+      url,
       type: 'article',
-    }
+      siteName: 'Rahul Motvani Portfolio',
+      locale: 'en_US',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title: `${project.title} | Case Study`,
+      description: project.subtitle,
+    },
   };
 }
 
-export default function ProjectPage({ params }: { params: { slug: string } }) {
-  const project = PROJECTS.find((p) => p.id === params.slug);
+export default async function ProjectPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params;
+  const project = PROJECTS.find((p) => p.id === slug);
 
   if (!project) {
     notFound();
@@ -38,22 +53,31 @@ export default function ProjectPage({ params }: { params: { slug: string } }) {
     "@type": "Article",
     "headline": project.title,
     "description": project.subtitle,
+    "image": "https://rahul.techiking.com/opengraph-image",
+    "datePublished": "2026-01-01",
+    "dateModified": new Date().toISOString().split('T')[0],
     "author": {
       "@type": "Person",
       "name": CANDIDATE_INFO.name,
       "url": "https://rahul.techiking.com"
-    }
+    },
+    "publisher": {
+      "@type": "Person",
+      "name": CANDIDATE_INFO.name
+    },
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": `https://rahul.techiking.com/projects/${project.id}`
+    },
+    "keywords": project.technologies.join(", ")
   };
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-100 font-sans selection:bg-emerald-500/30 selection:text-emerald-300">
-      <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-        />
-      </head>
-      
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+      />
       <div className="max-w-4xl mx-auto px-6 py-20">
         <Link href="/#projects" className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors mb-12">
           <ArrowLeft className="w-4 h-4" /> Back to Portfolio

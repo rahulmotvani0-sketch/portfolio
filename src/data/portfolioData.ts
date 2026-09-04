@@ -535,7 +535,6 @@ export const CERTIFICATIONS: Certification[] = [
     id: "icsi-cnss",
     title: "Certified Network Security Specialist (CNSS)",
     issuer: "ICSI (International CyberSecurity Institute, U.K.)",
-    credentialUrl: "https://www.credly.com/placeholder-cnss",
     badgeIcon: "ShieldAlert",
     category: "Cybersecurity & Network Security"
   },
@@ -543,7 +542,6 @@ export const CERTIFICATIONS: Certification[] = [
     id: "cisco-cybersecurity",
     title: "Introduction to Cybersecurity",
     issuer: "Cisco Networking Academy",
-    credentialUrl: "https://www.credly.com/placeholder-cisco-cyber",
     badgeIcon: "Lock",
     category: "Security Engineering"
   },
@@ -551,7 +549,6 @@ export const CERTIFICATIONS: Certification[] = [
     id: "cisco-networking",
     title: "Networking Basics",
     issuer: "Cisco Networking Academy",
-    credentialUrl: "https://www.credly.com/placeholder-cisco-network",
     badgeIcon: "Network",
     category: "Network Infrastructure"
   },
@@ -559,7 +556,6 @@ export const CERTIFICATIONS: Certification[] = [
     id: "gcp-coursera",
     title: "Google Cloud Certificate Course",
     issuer: "Coursera / Google Cloud",
-    credentialUrl: "https://coursera.org/verify/placeholder-gcp",
     badgeIcon: "Cloud",
     category: "Cloud Architecture"
   }
