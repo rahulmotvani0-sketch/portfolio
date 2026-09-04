@@ -113,9 +113,15 @@ export default function ContactSection({ onOpenResume }: ContactSectionProps) {
                 <Mail className="w-5 h-5 text-emerald-400 shrink-0" />
                 <div>
                   <div className="text-slate-400 text-[10px]">DIRECT EMAIL</div>
-                  <a href={`mailto:${CANDIDATE_INFO.contact.email}`} className="text-slate-100 font-bold hover:text-emerald-400 transition-colors">
+                  <button 
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = `mailto:${CANDIDATE_INFO.contact.email}`;
+                    }}
+                    className="text-slate-100 font-bold hover:text-emerald-400 transition-colors"
+                  >
                     {CANDIDATE_INFO.contact.email}
-                  </a>
+                  </button>
                 </div>
               </div>
 
@@ -274,18 +280,22 @@ export default function ContactSection({ onOpenResume }: ContactSectionProps) {
                     <Send className="w-4 h-4" />
                     <span>{status === 'loading' ? 'Sending Message...' : 'Submit Inquiry'}</span>
                   </button>
-                  <a
-                    href={`mailto:rahulmotvani8@gmail.com?subject=${encodeURIComponent(
-                      `DevOps Opportunity - ${formData.name || 'Recruiter'} (${formData.company || 'Direct'})`
-                    )}&body=${encodeURIComponent(
-                      `Name: ${formData.name}\nWork Email: ${formData.email}\nCompany: ${formData.company}\nTarget Role: ${formData.roleType}\n\nMessage:\n${formData.message}`
-                    )}`}
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.preventDefault();
+                      window.location.href = `mailto:rahulmotvani8@gmail.com?subject=${encodeURIComponent(
+                        `DevOps Opportunity - ${formData.name || 'Recruiter'} (${formData.company || 'Direct'})`
+                      )}&body=${encodeURIComponent(
+                        `Name: ${formData.name}\nWork Email: ${formData.email}\nCompany: ${formData.company}\nTarget Role: ${formData.roleType}\n\nMessage:\n${formData.message}`
+                      )}`;
+                    }}
                     className="inline-flex items-center justify-center gap-2 py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 text-xs font-semibold font-mono border border-slate-700 transition-all shrink-0"
                     title="Send using your email client (Outlook, Apple Mail, Gmail, etc.)"
                   >
                     <Mail className="w-4 h-4 text-emerald-400" />
                     <span>Open Email App</span>
-                  </a>
+                  </button>
                 </div>
               </form>
             )}
