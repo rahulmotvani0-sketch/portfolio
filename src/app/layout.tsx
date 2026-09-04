@@ -1,11 +1,13 @@
 import type { Metadata } from "next";
 import { Inter, Fira_Code } from "next/font/google";
+import { getProfilePageSchema, getWebSiteSchema, getFAQPageSchema } from "../lib/schema";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const firaCode = Fira_Code({ subsets: ["latin"], variable: "--font-fira" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://rahul.techiking.com"),
   title: "Rahul Motvani | DevOps & Cloud Infrastructure Engineer",
   description:
     "DevOps, DevSecOps, and SRE Engineer with 4.5+ years of experience building secure, automated, and reliable cloud infrastructure on AWS, Azure, and GCP.",
@@ -53,6 +55,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className="scroll-smooth">
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getProfilePageSchema()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getWebSiteSchema()) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(getFAQPageSchema()) }}
+        />
+      </head>
       <body className={`${inter.variable} ${firaCode.variable} font-sans antialiased text-slate-300 bg-[#0B0F19]`}>
         <div className="min-h-screen flex flex-col relative selection:bg-cyan-500/30 selection:text-cyan-100">
           {/* Subtle grid background */}

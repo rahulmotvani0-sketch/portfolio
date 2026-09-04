@@ -89,7 +89,7 @@ export const CANDIDATE_INFO = {
     tryhackme: "https://tryhackme.com/p/rahulmotvani8gma",
     availability: "Immediate / Remote",
   },
-  resumeLastUpdated: "March 2025",
+  resumeLastUpdated: "September 2026",
   atsKeywords: [
     "AWS", "Azure", "GCP", "Terraform", "Kubernetes", "Docker", "Helm", "Linux",
     "CI/CD", "Git", "Bitbucket", "Python", "Bash", "PostgreSQL", "Redis",
@@ -535,6 +535,7 @@ export const CERTIFICATIONS: Certification[] = [
     id: "icsi-cnss",
     title: "Certified Network Security Specialist (CNSS)",
     issuer: "ICSI (International CyberSecurity Institute, U.K.)",
+    credentialUrl: "https://www.credly.com/placeholder-cnss",
     badgeIcon: "ShieldAlert",
     category: "Cybersecurity & Network Security"
   },
@@ -542,6 +543,7 @@ export const CERTIFICATIONS: Certification[] = [
     id: "cisco-cybersecurity",
     title: "Introduction to Cybersecurity",
     issuer: "Cisco Networking Academy",
+    credentialUrl: "https://www.credly.com/placeholder-cisco-cyber",
     badgeIcon: "Lock",
     category: "Security Engineering"
   },
@@ -549,6 +551,7 @@ export const CERTIFICATIONS: Certification[] = [
     id: "cisco-networking",
     title: "Networking Basics",
     issuer: "Cisco Networking Academy",
+    credentialUrl: "https://www.credly.com/placeholder-cisco-network",
     badgeIcon: "Network",
     category: "Network Infrastructure"
   },
@@ -556,6 +559,7 @@ export const CERTIFICATIONS: Certification[] = [
     id: "gcp-coursera",
     title: "Google Cloud Certificate Course",
     issuer: "Coursera / Google Cloud",
+    credentialUrl: "https://coursera.org/verify/placeholder-gcp",
     badgeIcon: "Cloud",
     category: "Cloud Architecture"
   }
@@ -568,5 +572,24 @@ export const ACHIEVEMENTS = [
     description: "Ranked in the Top 3% of users worldwide on TryHackMe, demonstrating advanced practical skills in offensive and defensive cybersecurity, network penetration testing, Linux system hardening, and threat analysis.",
     metric: "Top 3% Global",
     badge: "Cybersecurity Proficiency"
+  }
+];
+
+export const FAQS = [
+  {
+    question: "What is your primary tech stack for Cloud Infrastructure?",
+    answer: "My primary stack revolves around AWS and Azure for cloud providers, Terraform for Infrastructure as Code, Kubernetes and Docker for container orchestration, and GitLab CI or GitHub Actions for CI/CD pipelines."
+  },
+  {
+    question: "Do you have experience with DevSecOps?",
+    answer: "Yes, I integrate security directly into CI/CD pipelines using tools like SonarQube for Static Application Security Testing (SAST) and Snyk for Software Composition Analysis (SCA) to enforce strict quality and security gates before deployment."
+  },
+  {
+    question: "Are you available for remote work?",
+    answer: "Yes, I am highly experienced in remote collaboration and am available for remote DevOps and Cloud Infrastructure roles globally."
+  },
+  {
+    question: "What monitoring and observability tools do you use?",
+    answer: "I primarily use Prometheus and Grafana for metrics and dashboarding, along with centralized logging solutions to monitor infrastructure health, trace errors, and maintain high availability."
   }
 ];

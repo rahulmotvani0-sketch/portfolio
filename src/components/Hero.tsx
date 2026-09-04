@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { CANDIDATE_INFO } from "@/data/portfolioData";
 import { LinkedInIcon, GitHubIcon } from "./Navbar";
+import Image from "next/image";
 
 interface HeroProps {
   onOpenResume: () => void;
@@ -54,9 +55,18 @@ export default function Hero({ onOpenResume }: HeroProps) {
             </div>
 
             {/* Candidate Name & Titles */}
-            <div className="space-y-3">
+            <div className="space-y-4">
+              <div className="w-20 h-20 sm:w-24 sm:h-24 rounded-full overflow-hidden border-2 border-emerald-500/30 relative bg-slate-800">
+                <Image 
+                  src="/profile.jpg" 
+                  alt={CANDIDATE_INFO.name} 
+                  fill
+                  className="object-cover"
+                  unoptimized
+                />
+              </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none">
-                {CANDIDATE_INFO.name}
+                {CANDIDATE_INFO.name} <span className="hidden">— Cloud & DevOps Engineer</span>
               </h1>
               <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-emerald-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
                 DevOps Engineer | DevSecOps Engineer | SRE
