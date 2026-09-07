@@ -12,12 +12,13 @@ import {
 import Link from "next/link";
 import { PROJECTS, ProjectCaseStudy } from "@/data/portfolioData";
 import ProjectModal from "./ProjectModal";
+import { GitHubIcon } from "./Navbar";
 
 export default function ProjectsSection() {
   const [selectedCategory, setSelectedCategory] = useState<string>("All");
   const [activeProjectModal, setActiveProjectModal] = useState<ProjectCaseStudy | null>(null);
 
-  const categories = ["All", "AI Infrastructure", "DevSecOps", "Migration", "IaC & SRE"];
+  const categories = ["All", "Cloud", "DevSecOps", "IaC & SRE", "AI Infrastructure", "Migration"];
 
   const filteredProjects = selectedCategory === "All"
     ? PROJECTS
@@ -73,9 +74,22 @@ export default function ProjectsSection() {
                   <span className="px-2.5 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs font-mono font-semibold">
                     {project.badgeText}
                   </span>
-                  <span className="text-[11px] font-mono text-slate-400">
-                    {project.category}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="text-[11px] font-mono text-slate-400">
+                      {project.category}
+                    </span>
+                    {project.githubUrl && (
+                      <a
+                        href={project.githubUrl}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-slate-400 hover:text-white transition-colors p-1 rounded hover:bg-slate-800"
+                        title="View GitHub Repository"
+                      >
+                        <GitHubIcon className="w-3.5 h-3.5" />
+                      </a>
+                    )}
+                  </div>
                 </div>
 
                 {/* Project Title */}
@@ -119,7 +133,7 @@ export default function ProjectsSection() {
 
               {/* Card Footer CTAs */}
               <div className="px-6 py-4 bg-slate-950/80 border-t border-slate-800/80 flex items-center justify-between">
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-3">
                   <button
                     onClick={() => setActiveProjectModal(project)}
                     className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-emerald-400 hover:text-emerald-300 transition-colors cursor-pointer group/btn"
@@ -132,8 +146,20 @@ export default function ProjectsSection() {
                     className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-cyan-400 hover:text-cyan-300 transition-colors"
                   >
                     <FileText className="w-3.5 h-3.5" />
-                    <span>Full Case Study</span>
+                    <span>Case Study</span>
                   </Link>
+                  {project.githubUrl && (
+                    <a
+                      href={project.githubUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 text-xs font-mono text-slate-400 hover:text-white transition-colors"
+                      title="View GitHub Repository"
+                    >
+                      <GitHubIcon className="w-3.5 h-3.5" />
+                      <span className="hidden sm:inline">GitHub</span>
+                    </a>
+                  )}
                 </div>
 
                 <div className="flex items-center gap-2 text-xs text-slate-400 font-mono">
@@ -141,7 +167,6 @@ export default function ProjectsSection() {
                   <span>{project.diagramNodes.length} Nodes</span>
                 </div>
               </div>
-
             </div>
           ))}
         </div>
