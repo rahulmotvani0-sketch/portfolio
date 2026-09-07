@@ -5,48 +5,50 @@ import { Badge } from "@/components/ui/Badge";
 const experiences = [
   {
     role: "DevOps Engineer",
-    company: "Azilen Technologies Pvt Ltd",
-    period: "Dec 2025 – Present",
+    company: "Agile logic Technovations",
+    period: "Dec 2025 – Present (10 months)",
     highlights: [
-      "Designed and deployed multi-cloud infrastructure across AWS, Azure, and Google Cloud Platform using Terraform, enabling reproducible, version-controlled environments.",
-      "Built and maintained CI/CD pipelines integrating automated SAST, DAST, and dependency scanning, shifting security left and reducing post-release vulnerabilities.",
-      "Containerized applications with Docker and orchestrated production workloads on Kubernetes, improving deployment speed and resource utilization.",
-      "Hardened cloud environments with IAM policies, network segmentation, secrets management, and vulnerability assessments.",
-      "Supported MLOps workflows — containerizing ML models, deploying them on Kubernetes, and integrating model training and serving into CI/CD pipelines on AWS SageMaker and Azure ML."
+      "Designed and deployed multi-cloud infrastructure across AWS, Azure, and GCP with Terraform, enabling reproducible, version-controlled environments.",
+      "Built and maintained CI/CD pipelines (Jenkins / GitHub Actions / GitLab CI with Git & Bitbucket) integrating automated SAST, SCA, and dependency scanning.",
+      "Containerized applications with Docker and orchestrated workloads on Kubernetes (with Helm), improving deployment consistency and resource utilization.",
+      "Hardened cloud environments with IAM policies, network segmentation, secrets management, and vulnerability assessments (DevSecOps).",
+      "Implemented monitoring, logging, and alerting with Prometheus, Grafana, and ELK to improve service visibility and shorten incident response.",
+      "Supported MLOps workflows — containerizing and deploying ML models to Kubernetes and integrating model serving into CI/CD."
     ],
-    tech: ["AWS", "Azure", "GCP", "Terraform", "Kubernetes", "Docker", "DevSecOps", "MLOps"]
+    tech: ["AWS", "Azure", "GCP", "Terraform", "Kubernetes", "Docker", "Helm", "CI/CD", "DevSecOps", "MLOps"]
   },
   {
-    role: "IT Technician",
-    company: "Azilen Technologies Pvt Ltd",
-    period: "Aug 2024 – Nov 2025",
+    role: "Information Technology Engineer",
+    company: "Azilen Technologies",
+    period: "Aug 2024 – Nov 2025 (1 year 4 months)",
     highlights: [
-      "Supported hybrid cloud and on-prem infrastructure, administering Windows and Linux servers and managing virtualization platforms for development teams.",
-      "Automated repetitive system tasks using shell scripting, reducing manual effort and improving provisioning consistency.",
-      "Collaborated with engineering teams to troubleshoot networking, access, and deployment issues, ensuring minimal downtime."
+      "Administered hybrid cloud and on-prem infrastructure (Windows/Linux servers, virtualization) for development teams — establishing the operational foundation for later DevOps automation.",
+      "Automated repetitive system tasks with shell scripting, improving provisioning consistency and cutting manual effort.",
+      "Partnered with engineering teams to troubleshoot networking, access, and deployment issues, minimizing downtime."
     ],
-    tech: ["Linux", "Windows Server", "Shell Scripting", "Networking", "Virtualization"]
+    tech: ["Hybrid Cloud", "Linux", "Windows Server", "Virtualization", "Shell Scripting", "Networking"]
   },
   {
-    role: "Jr. Network Engineer",
-    company: "Aruhat Technologies Pvt Ltd",
-    period: "Jun 2023 – Jul 2024",
+    role: "IT / Network & Systems Specialist",
+    company: "Aruhat Technologies Pvt. Ltd.",
+    period: "Jun 2023 – Jul 2024 (1 year 2 months)",
     highlights: [
-      "Implemented network segmentation and access controls, reducing data breach risks by 30% across client infrastructure.",
-      "Led a successful migration to a new network architecture, boosting scalability and reliability for business-critical workloads.",
-      "Performed vulnerability assessments and remediation, strengthening the overall security posture."
+      "Implemented network segmentation and access controls across client infrastructure, strengthening enterprise security posture.",
+      "Led migration to a new network architecture, improving scalability and reliability for business-critical workloads.",
+      "Administered virtualization environments and Windows/Linux servers; performed vulnerability assessments and remediation."
     ],
-    tech: ["Network Segmentation", "Firewalls", "Vulnerability Assessment", "Migration"]
+    tech: ["Network Architecture", "Network Segmentation", "Access Control", "Virtualization", "Linux", "Vulnerability Assessment"]
   },
   {
-    role: "Junior IT Engineer",
-    company: "ABP News (ABP Network)",
-    period: "Jul 2022 – May 2023",
+    role: "IT Support Specialist",
+    company: "ABP Network",
+    period: "Jul 2022 – May 2023 (11 months)",
     highlights: [
-      "Monitored, maintained, and supported production broadcast and office IT infrastructure, ensuring 24x7 availability.",
-      "Resolved network, server, and endpoint issues and assisted with routine system upgrades and patching."
+      "Delivered comprehensive technical assistance to ensure seamless operation of computer systems, networks, and software within broadcast media.",
+      "Maintained hardware and software systems, supporting end-users with technical needs under tight operational SLAs.",
+      "Prioritized timely problem resolution, system reliability, and user satisfaction to enhance overall productivity and business continuity."
     ],
-    tech: ["IT Infrastructure", "Monitoring", "System Administration", "24x7 Support"]
+    tech: ["IT Support", "Network Troubleshooting", "System Maintenance", "SLA Management", "High Availability"]
   }
 ];
 
