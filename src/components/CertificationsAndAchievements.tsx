@@ -36,22 +36,12 @@ export default function CertificationsAndAchievements() {
     }
   };
 
-  const openTryHackMeQuickView = () => {
-    const thm = ACHIEVEMENTS.find(a => a.id === "tryhackme-top3");
-    if (!thm || !thm.certificates) return;
+  const openTryHackMeQuickView = (startingSubIndex = 0) => {
+    const thmCert = CERTIFICATIONS.find(c => c.id === "tryhackme-specializations");
+    if (!thmCert || !thmCert.subCertificates) return;
     setActiveCertModal({
-      id: "tryhackme-top3",
-      title: thm.certificates[0]?.title || thm.title,
-      issuer: "TryHackMe",
-      category: "Global Security Ranking",
-      credentialId: "Top 3% Worldwide",
-      credentialUrl: thm.certificates[0]?.credentialUrl,
-      subCertificates: thm.certificates.map(c => ({
-        title: c.title,
-        credentialUrl: c.credentialUrl,
-        credentialId: c.credentialId,
-        shortLabel: c.shortLabel
-      }))
+      ...thmCert,
+      initialSubIndex: startingSubIndex
     });
   };
 
@@ -69,7 +59,7 @@ export default function CertificationsAndAchievements() {
               Professional Credentials & Security Milestones
             </h2>
             <p className="text-sm text-slate-400 mt-1 max-w-2xl">
-              Verified certifications in Cloud Architecture, Offensive Security & PenTesting, Network Defense, and DevSecOps. Click Quick View on any credential to inspect the verified certificate.
+              Verified certifications in Cloud Architecture, Practical Cyber Defense & PenTesting, Network Infrastructure, and DevSecOps. Click Quick View on any credential to inspect the verified certificate.
             </p>
           </div>
         </div>
@@ -99,13 +89,13 @@ export default function CertificationsAndAchievements() {
 
               {/* Quick Pills for the 6 THM Certs */}
               <div className="pt-2 flex items-center gap-1.5 flex-wrap">
-                {ACHIEVEMENTS.find(a => a.id === "tryhackme-top3")?.certificates?.map((certItem, cIdx) => (
+                {CERTIFICATIONS.find(c => c.id === "tryhackme-specializations")?.subCertificates?.map((sub, sIdx) => (
                   <button
-                    key={cIdx}
-                    onClick={openTryHackMeQuickView}
+                    key={sIdx}
+                    onClick={() => openTryHackMeQuickView(sIdx)}
                     className="px-2 py-0.5 rounded bg-slate-900/90 hover:bg-slate-800 text-[11px] font-mono text-slate-300 hover:text-emerald-400 border border-slate-800 transition-colors flex items-center gap-1 cursor-pointer"
                   >
-                    <span>{certItem.shortLabel || certItem.title}</span>
+                    <span>{sub.shortLabel || sub.title}</span>
                     <ArrowUpRight className="w-3 h-3 text-emerald-400" />
                   </button>
                 ))}
@@ -115,7 +105,7 @@ export default function CertificationsAndAchievements() {
 
           <div className="shrink-0 relative z-10 flex flex-wrap sm:flex-col gap-2 w-full lg:w-auto">
             <button
-              onClick={openTryHackMeQuickView}
+              onClick={() => openTryHackMeQuickView(0)}
               className="px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-mono font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md group/btn"
             >
               <span>Quick View All 6 Certificates</span>
@@ -163,19 +153,20 @@ export default function CertificationsAndAchievements() {
                   </p>
                 </div>
 
-                {/* Sub Certificates (e.g. Google Cloud Specialization Courses) */}
+                {/* Sub Certificates (e.g. Google Cloud Specialization Courses or TryHackMe Specialization Credentials) */}
                 {cert.subCertificates && (
                   <div className="mt-3 pt-3 border-t border-slate-800/80 space-y-1.5">
                     <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">
-                      {cert.subCertificates.length} Specialization Courses:
+                      {cert.subCertificates.length} {cert.id.includes("tryhackme") ? "Specialization Credentials" : "Specialization Courses"}:
                     </span>
-                    <div className="space-y-1">
+                    <div className="space-y-1 max-h-52 overflow-y-auto pr-1 scrollbar-thin">
                       {cert.subCertificates.map((sub, sIdx) => (
                         <button
                           key={sIdx}
                           onClick={() => {
                             setActiveCertModal({
                               ...cert,
+                              initialSubIndex: sIdx,
                               subCertificates: cert.subCertificates
                             });
                           }}
