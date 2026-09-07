@@ -11,12 +11,15 @@ export function getProfilePageSchema() {
       "name": CANDIDATE_INFO.name,
       "url": "https://rahul.techiking.com",
       "image": "https://rahul.techiking.com/profile.jpg",
-      "description": CANDIDATE_INFO.heroDescription,
-      "jobTitle": "DevOps / DevSecOps Engineer",
+      "jobTitle": CANDIDATE_INFO.primaryTitle,
       "email": `mailto:${CANDIDATE_INFO.contact.email}`,
       "worksFor": {
         "@type": "Organization",
-        "name": "Azilen Technologies Pvt Ltd"
+        "name": CANDIDATE_INFO.currentCompany
+      },
+      "alumniOf": {
+        "@type": "EducationalOrganization",
+        "name": "Ganpat University Department of Computer Science"
       },
       "knowsAbout": CANDIDATE_INFO.atsKeywords,
       "hasCredential": CERTIFICATIONS.map(cert => ({

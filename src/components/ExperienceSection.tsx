@@ -4,9 +4,10 @@ import {
   Briefcase, 
   CheckCircle2, 
   MapPin, 
-  Cpu
+  Cpu,
+  GraduationCap
 } from "lucide-react";
-import { EXPERIENCE_TIMELINE } from "@/data/portfolioData";
+import { EXPERIENCE_TIMELINE, EDUCATION } from "@/data/portfolioData";
 
 export default function ExperienceSection() {
   return (
@@ -99,6 +100,47 @@ export default function ExperienceSection() {
             </div>
           ))}
 
+        </div>
+
+        {/* Education Subsection */}
+        <div className="mt-16 pt-10 border-t border-slate-800">
+          <div className="flex items-center gap-2 text-emerald-400 font-mono text-xs font-semibold uppercase tracking-wider mb-3">
+            <GraduationCap className="w-4 h-4" /> Education & Academic Background
+          </div>
+          <h3 className="text-2xl font-bold text-white tracking-tight mb-6">
+            Formal Education & Systems Foundations
+          </h3>
+
+          <div className="grid grid-cols-1 gap-4">
+            {EDUCATION.map((edu) => (
+              <div 
+                key={edu.id} 
+                className="bg-slate-950/90 rounded-2xl border border-slate-800 p-6 md:p-8 space-y-3 shadow-2xl hover:border-slate-700 transition-all"
+              >
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 border-b border-slate-800/80 pb-3">
+                  <div>
+                    <h4 className="text-lg font-bold text-white">
+                      {edu.degree} — {edu.specialization}
+                    </h4>
+                    <div className="text-sm font-bold text-emerald-400 font-mono mt-0.5">
+                      {edu.institution}
+                    </div>
+                  </div>
+                  <div className="flex flex-col sm:items-end font-mono text-xs text-slate-400">
+                    <span className="font-semibold text-slate-200 bg-slate-900 px-3 py-1 rounded border border-slate-800">
+                      {edu.period}
+                    </span>
+                    <span className="flex items-center gap-1 mt-1 text-[11px] text-slate-400">
+                      <MapPin className="w-3 h-3 text-cyan-400" /> {edu.location}
+                    </span>
+                  </div>
+                </div>
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed">
+                  Rigorous academic curriculum covering server administration, enterprise networking architectures, Linux/Unix system administration, virtualization, hardware engineering, and systems reliability.
+                </p>
+              </div>
+            ))}
+          </div>
         </div>
 
       </div>

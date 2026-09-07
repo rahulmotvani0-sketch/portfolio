@@ -1,7 +1,7 @@
 "use client";
 
 import { X, Download, Printer, CheckCircle2, ShieldCheck, Mail, MapPin } from "lucide-react";
-import { CANDIDATE_INFO, PROJECTS, SKILL_CATEGORIES, CERTIFICATIONS, ACHIEVEMENTS } from "@/data/portfolioData";
+import { CANDIDATE_INFO, PROJECTS, SKILL_CATEGORIES, CERTIFICATIONS, ACHIEVEMENTS, EXPERIENCE_TIMELINE, EDUCATION } from "@/data/portfolioData";
 import { LinkedInIcon, GitHubIcon } from "./Navbar";
 
 interface ResumeModalProps {
@@ -126,66 +126,63 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
               Professional Work Experience
             </h2>
 
-            <div className="space-y-4">
-              <div className="space-y-1.5">
-                <div className="flex justify-between items-baseline font-mono">
-                  <strong className="text-white print:text-black font-bold text-sm">
-                    DevOps / DevSecOps Engineer
-                  </strong>
-                  <span className="text-emerald-400 print:text-emerald-700 text-xs font-semibold">
-                    Dec 2025 – Present
-                  </span>
+            <div className="space-y-5">
+              {EXPERIENCE_TIMELINE.map((item) => (
+                <div key={item.id} className="space-y-1.5">
+                  <div className="flex justify-between items-baseline font-mono flex-wrap gap-1">
+                    <strong className="text-white print:text-black font-bold text-sm">
+                      {item.title}
+                    </strong>
+                    <span className="text-emerald-400 print:text-emerald-700 text-xs font-semibold">
+                      {item.period}
+                    </span>
+                  </div>
+                  <div className="text-slate-400 print:text-slate-600 text-xs font-mono flex justify-between items-center">
+                    <span className="font-semibold text-slate-300 print:text-slate-800">{item.company}</span>
+                    <span className="text-[11px] text-slate-500">{item.location}</span>
+                  </div>
+                  <ul className="space-y-1 text-slate-300 print:text-slate-700 text-xs pt-1">
+                    {item.highlights.map((bullet, idx) => (
+                      <li key={idx} className="flex items-start gap-2">
+                        <span className="text-emerald-400 font-mono shrink-0">•</span>
+                        <span>{bullet}</span>
+                      </li>
+                    ))}
+                  </ul>
+                  <div className="flex flex-wrap gap-1 pt-1">
+                    {item.technologiesUsed.map((t) => (
+                      <span key={t} className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-slate-900 print:bg-slate-200 text-slate-400 print:text-slate-700 border border-slate-800 print:border-slate-300">
+                        {t}
+                      </span>
+                    ))}
+                  </div>
                 </div>
-                <div className="text-slate-400 print:text-slate-600 text-xs font-mono">
-                  Azilen Technologies Pvt Ltd
-                </div>
-                <ul className="space-y-1 text-slate-300 print:text-slate-700 text-xs pt-1">
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-400 font-mono">•</span>
-                    <span>Architecting multi-cloud IaC provisioning in Terraform across AWS and Azure environments.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-400 font-mono">•</span>
-                    <span>Integrating SonarQube and Snyk into Bitbucket Pipelines to enforce automated security Quality Gates.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-400 font-mono">•</span>
-                    <span>Managing Bitbucket Data Center platform upgrades and PostgreSQL major version migrations.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-400 font-mono">•</span>
-                    <span>Orchestrating containerized microservices on Kubernetes with resource quotas and ingress TLS rules.</span>
-                  </li>
-                </ul>
-              </div>
+              ))}
+            </div>
+          </div>
 
-              <div className="space-y-1.5">
-                <div className="flex justify-between items-baseline font-mono">
-                  <strong className="text-white print:text-black font-bold text-sm">
-                    DevOps & Cloud Systems Engineer
-                  </strong>
-                  <span className="text-slate-400 print:text-slate-600 text-xs font-semibold">
-                    2021 – Nov 2025 (4+ Years)
-                  </span>
+          {/* Education */}
+          <div className="space-y-2">
+            <h2 className="text-xs font-mono font-bold text-emerald-400 print:text-emerald-800 uppercase tracking-wider border-b border-slate-800 pb-1">
+              Education & Academic Foundation
+            </h2>
+            <div className="space-y-2 text-xs">
+              {EDUCATION.map((edu) => (
+                <div key={edu.id} className="p-2.5 rounded bg-slate-900/60 print:bg-slate-100 border border-slate-800 space-y-1">
+                  <div className="flex justify-between items-baseline font-mono flex-wrap gap-1">
+                    <strong className="text-white print:text-black font-bold text-sm">
+                      {edu.degree} · {edu.specialization}
+                    </strong>
+                    <span className="text-emerald-400 print:text-emerald-700 text-xs font-semibold">
+                      {edu.period}
+                    </span>
+                  </div>
+                  <div className="text-slate-400 print:text-slate-600 text-xs font-mono flex justify-between items-center">
+                    <span>{edu.institution}</span>
+                    <span className="text-[11px] text-slate-500">{edu.location}</span>
+                  </div>
                 </div>
-                <div className="text-slate-400 print:text-slate-600 text-xs font-mono">
-                  Professional Experience Progression
-                </div>
-                <ul className="space-y-1 text-slate-300 print:text-slate-700 text-xs pt-1">
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-400 font-mono">•</span>
-                    <span>Engineered automated CI/CD pipelines, reducing deployment times and eliminating release failures.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-400 font-mono">•</span>
-                    <span>Deployed Prometheus & Grafana monitoring stacks to measure application SLOs and minimize MTTR.</span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="text-emerald-400 font-mono">•</span>
-                    <span>Automated Linux administration tasks via Bash and Python scripts across distributed web servers.</span>
-                  </li>
-                </ul>
-              </div>
+              ))}
             </div>
           </div>
 

@@ -40,10 +40,10 @@ export default function AboutSection() {
                 <Terminal className="w-5 h-5 text-emerald-400" /> Infrastructure & Operational Focus
               </h3>
               <p className="text-slate-300 text-sm leading-relaxed">
-                I am a DevOps and DevSecOps Engineer specializing in architecting, automating, securing, and operating cloud infrastructure for production workloads. Currently at <strong className="text-emerald-400 font-semibold">Azilen Technologies Pvt Ltd</strong>, my focus centers on building resilient CI/CD pipelines, containerized Kubernetes platforms, Infrastructure as Code using Terraform, and shift-left security integration.
+                I am a DevOps and DevSecOps Engineer who builds and secures cloud infrastructure and delivery pipelines — getting here the durable way: from networking and systems, through security, into automation and cloud. Currently at <strong className="text-emerald-400 font-semibold">Agile logic Technovations</strong>, my work centers on multi-cloud Terraform provisioning across AWS, Azure, and GCP, containerized Kubernetes platforms, CI/CD automation, and shift-left security integration.
               </p>
               <p className="text-slate-300 text-sm leading-relaxed">
-                Rather than treating security and operations as post-deployment afterthoughts, I integrate security code reviews (SonarQube) and vulnerability scanning (Snyk) directly into developer pipelines—ensuring that every commit is vetted before reaching staging or production.
+                Rather than treating security and operations as post-deployment afterthoughts, I integrate security code reviews (SonarQube) and vulnerability scanning (Snyk) directly into developer pipelines—shifting security left so delivery remains fast and compliant.
               </p>
             </div>
 
@@ -95,7 +95,7 @@ export default function AboutSection() {
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-white block font-mono">Current Position:</strong>
-                  <span className="text-slate-300">DevOps / DevSecOps Engineer at Azilen Technologies Pvt Ltd</span>
+                  <span className="text-slate-300">DevOps Engineer at Agile logic Technovations</span>
                 </div>
               </div>
 

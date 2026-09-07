@@ -65,14 +65,25 @@ export interface Certification {
   category: string;
 }
 
+export interface EducationItem {
+  id: string;
+  institution: string;
+  degree: string;
+  specialization: string;
+  period: string;
+  location: string;
+}
+
 export const CANDIDATE_INFO = {
   name: "Rahul Motvani",
-  primaryTitle: "DevOps Engineer | DevSecOps Engineer | SRE",
+  primaryTitle: "DevOps Engineer | AWS · Kubernetes · Terraform · CI/CD | DevSecOps & Cloud Security",
   secondaryTitles: ["Platform Engineer", "Cloud Infrastructure Engineer", "DevSecOps Specialist", "Site Reliability Engineer"],
-  totalExperience: "4+ Years",
-  currentRole: "DevOps / DevSecOps Engineer at Azilen Technologies Pvt Ltd",
-  tagline: "Building secure, automated, and highly reliable cloud infrastructure & CI/CD platforms.",
-  heroDescription: "DevOps & DevSecOps Engineer with 4+ years across infrastructure, security, and cloud automation — designing, automating, securing, and operating cloud infrastructure on AWS (with Azure and GCP). Specializing in Kubernetes, Terraform IaC, secure CI/CD with shift-left DevSecOps (SonarQube/Snyk), zero-downtime deployments, and observability.",
+  totalExperience: "4.5+ Years",
+  currentRole: "DevOps Engineer at Agile logic Technovations",
+  currentCompany: "Agile logic Technovations",
+  location: "Ahmedabad, Gujarat, India",
+  tagline: "Building secure, automated cloud infrastructure and delivery pipelines from networking through security into automation and cloud.",
+  heroDescription: "DevOps engineer who builds and secures cloud infrastructure and delivery pipelines — and who got here the durable way: from networking and systems, through security, into automation and cloud. Specialized in AWS (primary), Azure, and GCP; Terraform for infrastructure as code; Kubernetes, Docker, and Helm for containerized workloads; CI/CD with shift-left DevSecOps (SonarQube, Snyk); and SRE observability with Prometheus, Grafana, and ELK.",
   targetRoles: [
     "DevOps Engineer",
     "DevSecOps Engineer",
@@ -93,10 +104,11 @@ export const CANDIDATE_INFO = {
   atsKeywords: [
     "AWS", "EC2", "S3", "RDS", "Lambda", "ECS", "EKS", "API Gateway", "WAF", "IAM",
     "Azure", "GCP", "Multi-Cloud", "Terraform", "Kubernetes", "Docker", "Helm", "Linux",
-    "CI/CD", "Jenkins", "GitHub Actions", "Git", "Bitbucket", "Python", "Bash",
-    "PostgreSQL", "Redis", "Prometheus", "Grafana", "Monitoring", "Logging",
+    "CI/CD", "Jenkins", "GitHub Actions", "GitLab CI", "Git", "Bitbucket", "Python", "Bash",
+    "PostgreSQL", "Redis", "Prometheus", "Grafana", "ELK", "Loki", "Monitoring", "Logging",
     "Observability", "SRE", "DevSecOps", "SAST", "DAST", "SCA", "Snyk", "SonarQube",
-    "Container Security", "Secrets Management", "Cloud Security", "Network Security",
+    "Vulnerability Management", "Wazuh", "Burp Suite", "Nessus", "MLOps", "AIOps",
+    "Model Context Protocol", "Container Security", "Secrets Management", "Cloud Security", "Network Security",
     "Infrastructure as Code", "Automation", "Cost Optimization", "Zero-Downtime Deployments",
     "Incident Response", "Root Cause Analysis", "High Availability", "Scalability"
   ]
@@ -726,36 +738,74 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 
 export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
   {
-    id: "azilen-tech",
-    company: "Azilen Technologies Pvt Ltd",
-    title: "DevOps / DevSecOps Engineer",
-    period: "December 2025 – Present",
-    location: "Remote / On-site",
+    id: "agile-logic-technovations",
+    company: "Agile logic Technovations",
+    title: "DevOps Engineer",
+    period: "December 2025 – Present (10 months)",
+    location: "Ahmedabad, Gujarat, India",
     isCurrent: true,
     highlights: [
-      "Leading cloud infrastructure automation, CI/CD pipeline modernization, and security integration across multi-cloud environments.",
-      "Architecting DevSecOps workflows with SonarQube and Snyk to enforce automated Quality Gates, shifting security left and preventing critical vulnerabilities.",
-      "Orchestrating containerized workloads using Kubernetes and Docker Compose to maintain high availability and optimized resource limits.",
-      "Managing Bitbucket enterprise platform upgrades, PostgreSQL major version database migrations, and automated disaster recovery backups.",
-      "Developing reusable, modular Infrastructure as Code (IaC) templates in Terraform for automated AWS and Azure provisioning."
+      "Designed and deployed multi-cloud infrastructure across AWS, Azure, and GCP with Terraform, enabling reproducible, version-controlled environments and reducing configuration drift.",
+      "Built and maintained CI/CD pipelines (Jenkins / GitHub Actions / GitLab CI with Git & Bitbucket) integrating automated SAST, SCA, and dependency scanning — shifting security left and catching vulnerabilities before release.",
+      "Containerized applications with Docker and orchestrated workloads on Kubernetes (with Helm), improving deployment consistency and resource utilization across environments.",
+      "Hardened cloud environments with IAM policies, network segmentation, secrets management, and vulnerability assessments, embedding security into infrastructure (DevSecOps).",
+      "Implemented monitoring, logging, and alerting with Prometheus, Grafana, and ELK to improve service visibility and shorten incident response.",
+      "Supported MLOps workflows — containerizing and deploying ML models to Kubernetes and integrating model serving into CI/CD."
     ],
-    technologiesUsed: ["AWS", "Azure", "Kubernetes", "Docker", "Terraform", "SonarQube", "Snyk", "Bitbucket", "PostgreSQL", "Linux", "Bash"]
+    technologiesUsed: ["AWS", "Azure", "GCP", "Terraform", "Kubernetes", "Docker", "Helm", "Jenkins", "GitHub Actions", "GitLab CI", "Bitbucket", "Prometheus", "Grafana", "ELK", "DevSecOps", "MLOps"]
   },
   {
-    id: "previous-devops-roles",
-    company: "DevOps & Infrastructure Engineering Progression",
-    title: "DevOps & Cloud Systems Engineer",
-    period: "2021 – November 2025 (4+ Years)",
-    location: "Remote / Hybrid",
+    id: "azilen-technologies",
+    company: "Azilen Technologies",
+    title: "Information Technology Engineer",
+    period: "August 2024 – November 2025 (1 year 4 months)",
+    location: "India",
     isCurrent: false,
     highlights: [
-      "Engineered automated CI/CD deployment pipelines that reduced release cycles and deployment failure rates.",
-      "Implemented comprehensive Prometheus and Grafana monitoring stacks to measure application SLOs and minimize MTTR.",
-      "Configured Nginx reverse proxies, SSL/TLS certificates, network firewalls, and DNS routing for high-traffic environments.",
-      "Automated server administration tasks using Bash and Python scripts, improving operational efficiency.",
-      "Managed PostgreSQL and MySQL database backups, WAL archiving, schema migrations, and performance index tuning."
+      "Administered hybrid cloud and on-prem infrastructure (Windows/Linux servers, virtualization) for development teams — establishing the operational foundation for later DevOps automation.",
+      "Automated repetitive system tasks with shell scripting, improving provisioning consistency and cutting manual effort.",
+      "Partnered with engineering teams to troubleshoot networking, access, and deployment issues, minimizing downtime."
     ],
-    technologiesUsed: ["Docker", "Linux", "Bash", "Python", "Prometheus", "Grafana", "Nginx", "MySQL", "PostgreSQL", "Git", "Networking"]
+    technologiesUsed: ["Hybrid Cloud", "Linux", "Windows Server", "Virtualization", "Shell Scripting", "Networking", "System Administration", "Troubleshooting"]
+  },
+  {
+    id: "aruhat-technologies",
+    company: "Aruhat Technologies Pvt. Ltd.",
+    title: "IT / Network & Systems Specialist",
+    period: "June 2023 – July 2024 (1 year 2 months)",
+    location: "Ahmedabad, India",
+    isCurrent: false,
+    highlights: [
+      "Implemented network segmentation and access controls across client infrastructure, strengthening enterprise security posture.",
+      "Led migration to a new network architecture, improving scalability and reliability for business-critical workloads.",
+      "Administered virtualization environments and Windows/Linux servers; performed vulnerability assessments and remediation."
+    ],
+    technologiesUsed: ["Network Architecture", "Network Segmentation", "Access Control", "Virtualization", "Linux", "Windows Server", "Vulnerability Assessment"]
+  },
+  {
+    id: "abp-network",
+    company: "ABP Network",
+    title: "IT Support Specialist",
+    period: "July 2022 – May 2023 (11 months)",
+    location: "Ahmedabad, Gujarat, India",
+    isCurrent: false,
+    highlights: [
+      "Delivered comprehensive technical assistance to ensure the seamless operation of computer systems, networks, and software within the broadcast media organization.",
+      "Maintained hardware and software systems, and supported end-users with technical needs under tight operational SLAs.",
+      "Prioritized timely problem resolution, system reliability, and user satisfaction to enhance overall productivity and business continuity."
+    ],
+    technologiesUsed: ["IT Support", "Network Troubleshooting", "System Maintenance", "Hardware & Software", "SLA Management", "High Availability"]
+  }
+];
+
+export const EDUCATION: EducationItem[] = [
+  {
+    id: "ganpat-university",
+    institution: "Ganpat University Department of Computer Science",
+    degree: "Degree in IT (IMS)",
+    specialization: "Server Administration & Infrastructure Management Services",
+    period: "2017 – 2021",
+    location: "Gujarat, India"
   }
 ];
 

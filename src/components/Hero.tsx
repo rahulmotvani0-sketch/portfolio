@@ -47,7 +47,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
                 {CANDIDATE_INFO.totalExperience} Experience
               </span>
               <span className="text-slate-600">•</span>
-              <span className="text-slate-300">Azilen Technologies</span>
+              <span className="text-slate-300">{CANDIDATE_INFO.currentCompany}</span>
               <span className="text-slate-600">•</span>
               <span className="text-cyan-400 flex items-center gap-1">
                 <ShieldCheck className="w-3.5 h-3.5" /> DevSecOps & SRE Focus
@@ -70,7 +70,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
                 {CANDIDATE_INFO.name} <span className="hidden">— Cloud & DevOps Engineer</span>
               </h1>
               <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-emerald-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
-                DevOps Engineer | DevSecOps Engineer | SRE
+                {CANDIDATE_INFO.primaryTitle}
               </div>
               <p className="text-sm font-mono text-slate-400">
                 Target Roles: Platform Engineer • Cloud Infrastructure Engineer • Site Reliability Engineer
