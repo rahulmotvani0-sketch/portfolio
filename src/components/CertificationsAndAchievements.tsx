@@ -4,6 +4,7 @@ import { useState } from "react";
 import { 
   Award, 
   ShieldCheck, 
+  ShieldAlert,
   Lock, 
   Network, 
   Cloud, 
@@ -11,7 +12,10 @@ import {
   CheckCircle2, 
   ExternalLink,
   FileText,
-  ArrowUpRight
+  ArrowUpRight,
+  Crosshair,
+  Globe,
+  Terminal
 } from "lucide-react";
 import { CERTIFICATIONS, ACHIEVEMENTS, CANDIDATE_INFO } from "@/data/portfolioData";
 import CertificateModal, { CertificateModalData } from "./CertificateModal";
@@ -21,31 +25,33 @@ export default function CertificationsAndAchievements() {
 
   const getCertIcon = (iconName: string) => {
     switch (iconName) {
-      case 'ShieldAlert': return <ShieldCheck className="w-6 h-6 text-emerald-400" />;
+      case 'ShieldAlert': return <ShieldAlert className="w-6 h-6 text-emerald-400" />;
       case 'Lock': return <Lock className="w-6 h-6 text-cyan-400" />;
       case 'Network': return <Network className="w-6 h-6 text-blue-400" />;
       case 'Cloud': return <Cloud className="w-6 h-6 text-amber-400" />;
+      case 'Target': return <Crosshair className="w-6 h-6 text-rose-400" />;
+      case 'Globe': return <Globe className="w-6 h-6 text-cyan-400" />;
+      case 'Terminal': return <Terminal className="w-6 h-6 text-emerald-400" />;
       default: return <Award className="w-6 h-6 text-emerald-400" />;
     }
   };
 
   const openTryHackMeQuickView = () => {
+    const thm = ACHIEVEMENTS.find(a => a.id === "tryhackme-top3");
+    if (!thm || !thm.certificates) return;
     setActiveCertModal({
       id: "tryhackme-top3",
-      title: "TryHackMe — Top 3% Global Practical Security",
+      title: thm.certificates[0]?.title || thm.title,
       issuer: "TryHackMe",
       category: "Global Security Ranking",
       credentialId: "Top 3% Worldwide",
-      subCertificates: [
-        {
-          title: "TryHackMe Certificate (THM-P31YELUMDZ)",
-          credentialUrl: "/certifications/tryhackme/THM-P31YELUMDZ.png"
-        },
-        {
-          title: "TryHackMe Certificate (THM-S17ITBZWKK)",
-          credentialUrl: "/certifications/tryhackme/THM-S17ITBZWKK.png"
-        }
-      ]
+      credentialUrl: thm.certificates[0]?.credentialUrl,
+      subCertificates: thm.certificates.map(c => ({
+        title: c.title,
+        credentialUrl: c.credentialUrl,
+        credentialId: c.credentialId,
+        shortLabel: c.shortLabel
+      }))
     });
   };
 
@@ -63,39 +69,56 @@ export default function CertificationsAndAchievements() {
               Professional Credentials & Security Milestones
             </h2>
             <p className="text-sm text-slate-400 mt-1 max-w-2xl">
-              Verified certifications in Network Security, Cloud Infrastructure, and Practical Cyber Defense. Click Quick View on any credential to inspect the verified certificate.
+              Verified certifications in Cloud Architecture, Offensive Security & PenTesting, Network Defense, and DevSecOps. Click Quick View on any credential to inspect the verified certificate.
             </p>
           </div>
         </div>
 
         {/* TryHackMe Top 3% Highlight Banner */}
-        <div className="mb-10 p-6 rounded-2xl bg-gradient-to-r from-amber-500/10 via-emerald-500/10 to-cyan-500/10 border border-amber-500/30 flex flex-col md:flex-row items-start md:items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
-          <div className="flex items-center gap-4 relative z-10">
+        <div className="mb-10 p-6 rounded-2xl bg-gradient-to-r from-amber-500/10 via-emerald-500/10 to-cyan-500/10 border border-amber-500/30 flex flex-col lg:flex-row items-start lg:items-center justify-between gap-6 shadow-2xl relative overflow-hidden">
+          <div className="flex items-start sm:items-center gap-4 relative z-10">
             <div className="w-14 h-14 rounded-2xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shrink-0">
               <Trophy className="w-7 h-7" />
             </div>
             <div className="space-y-1">
-              <div className="flex items-center gap-2">
+              <div className="flex items-center gap-2 flex-wrap">
                 <span className="px-2.5 py-0.5 rounded bg-amber-500/20 text-amber-300 text-xs font-mono font-bold border border-amber-500/30 uppercase">
                   Global Security Ranking
                 </span>
                 <span className="text-xs font-mono text-emerald-400 font-bold">Top 3% Worldwide</span>
+                <span className="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
+                  6 Verified Credentials
+                </span>
               </div>
               <h3 className="text-xl font-bold text-white">
                 TryHackMe — Top 3% Global Practical Security
               </h3>
               <p className="text-xs text-slate-300 max-w-2xl leading-relaxed">
-                Ranked in the top 3% worldwide on TryHackMe, demonstrating hands-on experience in offensive and defensive cybersecurity, network protocol analysis, Linux system hardening, and threat mitigation.
+                Ranked in the top 3% worldwide on TryHackMe, demonstrating hands-on proficiency across Jr Penetration Testing, Web Application Exploitation (OWASP), OT/ICS Industrial Security, and Linux Hardening.
               </p>
+
+              {/* Quick Pills for the 6 THM Certs */}
+              <div className="pt-2 flex items-center gap-1.5 flex-wrap">
+                {ACHIEVEMENTS.find(a => a.id === "tryhackme-top3")?.certificates?.map((certItem, cIdx) => (
+                  <button
+                    key={cIdx}
+                    onClick={openTryHackMeQuickView}
+                    className="px-2 py-0.5 rounded bg-slate-900/90 hover:bg-slate-800 text-[11px] font-mono text-slate-300 hover:text-emerald-400 border border-slate-800 transition-colors flex items-center gap-1 cursor-pointer"
+                  >
+                    <span>{certItem.shortLabel || certItem.title}</span>
+                    <ArrowUpRight className="w-3 h-3 text-emerald-400" />
+                  </button>
+                ))}
+              </div>
             </div>
           </div>
 
-          <div className="shrink-0 relative z-10 flex flex-wrap md:flex-col gap-2 w-full md:w-auto">
+          <div className="shrink-0 relative z-10 flex flex-wrap sm:flex-col gap-2 w-full lg:w-auto">
             <button
               onClick={openTryHackMeQuickView}
               className="px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-mono font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md group/btn"
             >
-              <span>Quick View Certificates</span>
+              <span>Quick View All 6 Certificates</span>
               <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
             </button>
             <a
@@ -144,7 +167,7 @@ export default function CertificationsAndAchievements() {
                 {cert.subCertificates && (
                   <div className="mt-3 pt-3 border-t border-slate-800/80 space-y-1.5">
                     <span className="text-[10px] font-mono text-slate-400 uppercase tracking-wider block">
-                      5 Specialization Courses:
+                      {cert.subCertificates.length} Specialization Courses:
                     </span>
                     <div className="space-y-1">
                       {cert.subCertificates.map((sub, sIdx) => (
@@ -159,7 +182,7 @@ export default function CertificationsAndAchievements() {
                           className="w-full flex items-center justify-between gap-1 text-[11px] text-slate-300 hover:text-emerald-400 py-1 px-2 rounded bg-slate-900/80 hover:bg-slate-800/80 border border-slate-800 transition-colors text-left cursor-pointer"
                           title={sub.title}
                         >
-                          <span className="truncate">{sub.title}</span>
+                          <span className="truncate">{sub.shortLabel || sub.title}</span>
                           <ArrowUpRight className="w-3 h-3 text-emerald-400 shrink-0" />
                         </button>
                       ))}

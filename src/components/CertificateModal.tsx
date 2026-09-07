@@ -21,6 +21,8 @@ export interface CertificateModalData {
   subCertificates?: {
     title: string;
     credentialUrl: string;
+    credentialId?: string;
+    shortLabel?: string;
   }[];
 }
 
@@ -64,6 +66,10 @@ export default function CertificateModal({ cert, onClose }: CertificateModalProp
     ? cert.subCertificates![selectedSubIndex].credentialUrl 
     : cert.credentialUrl;
 
+  const currentCredId = hasSubCerts && cert.subCertificates![selectedSubIndex].credentialId
+    ? cert.subCertificates![selectedSubIndex].credentialId
+    : cert.credentialId;
+
   const isImage = currentUrl?.toLowerCase().endsWith(".png") || currentUrl?.toLowerCase().endsWith(".jpg");
 
   return (
@@ -86,9 +92,9 @@ export default function CertificateModal({ cert, onClose }: CertificateModalProp
               <span className="text-xs font-mono text-slate-400">
                 • {cert.issuer}
               </span>
-              {cert.credentialId && (
+              {currentCredId && (
                 <span className="text-xs font-mono text-cyan-400 bg-cyan-500/10 px-2 py-0.5 rounded border border-cyan-500/20">
-                  ID: {cert.credentialId}
+                  ID: {currentCredId}
                 </span>
               )}
             </div>
@@ -139,7 +145,7 @@ export default function CertificateModal({ cert, onClose }: CertificateModalProp
                     : "bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800"
                 }`}
               >
-                {cert.id.toLowerCase().includes("tryhackme") ? `Certificate ${idx + 1}` : `Course ${idx + 1}`}
+                {sub.shortLabel || (cert.id.toLowerCase().includes("tryhackme") ? `Certificate ${idx + 1}` : `Course ${idx + 1}`)}
               </button>
             ))}
           </div>

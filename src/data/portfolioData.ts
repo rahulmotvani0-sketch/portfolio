@@ -67,6 +67,8 @@ export interface Certification {
   subCertificates?: {
     title: string;
     credentialUrl: string;
+    credentialId?: string;
+    shortLabel?: string;
   }[];
 }
 
@@ -825,6 +827,15 @@ export const CERTIFICATIONS: Certification[] = [
     category: "Cybersecurity & Network Security"
   },
   {
+    id: "thm-jr-pentester",
+    title: "Jr Penetration Tester",
+    issuer: "TryHackMe",
+    credentialUrl: "/certifications/tryhackme/THM-JBPWIRPKXK.pdf",
+    credentialId: "THM-JBPWIRPKXK",
+    badgeIcon: "Target",
+    category: "Penetration Testing & Offensive Security"
+  },
+  {
     id: "gcp-coursera",
     title: "Architecting with Google Cloud Platform",
     issuer: "Google Cloud / Coursera",
@@ -834,25 +845,62 @@ export const CERTIFICATIONS: Certification[] = [
     subCertificates: [
       {
         title: "Google Cloud Platform Fundamentals: Core Infrastructure",
-        credentialUrl: "/certifications/google-cloud/gcp-fundamentals-core-infrastructure.pdf"
+        credentialUrl: "/certifications/google-cloud/gcp-fundamentals-core-infrastructure.pdf",
+        credentialId: "2UFG93FJH6DU",
+        shortLabel: "Course 1: Fundamentals"
       },
       {
         title: "Reliable Cloud Infrastructure: Design and Process",
-        credentialUrl: "/certifications/google-cloud/gcp-reliable-infrastructure-design.pdf"
+        credentialUrl: "/certifications/google-cloud/gcp-reliable-infrastructure-design.pdf",
+        credentialId: "5LRDQHGAQGT9",
+        shortLabel: "Course 2: Reliable Infra"
       },
       {
         title: "Elastic Cloud Infrastructure: Scaling and Automation",
-        credentialUrl: "/certifications/google-cloud/gcp-elastic-infrastructure-scaling.pdf"
+        credentialUrl: "/certifications/google-cloud/gcp-elastic-infrastructure-scaling.pdf",
+        credentialId: "AZQPZV5A9M9Q",
+        shortLabel: "Course 3: Elastic Infra"
       },
       {
         title: "Essential Cloud Infrastructure: Core Services",
-        credentialUrl: "/certifications/google-cloud/gcp-essential-infrastructure-core-services.pdf"
+        credentialUrl: "/certifications/google-cloud/gcp-essential-infrastructure-core-services.pdf",
+        credentialId: "BVXQXYE9PF7V",
+        shortLabel: "Course 4: Core Services"
       },
       {
         title: "Essential Cloud Infrastructure: Foundation",
-        credentialUrl: "/certifications/google-cloud/gcp-essential-infrastructure-foundation.pdf"
+        credentialUrl: "/certifications/google-cloud/gcp-essential-infrastructure-foundation.pdf",
+        credentialId: "EL3H23ED8HX3",
+        shortLabel: "Course 5: Foundation"
       }
     ]
+  },
+  {
+    id: "thm-web-fundamentals",
+    title: "Web Fundamentals (OWASP & Web Security)",
+    issuer: "TryHackMe",
+    credentialUrl: "/certifications/tryhackme/THM-J7PID6GD4Q.pdf",
+    credentialId: "THM-J7PID6GD4Q",
+    badgeIcon: "Globe",
+    category: "Web Application Security & OWASP"
+  },
+  {
+    id: "thm-industrial-intrusion",
+    title: "Industrial Intrusion (OT/ICS Security CTF)",
+    issuer: "TryHackMe",
+    credentialUrl: "/certifications/tryhackme/THM-XXXWIK4NDO.pdf",
+    credentialId: "THM-XXXWIK4NDO",
+    badgeIcon: "Lock",
+    category: "Critical Infrastructure & OT Security"
+  },
+  {
+    id: "thm-complete-beginner",
+    title: "Complete Beginner Cyber Defense Path",
+    issuer: "TryHackMe",
+    credentialUrl: "/certifications/tryhackme/THM-3KYBXZHLBW.pdf",
+    credentialId: "THM-3KYBXZHLBW",
+    badgeIcon: "Terminal",
+    category: "Practical Cyber Defense"
   },
   {
     id: "certified-cyber-warriors",
@@ -860,7 +908,7 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: "Cyber Security Community",
     credentialUrl: "/certifications/certified-cyber-warriors.pdf",
     credentialId: "0041084",
-    badgeIcon: "Lock",
+    badgeIcon: "ShieldAlert",
     category: "Cybersecurity & Defense"
   },
   {
@@ -890,18 +938,46 @@ export const CERTIFICATIONS: Certification[] = [
 export const ACHIEVEMENTS = [
   {
     id: "tryhackme-top3",
-    title: "TryHackMe — Top 3% Global Ranking",
+    title: "TryHackMe — Top 3% Global Practical Security",
     description: "Ranked in the Top 3% of users worldwide on TryHackMe, demonstrating advanced practical skills in offensive and defensive cybersecurity, network penetration testing, Linux system hardening, and threat analysis.",
     metric: "Top 3% Global",
     badge: "Cybersecurity Proficiency",
     certificates: [
       {
-        title: "TryHackMe Certificate (THM-P31YELUMDZ)",
-        credentialUrl: "/certifications/tryhackme/THM-P31YELUMDZ.png"
+        title: "Jr Penetration Tester Learning Path",
+        credentialUrl: "/certifications/tryhackme/THM-JBPWIRPKXK.pdf",
+        credentialId: "THM-JBPWIRPKXK",
+        shortLabel: "Jr PenTester"
       },
       {
-        title: "TryHackMe Certificate (THM-S17ITBZWKK)",
-        credentialUrl: "/certifications/tryhackme/THM-S17ITBZWKK.png"
+        title: "Web Fundamentals Learning Path",
+        credentialUrl: "/certifications/tryhackme/THM-J7PID6GD4Q.pdf",
+        credentialId: "THM-J7PID6GD4Q",
+        shortLabel: "Web Fundamentals"
+      },
+      {
+        title: "Industrial Intrusion (OT/ICS Security CTF)",
+        credentialUrl: "/certifications/tryhackme/THM-XXXWIK4NDO.pdf",
+        credentialId: "THM-XXXWIK4NDO",
+        shortLabel: "Industrial Intrusion"
+      },
+      {
+        title: "Complete Beginner Learning Path",
+        credentialUrl: "/certifications/tryhackme/THM-3KYBXZHLBW.pdf",
+        credentialId: "THM-3KYBXZHLBW",
+        shortLabel: "Complete Beginner"
+      },
+      {
+        title: "Introduction to Cyber Security Learning Path",
+        credentialUrl: "/certifications/tryhackme/THM-P31YELUMDZ.png",
+        credentialId: "THM-P31YELUMDZ",
+        shortLabel: "Intro to Cyber"
+      },
+      {
+        title: "Pre Security Learning Path",
+        credentialUrl: "/certifications/tryhackme/THM-S17ITBZWKK.png",
+        credentialId: "THM-S17ITBZWKK",
+        shortLabel: "Pre Security"
       }
     ]
   }
