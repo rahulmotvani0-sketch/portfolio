@@ -314,13 +314,13 @@ export const PROJECTS: ProjectCaseStudy[] = [
   {
     id: "kubernetes-gitops-observability-platform",
     title: "Multi-Node Kubernetes Platform with GitOps & SRE Observability",
-    subtitle: "Reproducible 3-node Kubernetes platform on Kind featuring declarative ArgoCD GitOps (App-of-Apps), Prometheus Operator, Grafana RED metrics dashboards, and automated chaos self-healing.",
+    subtitle: "Reproducible 3-node Kubernetes platform on Kind featuring declarative ArgoCD GitOps (App-of-Apps), Prometheus & Loki SRE observability (RED metrics & distributed logs), and automated chaos self-healing.",
     category: "IaC & SRE",
     role: "Lead Platform Engineer & SRE",
-    badgeText: "Kubernetes / GitOps / ArgoCD / Prometheus / SRE",
-    problem: "Single-node development clusters and imperative kubectl deployments mask multi-node scheduling realities, cause configuration drift across environments, and lack SRE RED metrics feedback loops.",
+    badgeText: "Kubernetes / GitOps / ArgoCD / Prometheus / Loki / Grafana / SRE",
+    problem: "Single-node development clusters and imperative kubectl deployments mask multi-node scheduling realities, cause configuration drift across environments, and lack correlated SRE metrics and log feedback loops.",
     businessContext: "Engineered as an enterprise local platform engineering standard enabling developers to test multi-zone topologies, GitOps self-healing, and SLO alerting with zero cloud spend.",
-    architectureDescription: "Provisions a 3-node Kind cluster (1 control plane + 2 worker nodes) with NGINX Ingress Controller. The entire platform lifecycle is driven declaratively by ArgoCD using the App-of-Apps pattern with automated self-healing. Workloads include replicated frontend and API microservices backed by Redis with Horizontal Pod Autoscaling (HPA). Observability is powered by the Prometheus Operator, Alertmanager, and Grafana with pre-loaded RED metrics dashboards (Rate, Errors, Duration) and production alerting rules.",
+    architectureDescription: "Provisions a 3-node Kind cluster (1 control plane + 2 worker nodes) with NGINX Ingress Controller. The entire platform lifecycle is driven declaratively by ArgoCD using the App-of-Apps pattern with automated self-healing. Workloads include replicated frontend and API microservices backed by Redis with Horizontal Pod Autoscaling (HPA). Observability is powered by the full PLG stack: Prometheus Operator, Alertmanager, Grafana RED metrics dashboards (Rate, Errors, Duration), and Grafana Loki with Promtail DaemonSet for unified distributed logging.",
     diagramNodes: [
       { title: "Client / Browser", sub: "HostPort 80 / 30080 / 30000", type: "client" },
       { title: "NGINX Ingress Controller", sub: "Control Plane HostPort Binding", type: "gateway" },
@@ -328,7 +328,8 @@ export const PROJECTS: ProjectCaseStudy[] = [
       { title: "CloudNative Store Apps", sub: "Replicated Microservices + HPA", type: "compute" },
       { title: "Redis Cache Tier", sub: "Worker Node Isolation", type: "database" },
       { title: "Prometheus & Alertmanager", sub: "ServiceMonitor & Alerting", type: "observability" },
-      { title: "Grafana RED Dashboards", sub: "Google Golden Signals (p50/p95/p99)", type: "observability" }
+      { title: "Loki & Promtail Logs", sub: "Distributed Log Ingestion Engine", type: "observability" },
+      { title: "Grafana Unified UI", sub: "RED Metrics & LogQL Explore", type: "observability" }
     ],
     technologies: [
       "Kubernetes",
@@ -336,6 +337,8 @@ export const PROJECTS: ProjectCaseStudy[] = [
       "ArgoCD",
       "Prometheus",
       "Grafana",
+      "Loki",
+      "Promtail",
       "Alertmanager",
       "Helm",
       "NGINX Ingress",
@@ -348,7 +351,8 @@ export const PROJECTS: ProjectCaseStudy[] = [
       "Configured ArgoCD GitOps engine implementing the Root App-of-Apps pattern with automated drift reconciliation.",
       "Deployed replicated microservices with PodAntiAffinity, rolling updates, and HorizontalPodAutoscalers.",
       "Built Prometheus Operator stack with pre-loaded Grafana RED metrics dashboards and custom PrometheusRules.",
-      "Constructed automated chaos engineering scripts simulating traffic bursts, pod terminations, and error spikes."
+      "Configured Grafana Loki and Promtail DaemonSet streaming container logs with direct Grafana Explore integration.",
+      "Constructed automated chaos engineering scripts simulating traffic bursts, pod terminations, error spikes, and LogQL tracing."
     ],
     securityConsiderations: [
       "Unprivileged execution: Workload containers run as non-root users (UID 10001 / 999) with read-only root filesystems.",
@@ -356,12 +360,13 @@ export const PROJECTS: ProjectCaseStudy[] = [
       "Network isolation: Namespace segregation between application workloads (prod) and monitoring infrastructure."
     ],
     automationHighlights: [
-      "Single-command bootstrap (make up) provisioning Kind, Ingress, ArgoCD, and Observability within 3 minutes.",
+      "Single-command bootstrap (make up) provisioning Kind, Ingress, ArgoCD, Prometheus, and Loki within 3 minutes.",
       "Automated self-healing: ArgoCD continuously reverts unauthorized imperative cluster changes.",
       "Interactive chaos demonstration CLI for live interview screen-shares."
     ],
     observabilitySetup: [
       "Custom Grafana dashboard tracking Google Golden Signals / RED metrics (RPS, 5xx Error %, Latency percentiles).",
+      "Grafana Loki distributed logging with Promtail DaemonSet and LogQL queries for correlated root cause analysis.",
       "Production Alertmanager rules tracking HighHttpErrorRate, PodCrashLooping, and HighMemorySaturation."
     ],
     challengesAndRCA: [
