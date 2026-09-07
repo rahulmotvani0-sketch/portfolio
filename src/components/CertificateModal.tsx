@@ -18,6 +18,7 @@ export interface CertificateModalData {
   category: string;
   credentialUrl?: string;
   credentialId?: string;
+  initialSubIndex?: number;
   subCertificates?: {
     title: string;
     credentialUrl: string;
@@ -32,13 +33,14 @@ interface CertificateModalProps {
 }
 
 export default function CertificateModal({ cert, onClose }: CertificateModalProps) {
-  const [selectedSubIndex, setSelectedSubIndex] = useState<number>(0);
-  const [prevCertId, setPrevCertId] = useState<string | null>(null);
+  const [selectedSubIndex, setSelectedSubIndex] = useState<number>(cert?.initialSubIndex || 0);
+  const [prevCertKey, setPrevCertKey] = useState<string | null>(null);
 
-  // Adjust state during render if cert changed (React recommended pattern)
-  if (cert && cert.id !== prevCertId) {
-    setPrevCertId(cert.id);
-    setSelectedSubIndex(0);
+  // Adjust state during render if cert or initial index changed
+  const currentKey = cert ? `${cert.id}-${cert.initialSubIndex ?? 0}` : null;
+  if (cert && currentKey !== prevCertKey) {
+    setPrevCertKey(currentKey);
+    setSelectedSubIndex(cert.initialSubIndex || 0);
   }
 
   // Handle ESC key to close modal
@@ -70,7 +72,8 @@ export default function CertificateModal({ cert, onClose }: CertificateModalProp
     ? cert.subCertificates![selectedSubIndex].credentialId
     : cert.credentialId;
 
-  const isImage = currentUrl?.toLowerCase().endsWith(".png") || currentUrl?.toLowerCase().endsWith(".jpg");
+  // Use crisp web-optimized PNG preview if available for zero-scroll, gapless rendering
+  const displayImgUrl = currentUrl ? currentUrl.replace(/\.pdf$/i, ".png") : null;
 
   return (
     <div 
@@ -110,7 +113,7 @@ export default function CertificateModal({ cert, onClose }: CertificateModalProp
                 target="_blank"
                 rel="noopener noreferrer"
                 className="hidden sm:inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold transition-colors cursor-pointer shadow-md"
-                title="Open in new window"
+                title="Open original vector document in new tab"
               >
                 <ExternalLink className="w-3.5 h-3.5" />
                 <span>Open Full ↗</span>
@@ -151,29 +154,28 @@ export default function CertificateModal({ cert, onClose }: CertificateModalProp
           </div>
         )}
 
-        {/* Certificate Display Body */}
-        <div className="p-4 sm:p-6 overflow-y-auto flex-1 bg-slate-950/60 flex flex-col items-center justify-center min-h-[55vh]">
-          {currentUrl ? (
-            isImage ? (
-              <div className="flex flex-col items-center justify-center w-full">
-                <Image
-                  src={currentUrl}
-                  alt={currentTitle}
-                  width={1122}
-                  height={794}
-                  unoptimized
-                  className="max-h-[65vh] w-auto max-w-full rounded-xl border border-slate-800 shadow-2xl object-contain bg-slate-900"
-                />
-              </div>
-            ) : (
-              <div className="w-full h-[62vh] rounded-xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900 relative">
-                <iframe
-                  src={`${currentUrl}#toolbar=0&navpanes=0&scrollbar=1`}
-                  className="w-full h-full rounded-xl bg-white"
-                  title={currentTitle}
-                />
-              </div>
-            )
+        {/* Certificate Display Body: Fits perfectly, no gap, no scroll */}
+        <div className="p-3 sm:p-5 flex-1 bg-slate-950/80 flex flex-col items-center justify-center min-h-[52vh] overflow-hidden">
+          {displayImgUrl ? (
+            <div className="w-full flex items-center justify-center">
+              <Image
+                src={displayImgUrl}
+                alt={currentTitle}
+                width={1200}
+                height={850}
+                unoptimized
+                priority
+                className="max-h-[66vh] w-auto max-w-full rounded-xl border border-slate-800 shadow-2xl object-contain bg-slate-900"
+              />
+            </div>
+          ) : currentUrl ? (
+            <div className="w-full max-w-4xl h-[66vh] rounded-xl overflow-hidden border border-slate-800 shadow-2xl bg-slate-900">
+              <iframe
+                src={`${currentUrl}#toolbar=0&navpanes=0&scrollbar=0&view=Fit`}
+                className="w-full h-full rounded-xl bg-white border-0"
+                title={currentTitle}
+              />
+            </div>
           ) : (
             <div className="p-10 text-center space-y-3">
               <ShieldCheck className="w-12 h-12 text-emerald-400 mx-auto opacity-70" />
