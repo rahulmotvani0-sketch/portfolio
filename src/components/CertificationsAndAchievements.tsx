@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { 
   Award, 
   ShieldCheck, 
@@ -9,11 +10,15 @@ import {
   Trophy, 
   CheckCircle2, 
   ExternalLink,
-  FileText
+  FileText,
+  ArrowUpRight
 } from "lucide-react";
 import { CERTIFICATIONS, ACHIEVEMENTS, CANDIDATE_INFO } from "@/data/portfolioData";
+import CertificateModal, { CertificateModalData } from "./CertificateModal";
 
 export default function CertificationsAndAchievements() {
+  const [activeCertModal, setActiveCertModal] = useState<CertificateModalData | null>(null);
+
   const getCertIcon = (iconName: string) => {
     switch (iconName) {
       case 'ShieldAlert': return <ShieldCheck className="w-6 h-6 text-emerald-400" />;
@@ -22,6 +27,26 @@ export default function CertificationsAndAchievements() {
       case 'Cloud': return <Cloud className="w-6 h-6 text-amber-400" />;
       default: return <Award className="w-6 h-6 text-emerald-400" />;
     }
+  };
+
+  const openTryHackMeQuickView = () => {
+    setActiveCertModal({
+      id: "tryhackme-top3",
+      title: "TryHackMe — Top 3% Global Practical Security",
+      issuer: "TryHackMe",
+      category: "Global Security Ranking",
+      credentialId: "Top 3% Worldwide",
+      subCertificates: [
+        {
+          title: "TryHackMe Certificate (THM-P31YELUMDZ)",
+          credentialUrl: "/certifications/tryhackme/THM-P31YELUMDZ.png"
+        },
+        {
+          title: "TryHackMe Certificate (THM-S17ITBZWKK)",
+          credentialUrl: "/certifications/tryhackme/THM-S17ITBZWKK.png"
+        }
+      ]
+    });
   };
 
   return (
@@ -38,7 +63,7 @@ export default function CertificationsAndAchievements() {
               Professional Credentials & Security Milestones
             </h2>
             <p className="text-sm text-slate-400 mt-1 max-w-2xl">
-              Verified certifications in Network Security, Cloud Infrastructure, and Practical Cyber Defense. Click any credential to inspect the verified certificate.
+              Verified certifications in Network Security, Cloud Infrastructure, and Practical Cyber Defense. Click Quick View on any credential to inspect the verified certificate.
             </p>
           </div>
         </div>
@@ -66,6 +91,13 @@ export default function CertificationsAndAchievements() {
           </div>
 
           <div className="shrink-0 relative z-10 flex flex-wrap md:flex-col gap-2 w-full md:w-auto">
+            <button
+              onClick={openTryHackMeQuickView}
+              className="px-4 py-2.5 rounded-xl bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-mono font-bold flex items-center justify-center gap-2 transition-all cursor-pointer shadow-md group/btn"
+            >
+              <span>Quick View Certificates</span>
+              <ArrowUpRight className="w-3.5 h-3.5 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+            </button>
             <a
               href={CANDIDATE_INFO.contact.tryhackme}
               target="_blank"
@@ -74,24 +106,6 @@ export default function CertificationsAndAchievements() {
             >
               <ShieldCheck className="w-4 h-4 text-amber-400" />
               <span>TryHackMe Profile ↗</span>
-            </a>
-            <a
-              href="/certifications/tryhackme/THM-P31YELUMDZ.png"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-200 hover:text-white text-xs font-mono font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
-            >
-              <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
-              <span>View Cert #1 (PNG) ↗</span>
-            </a>
-            <a
-              href="/certifications/tryhackme/THM-S17ITBZWKK.png"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="px-4 py-2 rounded-xl bg-slate-900/90 hover:bg-slate-800 border border-slate-700 text-slate-200 hover:text-white text-xs font-mono font-semibold flex items-center justify-center gap-2 transition-all cursor-pointer"
-            >
-              <ExternalLink className="w-3.5 h-3.5 text-cyan-400" />
-              <span>View Cert #2 (PNG) ↗</span>
             </a>
           </div>
         </div>
@@ -134,37 +148,46 @@ export default function CertificationsAndAchievements() {
                     </span>
                     <div className="space-y-1">
                       {cert.subCertificates.map((sub, sIdx) => (
-                        <a
+                        <button
                           key={sIdx}
-                          href={sub.credentialUrl}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="flex items-center justify-between gap-1 text-[11px] text-slate-300 hover:text-emerald-400 py-1 px-2 rounded bg-slate-900/80 hover:bg-slate-800/80 border border-slate-800 transition-colors"
+                          onClick={() => {
+                            setActiveCertModal({
+                              ...cert,
+                              subCertificates: cert.subCertificates
+                            });
+                          }}
+                          className="w-full flex items-center justify-between gap-1 text-[11px] text-slate-300 hover:text-emerald-400 py-1 px-2 rounded bg-slate-900/80 hover:bg-slate-800/80 border border-slate-800 transition-colors text-left cursor-pointer"
                           title={sub.title}
                         >
                           <span className="truncate">{sub.title}</span>
-                          <ExternalLink className="w-3 h-3 text-emerald-400 shrink-0" />
-                        </a>
+                          <ArrowUpRight className="w-3 h-3 text-emerald-400 shrink-0" />
+                        </button>
                       ))}
                     </div>
                   </div>
                 )}
               </div>
 
+              {/* Card Footer Actions */}
               <div className="pt-3 border-t border-slate-800 flex items-center justify-between text-[11px] font-mono text-slate-400">
-                <span className="flex items-center gap-1 text-slate-300">
-                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" /> Verified
-                </span>
+                <button
+                  onClick={() => setActiveCertModal(cert)}
+                  className="inline-flex items-center gap-1.5 text-xs font-mono font-bold text-emerald-400 hover:text-emerald-300 transition-colors cursor-pointer group/btn"
+                >
+                  <span>Quick View</span>
+                  <ArrowUpRight className="w-4 h-4 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
+                </button>
 
                 {cert.credentialUrl && (
                   <a
                     href={cert.credentialUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1 px-2.5 py-1 rounded bg-emerald-500/10 hover:bg-emerald-500/20 text-emerald-400 border border-emerald-500/30 text-xs font-semibold transition-colors cursor-pointer"
+                    className="inline-flex items-center gap-1 text-slate-400 hover:text-white transition-colors"
+                    title="Open certificate in new window"
                   >
-                    <FileText className="w-3.5 h-3.5" />
-                    <span>View Certificate ↗</span>
+                    <ExternalLink className="w-3.5 h-3.5" />
+                    <span className="hidden sm:inline">Open Full</span>
                   </a>
                 )}
               </div>
@@ -173,6 +196,12 @@ export default function CertificationsAndAchievements() {
         </div>
 
       </div>
+
+      {/* Certificate Quick View Modal */}
+      <CertificateModal
+        cert={activeCertModal}
+        onClose={() => setActiveCertModal(null)}
+      />
     </section>
   );
 }
