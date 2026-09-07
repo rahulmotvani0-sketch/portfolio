@@ -76,6 +76,23 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(getFAQPageSchema()) }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                if (typeof window !== 'undefined') {
+                  if ('scrollRestoration' in history) {
+                    history.scrollRestoration = 'manual';
+                  }
+                  window.scrollTo(0, 0);
+                  if (window.location.hash) {
+                    history.replaceState(null, '', window.location.pathname);
+                  }
+                }
+              } catch (e) {}
+            `,
+          }}
+        />
       </head>
       <body className={`${inter.variable} ${firaCode.variable} font-sans antialiased text-slate-300 bg-[#0B0F19]`}>
         <div className="min-h-screen flex flex-col relative selection:bg-cyan-500/30 selection:text-cyan-100">

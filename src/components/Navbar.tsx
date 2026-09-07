@@ -36,7 +36,18 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const scrollToHome = (e: React.MouseEvent) => {
+    e.preventDefault();
+    if (typeof window !== "undefined") {
+      if (window.location.hash) {
+        window.history.replaceState(null, "", window.location.pathname);
+      }
+      window.scrollTo({ top: 0, left: 0, behavior: "smooth" });
+    }
+  };
+
   const navLinks = [
+    { name: "Home", href: "#", onClick: scrollToHome },
     { name: "Summary", href: "#recruiter-summary" },
     { name: "Projects", href: "#projects" },
     { name: "Architecture", href: "#architecture" },
@@ -59,7 +70,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
         <div className="flex items-center justify-between gap-4">
           {/* Logo & Status */}
           <div className="flex items-center gap-3 shrink-0">
-            <a href="#" className="flex items-center gap-2.5 group">
+            <a href="#" onClick={scrollToHome} className="flex items-center gap-2.5 group">
               <div className="w-9 h-9 sm:w-10 sm:h-10 rounded-lg bg-emerald-500/10 border border-emerald-500/30 flex items-center justify-center text-emerald-400 group-hover:border-emerald-400/60 transition-colors shrink-0">
                 <Terminal className="w-4 h-4 sm:w-5 sm:h-5" />
               </div>
@@ -87,11 +98,12 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
           </div>
 
           {/* Desktop Navigation Links */}
-          <nav className="hidden xl:flex items-center justify-center gap-4 2xl:gap-6 text-xs 2xl:text-sm font-medium text-slate-300 mx-auto px-4 border-x border-slate-800/50">
+          <nav className="hidden xl:flex items-center justify-center gap-3 2xl:gap-5 text-xs 2xl:text-sm font-medium text-slate-300 mx-auto px-4 border-x border-slate-800/50">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
+                onClick={link.onClick}
                 className="hover:text-emerald-400 transition-colors py-1 relative group whitespace-nowrap"
               >
                 {link.name}
@@ -163,7 +175,10 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
               <a
                 key={link.name}
                 href={link.href}
-                onClick={() => setMobileMenuOpen(false)}
+                onClick={(e) => {
+                  setMobileMenuOpen(false);
+                  if (link.onClick) link.onClick(e);
+                }}
                 className="px-3 py-2 rounded-lg bg-slate-900 hover:bg-slate-800 text-slate-200 text-sm font-medium border border-slate-800"
               >
                 {link.name}

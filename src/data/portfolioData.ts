@@ -61,8 +61,13 @@ export interface Certification {
   title: string;
   issuer: string;
   credentialUrl?: string;
+  credentialId?: string;
   badgeIcon: string;
   category: string;
+  subCertificates?: {
+    title: string;
+    credentialUrl: string;
+  }[];
 }
 
 export interface EducationItem {
@@ -814,8 +819,57 @@ export const CERTIFICATIONS: Certification[] = [
     id: "icsi-cnss",
     title: "Certified Network Security Specialist (CNSS)",
     issuer: "ICSI (International CyberSecurity Institute, U.K.)",
+    credentialUrl: "/certifications/icsi-cnss-network-security.pdf",
+    credentialId: "19306985",
     badgeIcon: "ShieldAlert",
     category: "Cybersecurity & Network Security"
+  },
+  {
+    id: "gcp-coursera",
+    title: "Architecting with Google Cloud Platform",
+    issuer: "Google Cloud / Coursera",
+    credentialUrl: "/certifications/google-cloud/gcp-fundamentals-core-infrastructure.pdf",
+    badgeIcon: "Cloud",
+    category: "Cloud Architecture",
+    subCertificates: [
+      {
+        title: "Google Cloud Platform Fundamentals: Core Infrastructure",
+        credentialUrl: "/certifications/google-cloud/gcp-fundamentals-core-infrastructure.pdf"
+      },
+      {
+        title: "Reliable Cloud Infrastructure: Design and Process",
+        credentialUrl: "/certifications/google-cloud/gcp-reliable-infrastructure-design.pdf"
+      },
+      {
+        title: "Elastic Cloud Infrastructure: Scaling and Automation",
+        credentialUrl: "/certifications/google-cloud/gcp-elastic-infrastructure-scaling.pdf"
+      },
+      {
+        title: "Essential Cloud Infrastructure: Core Services",
+        credentialUrl: "/certifications/google-cloud/gcp-essential-infrastructure-core-services.pdf"
+      },
+      {
+        title: "Essential Cloud Infrastructure: Foundation",
+        credentialUrl: "/certifications/google-cloud/gcp-essential-infrastructure-foundation.pdf"
+      }
+    ]
+  },
+  {
+    id: "certified-cyber-warriors",
+    title: "Certified Cyber Warriors",
+    issuer: "Cyber Security Community",
+    credentialUrl: "/certifications/certified-cyber-warriors.pdf",
+    credentialId: "0041084",
+    badgeIcon: "Lock",
+    category: "Cybersecurity & Defense"
+  },
+  {
+    id: "sigma-engineering",
+    title: "Networking & Engineering Workshop",
+    issuer: "Sigma Institute of Engineering",
+    credentialUrl: "/certifications/sigma-institute-engineering.pdf",
+    badgeIcon: "Network",
+    category: "Network Infrastructure"
   },
   {
     id: "cisco-cybersecurity",
@@ -830,13 +884,6 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: "Cisco Networking Academy",
     badgeIcon: "Network",
     category: "Network Infrastructure"
-  },
-  {
-    id: "gcp-coursera",
-    title: "Google Cloud Certificate Course",
-    issuer: "Coursera / Google Cloud",
-    badgeIcon: "Cloud",
-    category: "Cloud Architecture"
   }
 ];
 
@@ -846,7 +893,17 @@ export const ACHIEVEMENTS = [
     title: "TryHackMe — Top 3% Global Ranking",
     description: "Ranked in the Top 3% of users worldwide on TryHackMe, demonstrating advanced practical skills in offensive and defensive cybersecurity, network penetration testing, Linux system hardening, and threat analysis.",
     metric: "Top 3% Global",
-    badge: "Cybersecurity Proficiency"
+    badge: "Cybersecurity Proficiency",
+    certificates: [
+      {
+        title: "TryHackMe Certificate (THM-P31YELUMDZ)",
+        credentialUrl: "/certifications/tryhackme/THM-P31YELUMDZ.png"
+      },
+      {
+        title: "TryHackMe Certificate (THM-S17ITBZWKK)",
+        credentialUrl: "/certifications/tryhackme/THM-S17ITBZWKK.png"
+      }
+    ]
   }
 ];
 
