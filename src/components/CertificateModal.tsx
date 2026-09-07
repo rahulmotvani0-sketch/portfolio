@@ -1,14 +1,13 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { 
   X, 
   Download, 
   ExternalLink, 
   ShieldCheck, 
   CheckCircle2, 
-  FileText, 
-  Award, 
   Layers 
 } from "lucide-react";
 
@@ -32,11 +31,13 @@ interface CertificateModalProps {
 
 export default function CertificateModal({ cert, onClose }: CertificateModalProps) {
   const [selectedSubIndex, setSelectedSubIndex] = useState<number>(0);
+  const [prevCertId, setPrevCertId] = useState<string | null>(null);
 
-  // Reset selected sub-cert index when modal opens for a new cert
-  useEffect(() => {
+  // Adjust state during render if cert changed (React recommended pattern)
+  if (cert && cert.id !== prevCertId) {
+    setPrevCertId(cert.id);
     setSelectedSubIndex(0);
-  }, [cert]);
+  }
 
   // Handle ESC key to close modal
   useEffect(() => {
@@ -147,9 +148,12 @@ export default function CertificateModal({ cert, onClose }: CertificateModalProp
           {currentUrl ? (
             isImage ? (
               <div className="flex flex-col items-center justify-center w-full">
-                <img
+                <Image
                   src={currentUrl}
                   alt={currentTitle}
+                  width={1122}
+                  height={794}
+                  unoptimized
                   className="max-h-[65vh] w-auto max-w-full rounded-xl border border-slate-800 shadow-2xl object-contain bg-slate-900"
                 />
               </div>
