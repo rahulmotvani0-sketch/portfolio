@@ -125,7 +125,9 @@ export default function CertificateModal({ cert, onClose }: CertificateModalProp
           <div className="px-6 py-2.5 bg-slate-950/70 border-b border-slate-800 flex items-center gap-2 overflow-x-auto shrink-0 scrollbar-thin">
             <div className="flex items-center gap-1 text-xs font-mono text-slate-400 pr-2 shrink-0">
               <Layers className="w-3.5 h-3.5 text-emerald-400" />
-              <span>Specialization Courses ({cert.subCertificates!.length}):</span>
+              <span>
+                {cert.id.toLowerCase().includes("tryhackme") ? "Certificates" : "Specialization Courses"} ({cert.subCertificates!.length}):
+              </span>
             </div>
             {cert.subCertificates!.map((sub, idx) => (
               <button
@@ -137,7 +139,7 @@ export default function CertificateModal({ cert, onClose }: CertificateModalProp
                     : "bg-slate-900 hover:bg-slate-800 text-slate-300 border border-slate-800"
                 }`}
               >
-                Course {idx + 1}
+                {cert.id.toLowerCase().includes("tryhackme") ? `Certificate ${idx + 1}` : `Course ${idx + 1}`}
               </button>
             ))}
           </div>
