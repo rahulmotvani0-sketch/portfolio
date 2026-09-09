@@ -2,7 +2,7 @@
 
 ## Identity & Contact
 - **Name:** Rahul Motvani
-- **Current Role:** DevOps Engineer at Agile logic Technovations
+- **Current Role:** DevOps Engineer
 - **Experience:** 4+ years across infrastructure, networking, security, and DevOps
 - **Location:** Ahmedabad, India · Open to Remote
 - **Availability:** Remote / Global (US, UK, EU, Canada, Australia, Singapore, UAE)
