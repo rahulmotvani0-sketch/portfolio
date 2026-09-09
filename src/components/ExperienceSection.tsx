@@ -24,7 +24,7 @@ export default function ExperienceSection() {
               Work Experience & Infrastructure Impact
             </h2>
             <p className="text-sm text-slate-400 mt-1 max-w-2xl">
-              4.5+ years of hands-on technical progression across DevOps, DevSecOps, SRE, and Cloud Engineering.
+              4+ years of hands-on technical progression across infrastructure, networking, security, and DevOps engineering.
             </p>
           </div>
         </div>

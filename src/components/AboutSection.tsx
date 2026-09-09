@@ -25,7 +25,7 @@ export default function AboutSection() {
               About Rahul Motvani
             </h2>
             <p className="text-sm text-slate-400 mt-1 max-w-2xl">
-              DevOps / DevSecOps Engineer with 4.5+ years of production cloud infrastructure and platform engineering experience.
+              DevOps / DevSecOps Engineer with 4+ years of experience across infrastructure, networking, security, and cloud engineering.
             </p>
           </div>
         </div>
@@ -87,7 +87,7 @@ export default function AboutSection() {
           <div className="lg:col-span-5 bg-slate-900/90 rounded-2xl border border-slate-800 p-6 space-y-6 shadow-2xl">
             <h3 className="text-base font-bold text-white border-b border-slate-800 pb-3 flex items-center justify-between">
               <span>Candidate Technical Snapshot</span>
-              <span className="text-xs font-mono text-emerald-400 font-normal">4.5+ Years Exp</span>
+              <span className="text-xs font-mono text-emerald-400 font-normal">4+ Years Exp</span>
             </h3>
 
             <div className="space-y-3 text-xs">

@@ -24,7 +24,7 @@ export default function RecruiterMatrix({ onOpenResume }: RecruiterMatrixProps) 
 
   const highlights = {
     all: [
-      "4.5+ years of hands-on experience in cloud infrastructure, container orchestration, IaC, and DevSecOps.",
+      "4+ years of hands-on experience across infrastructure, networking, security, container orchestration, IaC, and DevSecOps.",
       "Proven track record migrating legacy database & VCS platforms (Bitbucket Data Center, PostgreSQL) with zero data loss.",
       "Shift-left security integration: Automated SAST (SonarQube) and SCA (Snyk) into CI/CD pipelines.",
       "Modular multi-cloud IaC provisioning using Terraform across AWS, Azure, and GCP.",
@@ -48,8 +48,8 @@ export default function RecruiterMatrix({ onOpenResume }: RecruiterMatrixProps) 
       "Modular Terraform framework for multi-region AWS and Azure resource provisioning.",
       "GitOps workflow: PR-driven `terraform plan` execution with Checkov static security analysis.",
       "Remote state locking and state management via AWS S3 and DynamoDB.",
-      "Cloud cost optimization: Auto-tagging and scheduled non-production resource teardown (-28% savings).",
-      "100% configuration drift elimination across Dev, Staging, and Production environments."
+      "Cloud cost optimization: Auto-tagging and scheduled non-production resource teardown.",
+      "Eliminated manual configuration drift across Dev, Staging, and Production environments."
     ]
   };
 
