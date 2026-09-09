@@ -2,8 +2,8 @@
 
 ## Identity & Contact
 - **Name:** Rahul Motvani
-- **Current Role:** DevOps / DevSecOps Engineer at Azilen Technologies Pvt Ltd
-- **Experience:** 4.5+ years
+- **Current Role:** DevOps / DevSecOps Engineer at Agile logic Technovations
+- **Experience:** 4+ years
 - **Location Availability:** Remote / Global (US, UK, EU, Canada, Australia, Singapore, UAE)
 - **Email:** rahulmotvani8@gmail.com
 - **LinkedIn:** https://www.linkedin.com/in/rahul-motvani-720b8b18a/
@@ -12,7 +12,7 @@
 - **Portfolio:** https://rahul.techiking.com
 
 ## Summary
-DevOps & DevSecOps Engineer with 4.5+ years of hands-on experience designing, automating, securing, and operating cloud infrastructure across AWS, Azure, and GCP. Specializing in Kubernetes, Terraform IaC, DevSecOps pipeline integration (SonarQube/Snyk), and Site Reliability Engineering (SRE).
+DevOps & DevSecOps Engineer with 4+ years of hands-on experience designing, automating, securing, and operating cloud infrastructure across AWS, Azure, and GCP. Specializing in Kubernetes, Terraform IaC, DevSecOps pipeline integration (SonarQube/Snyk), and Site Reliability Engineering (SRE).
 
 ## Key Skills
 - **Cloud Platforms:** AWS, Microsoft Azure, Google Cloud Platform (GCP)

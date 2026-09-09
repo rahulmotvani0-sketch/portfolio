@@ -85,7 +85,7 @@ export const CANDIDATE_INFO = {
   name: "Rahul Motvani",
   primaryTitle: "DevOps Engineer | AWS · Kubernetes · Terraform · CI/CD | DevSecOps & Cloud Security",
   secondaryTitles: ["Platform Engineer", "Cloud Infrastructure Engineer", "DevSecOps Specialist", "Site Reliability Engineer"],
-  totalExperience: "4.5+ Years",
+  totalExperience: "4+ Years",
   currentRole: "DevOps Engineer at Agile logic Technovations",
   currentCompany: "Agile logic Technovations",
   location: "Ahmedabad, Gujarat, India",
@@ -124,7 +124,7 @@ export const CANDIDATE_INFO = {
 export const PROJECTS: ProjectCaseStudy[] = [
   {
     id: "sara-ii",
-    title: "SARA-II — AI Assistant Infrastructure & Platform Engineering",
+    title: "SARA-II — AI Assistant Infrastructure (Personal Project)",
     subtitle: "High-concurrency, event-driven infrastructure platform supporting local and cloud LLM runtime isolation and TTS pipelines.",
     category: "AI Infrastructure",
     role: "Cloud Platform & Reliability Engineer",
@@ -410,7 +410,7 @@ export const PROJECTS: ProjectCaseStudy[] = [
   },
   {
     id: "leadpulse-ai",
-    title: "LeadPulse AI — Autonomous B2B Revenue Intelligence Platform",
+    title: "LeadPulse AI (Personal Project)",
     subtitle: "Multi-agent AI data engine built with FastAPI, PostgreSQL, Qdrant, Redis, and DevSecOps automated pipelines.",
     category: "DevSecOps",
     role: "DevSecOps & Cloud Infrastructure Lead",
@@ -778,7 +778,7 @@ export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
   {
     id: "aruhat-technologies",
     company: "Aruhat Technologies Pvt. Ltd.",
-    title: "IT / Network & Systems Specialist",
+    title: "IT",
     period: "June 2023 – July 2024 (1 year 2 months)",
     location: "Ahmedabad, India",
     isCurrent: false,
@@ -792,7 +792,7 @@ export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
   {
     id: "abp-network",
     company: "ABP Network",
-    title: "IT Support Specialist",
+    title: "IT",
     period: "July 2022 – May 2023 (11 months)",
     location: "Ahmedabad, Gujarat, India",
     isCurrent: false,
@@ -807,11 +807,19 @@ export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
 
 export const EDUCATION: EducationItem[] = [
   {
-    id: "ganpat-university",
+    id: "ganpat-university-msc",
     institution: "Ganpat University Department of Computer Science",
-    degree: "Degree in IT (IMS)",
+    degree: "M.Sc. IT (IMS)",
     specialization: "Server Administration & Infrastructure Management Services",
-    period: "2017 – 2021",
+    period: "2020 – 2022",
+    location: "Gujarat, India"
+  },
+  {
+    id: "ganpat-university-bsc",
+    institution: "Ganpat University Department of Computer Science",
+    degree: "B.Sc. IT (IMS)",
+    specialization: "Server Administration & Infrastructure Management Services",
+    period: "2017 – 2020",
     location: "Gujarat, India"
   }
 ];
