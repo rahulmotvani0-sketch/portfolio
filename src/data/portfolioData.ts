@@ -86,8 +86,8 @@ export const CANDIDATE_INFO = {
   primaryTitle: "DevOps Engineer | AWS · Kubernetes · Terraform · CI/CD | DevSecOps & Cloud Security",
   secondaryTitles: ["Platform Engineer", "Cloud Infrastructure Engineer", "DevSecOps Specialist", "Site Reliability Engineer"],
   totalExperience: "4+ Years",
-  currentRole: "DevOps Engineer at Agile logic Technovations",
-  currentCompany: "Agile logic Technovations",
+  currentRole: "DevOps Engineer",
+  currentCompany: "",
   location: "Ahmedabad, Gujarat, India",
   tagline: "Secure, automated cloud infrastructure — from networking and systems through security into DevOps and cloud.",
   heroDescription: "DevOps engineer who builds and secures cloud infrastructure and delivery pipelines — grounded in networking, systems administration, and security before moving into automation and cloud. I work with AWS (primary), Azure, and GCP; Terraform for infrastructure as code; Kubernetes and Docker for container orchestration; CI/CD with shift-left DevSecOps (SonarQube, Snyk, Gitleaks); and Prometheus, Grafana, and ELK for observability.",
@@ -745,7 +745,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
   {
     id: "agile-logic-technovations",
-    company: "Agile logic Technovations",
+    company: "DevOps Consultancy",
     title: "DevOps Engineer",
     period: "December 2025 – Present",
     location: "Ahmedabad, Gujarat, India",
@@ -762,7 +762,7 @@ export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
   },
   {
     id: "azilen-technologies",
-    company: "Azilen Technologies",
+    company: "Technology Services Company",
     title: "IT Infrastructure Engineer",
     period: "August 2024 – November 2025",
     location: "Ahmedabad, Gujarat, India",
@@ -777,7 +777,7 @@ export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
   },
   {
     id: "aruhat-technologies",
-    company: "Aruhat Technologies Pvt. Ltd.",
+    company: "IT Solutions Company",
     title: "Junior Network Engineer",
     period: "June 2023 – July 2024",
     location: "Ahmedabad, Gujarat, India",
@@ -792,7 +792,7 @@ export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
   },
   {
     id: "abp-network",
-    company: "ABP Network (ABP News)",
+    company: "Media & Broadcasting Company",
     title: "Junior IT Engineer",
     period: "July 2022 – May 2023",
     location: "Ahmedabad, Gujarat, India",
