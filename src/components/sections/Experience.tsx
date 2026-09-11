@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/Badge";
 const experiences = [
   {
     role: "DevOps Engineer",
-    company: "Agile logic Technovations",
+    company: "DevOps Consultancy",
     period: "Dec 2025 – Present (10 months)",
     highlights: [
       "Designed and deployed multi-cloud infrastructure across AWS, Azure, and GCP with Terraform, enabling reproducible, version-controlled environments.",
@@ -19,7 +19,7 @@ const experiences = [
   },
   {
     role: "Information Technology Engineer",
-    company: "Azilen Technologies",
+    company: "Technology Services Company",
     period: "Aug 2024 – Nov 2025 (1 year 4 months)",
     highlights: [
       "Administered hybrid cloud and on-prem infrastructure (Windows/Linux servers, virtualization) for development teams — establishing the operational foundation for later DevOps automation.",
@@ -30,7 +30,7 @@ const experiences = [
   },
   {
     role: "IT / Network & Systems Specialist",
-    company: "Aruhat Technologies Pvt. Ltd.",
+    company: "IT Solutions Company",
     period: "Jun 2023 – Jul 2024 (1 year 2 months)",
     highlights: [
       "Implemented network segmentation and access controls across client infrastructure, strengthening enterprise security posture.",
@@ -41,7 +41,7 @@ const experiences = [
   },
   {
     role: "IT Support Specialist",
-    company: "ABP Network",
+    company: "Media & Broadcasting Company",
     period: "Jul 2022 – May 2023 (11 months)",
     highlights: [
       "Delivered comprehensive technical assistance to ensure seamless operation of computer systems, networks, and software within broadcast media.",

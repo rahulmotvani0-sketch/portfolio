@@ -25,7 +25,7 @@ export default function AboutSection() {
               About Rahul Motvani
             </h2>
             <p className="text-sm text-slate-400 mt-1 max-w-2xl">
-              DevOps / DevSecOps Engineer with 4.5+ years of production cloud infrastructure and platform engineering experience.
+              DevOps / DevSecOps Engineer with 4+ years of experience across infrastructure, networking, security, and cloud engineering.
             </p>
           </div>
         </div>
@@ -40,7 +40,7 @@ export default function AboutSection() {
                 <Terminal className="w-5 h-5 text-emerald-400" /> Infrastructure & Operational Focus
               </h3>
               <p className="text-slate-300 text-sm leading-relaxed">
-                I am a DevOps and DevSecOps Engineer who builds and secures cloud infrastructure and delivery pipelines — getting here the durable way: from networking and systems, through security, into automation and cloud. Currently at <strong className="text-emerald-400 font-semibold">Agile logic Technovations</strong>, my work centers on multi-cloud Terraform provisioning across AWS, Azure, and GCP, containerized Kubernetes platforms, CI/CD automation, and shift-left security integration.
+                I am a DevOps and DevSecOps Engineer who builds and secures cloud infrastructure and delivery pipelines — getting here the durable way: from networking and systems, through security, into automation and cloud. My work centers on multi-cloud Terraform provisioning across AWS, Azure, and GCP, containerized Kubernetes platforms, CI/CD automation, and shift-left security integration.
               </p>
               <p className="text-slate-300 text-sm leading-relaxed">
                 Rather than treating security and operations as post-deployment afterthoughts, I integrate security code reviews (SonarQube) and vulnerability scanning (Snyk) directly into developer pipelines—shifting security left so delivery remains fast and compliant.
@@ -87,7 +87,7 @@ export default function AboutSection() {
           <div className="lg:col-span-5 bg-slate-900/90 rounded-2xl border border-slate-800 p-6 space-y-6 shadow-2xl">
             <h3 className="text-base font-bold text-white border-b border-slate-800 pb-3 flex items-center justify-between">
               <span>Candidate Technical Snapshot</span>
-              <span className="text-xs font-mono text-emerald-400 font-normal">4.5+ Years Exp</span>
+              <span className="text-xs font-mono text-emerald-400 font-normal">4+ Years Exp</span>
             </h3>
 
             <div className="space-y-3 text-xs">
@@ -95,7 +95,7 @@ export default function AboutSection() {
                 <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
                 <div>
                   <strong className="text-white block font-mono">Current Position:</strong>
-                  <span className="text-slate-300">DevOps Engineer at Agile logic Technovations</span>
+                  <span className="text-slate-300">DevOps Engineer</span>
                 </div>
               </div>
 
