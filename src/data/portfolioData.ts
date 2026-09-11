@@ -85,12 +85,12 @@ export const CANDIDATE_INFO = {
   name: "Rahul Motvani",
   primaryTitle: "DevOps Engineer | AWS · Kubernetes · Terraform · CI/CD | DevSecOps & Cloud Security",
   secondaryTitles: ["Platform Engineer", "Cloud Infrastructure Engineer", "DevSecOps Specialist", "Site Reliability Engineer"],
-  totalExperience: "4.5+ Years",
-  currentRole: "DevOps Engineer at Agile logic Technovations",
-  currentCompany: "Agile logic Technovations",
+  totalExperience: "4+ Years",
+  currentRole: "DevOps Engineer",
+  currentCompany: "",
   location: "Ahmedabad, Gujarat, India",
-  tagline: "Building secure, automated cloud infrastructure and delivery pipelines from networking through security into automation and cloud.",
-  heroDescription: "DevOps engineer who builds and secures cloud infrastructure and delivery pipelines — and who got here the durable way: from networking and systems, through security, into automation and cloud. Specialized in AWS (primary), Azure, and GCP; Terraform for infrastructure as code; Kubernetes, Docker, and Helm for containerized workloads; CI/CD with shift-left DevSecOps (SonarQube, Snyk); and SRE observability with Prometheus, Grafana, and ELK.",
+  tagline: "Secure, automated cloud infrastructure — from networking and systems through security into DevOps and cloud.",
+  heroDescription: "DevOps engineer who builds and secures cloud infrastructure and delivery pipelines — grounded in networking, systems administration, and security before moving into automation and cloud. I work with AWS (primary), Azure, and GCP; Terraform for infrastructure as code; Kubernetes and Docker for container orchestration; CI/CD with shift-left DevSecOps (SonarQube, Snyk, Gitleaks); and Prometheus, Grafana, and ELK for observability.",
   targetRoles: [
     "DevOps Engineer",
     "DevSecOps Engineer",
@@ -122,66 +122,6 @@ export const CANDIDATE_INFO = {
 };
 
 export const PROJECTS: ProjectCaseStudy[] = [
-  {
-    id: "sara-ii",
-    title: "SARA-II — AI Assistant Infrastructure & Platform Engineering",
-    subtitle: "High-concurrency, event-driven infrastructure platform supporting local and cloud LLM runtime isolation and TTS pipelines.",
-    category: "AI Infrastructure",
-    role: "Cloud Platform & Reliability Engineer",
-    badgeText: "AI/LLM Infrastructure & SRE",
-    problem: "Integrating LLM workloads into production exposed risks of unhandled API timeouts, high inference token latency, GPU memory fragmentation on local inference nodes, and unsafe prompt execution without strict egress security controls.",
-    businessContext: "SARA-II serves enterprise automation workflows requiring strict safety guardrails, low-latency text-to-speech processing, multi-provider LLM failover, and total observability over inference token throughput.",
-    architectureDescription: "Designed an asynchronous microservices topology separating public API requests from execution workers. Inbound client traffic hits an Nginx/API Gateway with rate limiting, passes through a custom Safety Runtime Filter, and delegates tasks to a Provider Registry with circuit breakers for OpenAI, Claude, and local vLLM/Ollama containers.",
-    diagramNodes: [
-      { title: "Client / Web UI", sub: "HTTPS / WebSockets", type: "client" },
-      { title: "Nginx Gateway & Rate Limiter", sub: "TLS 1.3 / Auth Guard", type: "gateway" },
-      { title: "Safety Runtime Engine", sub: "Prompt Filter & Guardrails", type: "security" },
-      { title: "Provider Registry & Router", sub: "Circuit Breaker / Failover", type: "compute" },
-      { title: "Local LLM / Cloud API Workers", sub: "vLLM, Ollama, OpenAI", type: "compute" },
-      { title: "Qdrant Vector DB & Redis", sub: "Context Cache & Embeddings", type: "database" },
-      { title: "TTS Pipeline & Asset Storage", sub: "Audio Streaming Engine", type: "compute" },
-      { title: "Prometheus + Grafana Monitor", sub: "TTFT Metrics & Log Tracing", type: "observability" }
-    ],
-    technologies: ["Docker", "Python", "FastAPI", "vLLM", "Ollama", "Qdrant", "Redis", "Nginx", "Prometheus", "Grafana", "Bash"],
-    implementationSteps: [
-      "Provisioned isolated Docker containers for vLLM local inference with dedicated container memory limits.",
-      "Engineered an event-driven Provider Registry microservice that measures provider latency and dynamically routes requests based on real-time SLA rules.",
-      "Integrated Redis caching layer to store vector embedding lookups, bypassing redundant LLM calls.",
-      "Constructed a TTS audio generation microservice with streaming buffer endpoints to deliver sub-200ms audio response latency.",
-      "Deployed Prometheus exporters tracking Time-To-First-Token (TTFT), request queue depth, and VRAM utilization."
-    ],
-    securityConsiderations: [
-      "Egress network policy enforced to prevent local model containers from initiating unauthorized outbound requests.",
-      "Implemented prompt sanitization runtime to prevent prompt injection and data leakage.",
-      "Non-root execution across all containerized AI services with immutable filesystem layers."
-    ],
-    automationHighlights: [
-      "Automated container deployment and model volume mounting using Docker Compose and Bash initialization scripts.",
-      "Built automated health-check watchdog that automatically restarts unresponsive model worker nodes."
-    ],
-    observabilitySetup: [
-      "Custom Prometheus metrics tracking LLM inference duration per 1K tokens.",
-      "Structured JSON logging with correlation IDs passed through Gateway -> Safety Runtime -> LLM Worker."
-    ],
-    challengesAndRCA: [
-      {
-        challenge: "GPU VRAM memory fragmentation occurred during frequent switching between 7B and 13B local LLM models, causing 504 Gateway Timeouts.",
-        solution: "Configured model pool pre-allocation in vLLM with worker thread pool isolation, and introduced Redis lock queues to throttle model swapping, reducing latency spikes by 74%."
-      }
-    ],
-    impactAndResults: [
-      "Achieved 99.9% inference pipeline availability across local and cloud LLM backends.",
-      "Reduced Mean Time To First Token (TTFT) by 42% through vector lookup caching and provider routing.",
-      "Saved 35% in API token costs by prioritizing optimized local container inference for standard tasks."
-    ],
-    githubUrl: "https://github.com/rahulmotvani0-sketch",
-    interviewDeepDive: {
-      architectureTradeoffs: "We prioritized local vLLM hosting over pure cloud API reliance to guarantee data privacy and lower token expenses, sacrificing slight peak throughput in exchange for predictable cost and zero data leakage.",
-      failureScenarioAndRecovery: "If OpenAI or primary Cloud API experiences elevated HTTP 5xx errors, the circuit breaker opens within 3 failed requests, instantly shifting incoming prompt queues to the local vLLM node with graceful parameter fallback.",
-      costOptimization: "Cached vector embeddings in Redis for frequent domain queries, eliminating 35% of external API calls.",
-      scalingStrategy: "Horizontal worker scaling using Docker Compose replicas behind Nginx upstream load balancers with healthcheck pinging."
-    }
-  },
   {
     id: "aws-serverless-secure-api",
     title: "Secure Serverless REST API on AWS with WAFv2 & Keyless OIDC",
@@ -409,63 +349,62 @@ export const PROJECTS: ProjectCaseStudy[] = [
     }
   },
   {
-    id: "leadpulse-ai",
-    title: "LeadPulse AI — Autonomous B2B Revenue Intelligence Platform",
-    subtitle: "Multi-agent AI data engine built with FastAPI, PostgreSQL, Qdrant, Redis, and DevSecOps automated pipelines.",
-    category: "DevSecOps",
-    role: "DevSecOps & Cloud Infrastructure Lead",
-    badgeText: "DevSecOps & Multi-Agent Infra",
-    problem: "High-frequency data enrichment pipelines suffered from slow database queries, lack of pipeline security controls, and build failure bottlenecks during multi-agent concurrent processing.",
-    businessContext: "LeadPulse AI ingests B2B lead signals from multiple data streams, performs semantic vector matching via Qdrant, and generates personalized sales intelligence for target accounts.",
-    architectureDescription: "Built a robust containerized architecture featuring React SPA, FastAPI multi-agent workers, PostgreSQL for transactional lead data, Qdrant for vector embeddings, and Redis for task queue management (Celery/RQ). Secured through Snyk dependency auditing and SonarQube static code quality gates.",
+    id: "terraform-iac-cloud",
+    title: "Terraform Multi-Cloud Infrastructure Automation & GitOps",
+    subtitle: "Modular Infrastructure as Code (IaC) framework automating multi-region AWS, Azure, and GCP provisioning with state locking and security compliance.",
+    category: "IaC & SRE",
+    role: "Cloud & Infrastructure Architect",
+    badgeText: "Terraform IaC & Cloud Automation",
+    problem: "Manual cloud console resource creation led to severe configuration drift, inconsistent security group rules across environments (Dev, Staging, Prod), and lack of infrastructure auditability.",
+    businessContext: "The organization needed a standardized, version-controlled method to spin up secure cloud infrastructure across AWS and Azure with zero human manual intervention.",
+    architectureDescription: "Designed and built a modular, reusable Terraform architecture. Infrastructure changes are managed via GitOps workflow: PR creation runs `terraform plan` via CI/CD, outputs diffs for peer review, and merge to main triggers `terraform apply` with encrypted remote state handling in S3 + DynamoDB.",
     diagramNodes: [
-      { title: "React Frontend", sub: "Single Page Application", type: "client" },
-      { title: "FastAPI Gateway", sub: "Async API Orchestrator", type: "gateway" },
-      { title: "SonarQube & Snyk Gate", sub: "SAST / SCA Inspection", type: "security" },
-      { title: "Multi-Agent Engine", sub: "Async Python Workers", type: "compute" },
-      { title: "Qdrant Vector Engine", sub: "Semantic Lead Embeddings", type: "database" },
-      { title: "Redis Distributed Queue", sub: "Task Buffering & Cache", type: "database" },
-      { title: "PostgreSQL Database", sub: "Transactional Records", type: "database" },
-      { title: "Wazuh & Logs", sub: "SIEM & Security Monitoring", type: "observability" }
+      { title: "Developer / IaC Repo", sub: "Terraform Modules", type: "client" },
+      { title: "GitHub / Bitbucket CI", sub: "GitOps Plan Runner", type: "gateway" },
+      { title: "TFLint & Checkov Scan", sub: "IaC Security Policy Check", type: "security" },
+      { title: "Remote State Engine", sub: "AWS S3 + DynamoDB Lock", type: "database" },
+      { title: "AWS Cloud VPC & EKS", sub: "Subnets, IAM, NAT Gateway", type: "compute" },
+      { title: "Azure AKS & Blob", sub: "VNet, Resource Groups", type: "compute" },
+      { title: "Wazuh / CloudWatch", sub: "Audit Logging & Alerts", type: "observability" }
     ],
-    technologies: ["FastAPI", "React", "PostgreSQL", "Qdrant", "Redis", "Docker", "Snyk", "SonarQube", "Python", "Git", "Bitbucket"],
+    technologies: ["Terraform", "AWS", "Azure", "GCP", "Kubernetes (EKS/AKS)", "Checkov", "TFLint", "GitOps", "Bash", "Python"],
     implementationSteps: [
-      "Architected FastAPI backend services decoupled into API routing layer, agent task processing layer, and vector lookup layer.",
-      "Configured Snyk CLI and SonarQube Scanner step inside CI/CD pipeline to analyze container images and code quality prior to staging deployment.",
-      "Optimized PostgreSQL schema with custom GIN indexes on JSONB fields and optimized Qdrant vector collection payload indexing.",
-      "Integrated Redis for background job queuing and API rate limiting.",
-      "Created Docker multi-stage build files to minimize image footprint from 1.2GB down to 180MB."
+      "Created modular Terraform repository structure decoupling networking (VPC/VNet), compute (EKS/AKS), database (RDS/PostgreSQL), and security (IAM/Security Groups).",
+      "Configured secure remote state backend using S3 bucket with KMS AES-256 encryption and DynamoDB table for state locking.",
+      "Integrated Checkov static code analyzer into CI pipeline to block IaC security misconfigurations (e.g. unencrypted storage, exposed 0.0.0.0/0 ingress).",
+      "Wrote parameterizable Terraform modules used by development teams to self-service isolated environment creation.",
+      "Built automated drift detection pipeline that executes `terraform plan` on a 6-hour cron schedule and alerts on manual console modifications."
     ],
     securityConsiderations: [
-      "Zero critical/high vulnerabilities allowed in production (enforced via Snyk Container + SAST quality gate).",
-      "API request authentication enforced via JWT with key rotation stored in secure environment variables.",
-      "Database connection pooling configured with TLS encryption and strict firewall isolation."
+      "Least-privilege IAM policies used by Terraform execution roles.",
+      "Zero plain-text secrets in code: AWS Secrets Manager / Azure Key Vault references used dynamically.",
+      "Enforced encrypted storage at rest for all EBS volumes, S3 buckets, and RDS instances."
     ],
     automationHighlights: [
-      "Automated CI/CD workflow executing linting, unit testing, SAST analysis, vulnerability scan, and Docker image build in under 6 minutes.",
-      "Automated database migration scripts using Alembic with rollback validation."
+      "Automated pull request comments showing formatted `terraform plan` execution diffs.",
+      "Automated teardown scripts for temporary preview environments to save cloud costs."
     ],
     observabilitySetup: [
-      "Structured JSON application logs formatted for ingestion into central logging stack.",
-      "Prometheus metrics tracking agent worker completion rates, queue latency, and database connection pool health."
+      "Terraform state drift alerts delivered via Slack webhook.",
+      "CloudTrail logs streaming to central security monitoring dashboard."
     ],
     challengesAndRCA: [
       {
-        challenge: "Unindexed JSONB lead payloads in PostgreSQL caused heavy CPU spikes up to 95% during concurrent agent batch writes.",
-        solution: "Analyzed execution plans using `EXPLAIN ANALYZE`, created GIN indexes on frequent payload paths, and implemented Redis write-behind caching, reducing query time from 1,400ms to 45ms."
+        challenge: "Stale state lock files occurred when CI/CD runner processes timed out during large EKS cluster deployments, blocking subsequent deployments.",
+        solution: "Configured automated lock expiration policies, built a safe force-unlock utility script with audit logging, and optimized Terraform resource dependency ordering."
       }
     ],
     impactAndResults: [
-      "Zero security vulnerabilities introduced across 85+ production deployment cycles.",
-      "CI/CD pipeline execution time cut from 22 minutes to 6 minutes via layer caching and multi-stage builds.",
-      "Achieved 99.95% system uptime under continuous multi-agent workload."
+      "Reduced infrastructure provisioning time from 3 days to under 15 minutes.",
+      "Eliminated 100% of manual cloud configuration drift across Dev, Staging, and Production environments.",
+      "Achieved 100% compliance with CIS AWS Foundations Benchmarks across all Terraform modules."
     ],
-    githubUrl: "https://github.com/rahulmotvani0-sketch",
+    // No public repository (professional/proprietary work)
     interviewDeepDive: {
-      architectureTradeoffs: "Utilized Qdrant for vector search while retaining PostgreSQL for relational data, accepting dual-database synchronization complexity in order to get native 10x vector query acceleration.",
-      failureScenarioAndRecovery: "If Redis task queue drops connection, FastAPI workers automatically fall back to local disk state buffering and attempt exponential backoff reconnection without dropping active user API calls.",
-      costOptimization: "Used Docker multi-stage builds to drop container memory overhead by 60%, allowing 3x more agent worker instances on the same host instances.",
-      scalingStrategy: "Horizontal worker auto-scaling triggered when Redis queue depth exceeds 500 pending jobs."
+      architectureTradeoffs: "Chose pure modular Terraform with native state backends over third-party abstractions to maintain complete vendor control and zero subscription overhead.",
+      failureScenarioAndRecovery: "If an automated `terraform apply` fails mid-way, state locking prevents concurrent runs; engineers review execution logs, run targeted `terraform refresh`, and apply corrective module patches.",
+      costOptimization: "Implemented auto-tagging for all resources (Owner, Environment, Expiry), enabling automated teardown of idle non-production resources, saving ~28% monthly cloud costs.",
+      scalingStrategy: "Module architecture structured around reusable workspace environments (Dev, Staging, Prod) with centralized IAM policy governance."
     }
   },
   {
@@ -518,7 +457,7 @@ export const PROJECTS: ProjectCaseStudy[] = [
       "Completed live maintenance window in under 2 hours (1 hour ahead of scheduled maintenance window).",
       "Git clone and fetch operations accelerated by 40% due to updated PostgreSQL engine and Java 17 performance improvements."
     ],
-    githubUrl: "https://github.com/rahulmotvani0-sketch",
+    // No public repository (professional/proprietary work)
     interviewDeepDive: {
       architectureTradeoffs: "Decided on a cold maintenance window migration instead of live active-active DB replication to guarantee absolute zero data corruption during major PostgreSQL schema translation.",
       failureScenarioAndRecovery: "Rollback strategy: Automated script was pre-configured to point DNS back to legacy server and restore write privileges within 8 minutes if verification SHA checks failed.",
@@ -578,7 +517,7 @@ export const PROJECTS: ProjectCaseStudy[] = [
       "100% of pull requests automatically evaluated against security quality gates before release.",
       "Eliminated 100% of hardcoded secrets from entering source code repositories."
     ],
-    githubUrl: "https://github.com/rahulmotvani0-sketch",
+    // No public repository (professional/proprietary work)
     interviewDeepDive: {
       architectureTradeoffs: "Strict quality gates can slow down urgent releases if not managed properly; we added an emergency security bypass override requiring dual security lead approval with automatic audit logging.",
       failureScenarioAndRecovery: "If SonarQube server is temporarily offline, CI/CD pipeline retries 3 times before entering fail-safe mode with notification to DevSecOps team rather than silently allowing unvetted deployments.",
@@ -587,66 +526,126 @@ export const PROJECTS: ProjectCaseStudy[] = [
     }
   },
   {
-    id: "terraform-iac-cloud",
-    title: "Terraform Multi-Cloud Infrastructure Automation & GitOps",
-    subtitle: "Modular Infrastructure as Code (IaC) framework automating multi-region AWS, Azure, and GCP provisioning with state locking and security compliance.",
-    category: "IaC & SRE",
-    role: "Cloud & Infrastructure Architect",
-    badgeText: "Terraform IaC & Cloud Automation",
-    problem: "Manual cloud console resource creation led to severe configuration drift, inconsistent security group rules across environments (Dev, Staging, Prod), and lack of infrastructure auditability.",
-    businessContext: "The organization needed a standardized, version-controlled method to spin up secure cloud infrastructure across AWS and Azure with zero human manual intervention.",
-    architectureDescription: "Designed and built a modular, reusable Terraform architecture. Infrastructure changes are managed via GitOps workflow: PR creation runs `terraform plan` via CI/CD, outputs diffs for peer review, and merge to main triggers `terraform apply` with encrypted remote state handling in S3 + DynamoDB.",
+    id: "sara-ii",
+    title: "SARA-II — AI Assistant Infrastructure (Personal Project)",
+    subtitle: "High-concurrency, event-driven infrastructure platform supporting local and cloud LLM runtime isolation and TTS pipelines.",
+    category: "AI Infrastructure",
+    role: "Cloud Platform & Reliability Engineer",
+    badgeText: "AI/LLM Infrastructure & SRE",
+    problem: "Integrating LLM workloads into production exposed risks of unhandled API timeouts, high inference token latency, GPU memory fragmentation on local inference nodes, and unsafe prompt execution without strict egress security controls.",
+    businessContext: "SARA-II serves enterprise automation workflows requiring strict safety guardrails, low-latency text-to-speech processing, multi-provider LLM failover, and total observability over inference token throughput.",
+    architectureDescription: "Designed an asynchronous microservices topology separating public API requests from execution workers. Inbound client traffic hits an Nginx/API Gateway with rate limiting, passes through a custom Safety Runtime Filter, and delegates tasks to a Provider Registry with circuit breakers for OpenAI, Claude, and local vLLM/Ollama containers.",
     diagramNodes: [
-      { title: "Developer / IaC Repo", sub: "Terraform Modules", type: "client" },
-      { title: "GitHub / Bitbucket CI", sub: "GitOps Plan Runner", type: "gateway" },
-      { title: "TFLint & Checkov Scan", sub: "IaC Security Policy Check", type: "security" },
-      { title: "Remote State Engine", sub: "AWS S3 + DynamoDB Lock", type: "database" },
-      { title: "AWS Cloud VPC & EKS", sub: "Subnets, IAM, NAT Gateway", type: "compute" },
-      { title: "Azure AKS & Blob", sub: "VNet, Resource Groups", type: "compute" },
-      { title: "Wazuh / CloudWatch", sub: "Audit Logging & Alerts", type: "observability" }
+      { title: "Client / Web UI", sub: "HTTPS / WebSockets", type: "client" },
+      { title: "Nginx Gateway & Rate Limiter", sub: "TLS 1.3 / Auth Guard", type: "gateway" },
+      { title: "Safety Runtime Engine", sub: "Prompt Filter & Guardrails", type: "security" },
+      { title: "Provider Registry & Router", sub: "Circuit Breaker / Failover", type: "compute" },
+      { title: "Local LLM / Cloud API Workers", sub: "vLLM, Ollama, OpenAI", type: "compute" },
+      { title: "Qdrant Vector DB & Redis", sub: "Context Cache & Embeddings", type: "database" },
+      { title: "TTS Pipeline & Asset Storage", sub: "Audio Streaming Engine", type: "compute" },
+      { title: "Prometheus + Grafana Monitor", sub: "TTFT Metrics & Log Tracing", type: "observability" }
     ],
-    technologies: ["Terraform", "AWS", "Azure", "GCP", "Kubernetes (EKS/AKS)", "Checkov", "TFLint", "GitOps", "Bash", "Python"],
+    technologies: ["Docker", "Python", "FastAPI", "vLLM", "Ollama", "Qdrant", "Redis", "Nginx", "Prometheus", "Grafana", "Bash"],
     implementationSteps: [
-      "Created modular Terraform repository structure decoupling networking (VPC/VNet), compute (EKS/AKS), database (RDS/PostgreSQL), and security (IAM/Security Groups).",
-      "Configured secure remote state backend using S3 bucket with KMS AES-256 encryption and DynamoDB table for state locking.",
-      "Integrated Checkov static code analyzer into CI pipeline to block IaC security misconfigurations (e.g. unencrypted storage, exposed 0.0.0.0/0 ingress).",
-      "Wrote parameterizable Terraform modules used by development teams to self-service isolated environment creation.",
-      "Built automated drift detection pipeline that executes `terraform plan` on a 6-hour cron schedule and alerts on manual console modifications."
+      "Provisioned isolated Docker containers for vLLM local inference with dedicated container memory limits.",
+      "Engineered an event-driven Provider Registry microservice that measures provider latency and dynamically routes requests based on real-time SLA rules.",
+      "Integrated Redis caching layer to store vector embedding lookups, bypassing redundant LLM calls.",
+      "Constructed a TTS audio generation microservice with streaming buffer endpoints to deliver sub-200ms audio response latency.",
+      "Deployed Prometheus exporters tracking Time-To-First-Token (TTFT), request queue depth, and VRAM utilization."
     ],
     securityConsiderations: [
-      "Least-privilege IAM policies used by Terraform execution roles.",
-      "Zero plain-text secrets in code: AWS Secrets Manager / Azure Key Vault references used dynamically.",
-      "Enforced encrypted storage at rest for all EBS volumes, S3 buckets, and RDS instances."
+      "Egress network policy enforced to prevent local model containers from initiating unauthorized outbound requests.",
+      "Implemented prompt sanitization runtime to prevent prompt injection and data leakage.",
+      "Non-root execution across all containerized AI services with immutable filesystem layers."
     ],
     automationHighlights: [
-      "Automated pull request comments showing formatted `terraform plan` execution diffs.",
-      "Automated teardown scripts for temporary preview environments to save cloud costs."
+      "Automated container deployment and model volume mounting using Docker Compose and Bash initialization scripts.",
+      "Built automated health-check watchdog that automatically restarts unresponsive model worker nodes."
     ],
     observabilitySetup: [
-      "Terraform state drift alerts delivered via Slack webhook.",
-      "CloudTrail logs streaming to central security monitoring dashboard."
+      "Custom Prometheus metrics tracking LLM inference duration per 1K tokens.",
+      "Structured JSON logging with correlation IDs passed through Gateway -> Safety Runtime -> LLM Worker."
     ],
     challengesAndRCA: [
       {
-        challenge: "Stale state lock files occurred when CI/CD runner processes timed out during large EKS cluster deployments, blocking subsequent deployments.",
-        solution: "Configured automated lock expiration policies, built a safe force-unlock utility script with audit logging, and optimized Terraform resource dependency ordering."
+        challenge: "GPU VRAM memory fragmentation occurred during frequent switching between 7B and 13B local LLM models, causing 504 Gateway Timeouts.",
+        solution: "Configured model pool pre-allocation in vLLM with worker thread pool isolation, and introduced Redis lock queues to throttle model swapping, reducing latency spikes by 74%."
       }
     ],
     impactAndResults: [
-      "Reduced infrastructure provisioning time from 3 days to under 15 minutes.",
-      "Eliminated 100% of manual cloud configuration drift across Dev, Staging, and Production environments.",
-      "Achieved 100% compliance with CIS AWS Foundations Benchmarks across all Terraform modules."
+      "Achieved 99.9% inference pipeline availability across local and cloud LLM backends.",
+      "Reduced Mean Time To First Token (TTFT) by 42% through vector lookup caching and provider routing.",
+      "Saved 35% in API token costs by prioritizing optimized local container inference for standard tasks."
     ],
-    githubUrl: "https://github.com/rahulmotvani0-sketch",
+    // No public repository (professional/proprietary work)
     interviewDeepDive: {
-      architectureTradeoffs: "Chose pure modular Terraform with native state backends over third-party abstractions to maintain complete vendor control and zero subscription overhead.",
-      failureScenarioAndRecovery: "If an automated `terraform apply` fails mid-way, state locking prevents concurrent runs; engineers review execution logs, run targeted `terraform refresh`, and apply corrective module patches.",
-      costOptimization: "Implemented auto-tagging for all resources (Owner, Environment, Expiry), enabling automated teardown of idle non-production resources, saving ~28% monthly cloud costs.",
-      scalingStrategy: "Module architecture structured around reusable workspace environments (Dev, Staging, Prod) with centralized IAM policy governance."
+      architectureTradeoffs: "We prioritized local vLLM hosting over pure cloud API reliance to guarantee data privacy and lower token expenses, sacrificing slight peak throughput in exchange for predictable cost and zero data leakage.",
+      failureScenarioAndRecovery: "If OpenAI or primary Cloud API experiences elevated HTTP 5xx errors, the circuit breaker opens within 3 failed requests, instantly shifting incoming prompt queues to the local vLLM node with graceful parameter fallback.",
+      costOptimization: "Cached vector embeddings in Redis for frequent domain queries, eliminating 35% of external API calls.",
+      scalingStrategy: "Horizontal worker scaling using Docker Compose replicas behind Nginx upstream load balancers with healthcheck pinging."
     }
-  }
+  },
+  {
+    id: "leadpulse-ai",
+    title: "LeadPulse AI (Personal Project)",
+    subtitle: "Multi-agent AI data engine built with FastAPI, PostgreSQL, Qdrant, Redis, and DevSecOps automated pipelines.",
+    category: "DevSecOps",
+    role: "DevSecOps & Cloud Infrastructure Lead",
+    badgeText: "DevSecOps & Multi-Agent Infra",
+    problem: "High-frequency data enrichment pipelines suffered from slow database queries, lack of pipeline security controls, and build failure bottlenecks during multi-agent concurrent processing.",
+    businessContext: "LeadPulse AI ingests B2B lead signals from multiple data streams, performs semantic vector matching via Qdrant, and generates personalized sales intelligence for target accounts.",
+    architectureDescription: "Built a robust containerized architecture featuring React SPA, FastAPI multi-agent workers, PostgreSQL for transactional lead data, Qdrant for vector embeddings, and Redis for task queue management (Celery/RQ). Secured through Snyk dependency auditing and SonarQube static code quality gates.",
+    diagramNodes: [
+      { title: "React Frontend", sub: "Single Page Application", type: "client" },
+      { title: "FastAPI Gateway", sub: "Async API Orchestrator", type: "gateway" },
+      { title: "SonarQube & Snyk Gate", sub: "SAST / SCA Inspection", type: "security" },
+      { title: "Multi-Agent Engine", sub: "Async Python Workers", type: "compute" },
+      { title: "Qdrant Vector Engine", sub: "Semantic Lead Embeddings", type: "database" },
+      { title: "Redis Distributed Queue", sub: "Task Buffering & Cache", type: "database" },
+      { title: "PostgreSQL Database", sub: "Transactional Records", type: "database" },
+      { title: "Wazuh & Logs", sub: "SIEM & Security Monitoring", type: "observability" }
+    ],
+    technologies: ["FastAPI", "React", "PostgreSQL", "Qdrant", "Redis", "Docker", "Snyk", "SonarQube", "Python", "Git", "Bitbucket"],
+    implementationSteps: [
+      "Architected FastAPI backend services decoupled into API routing layer, agent task processing layer, and vector lookup layer.",
+      "Configured Snyk CLI and SonarQube Scanner step inside CI/CD pipeline to analyze container images and code quality prior to staging deployment.",
+      "Optimized PostgreSQL schema with custom GIN indexes on JSONB fields and optimized Qdrant vector collection payload indexing.",
+      "Integrated Redis for background job queuing and API rate limiting.",
+      "Created Docker multi-stage build files to minimize image footprint from 1.2GB down to 180MB."
+    ],
+    securityConsiderations: [
+      "Zero critical/high vulnerabilities allowed in production (enforced via Snyk Container + SAST quality gate).",
+      "API request authentication enforced via JWT with key rotation stored in secure environment variables.",
+      "Database connection pooling configured with TLS encryption and strict firewall isolation."
+    ],
+    automationHighlights: [
+      "Automated CI/CD workflow executing linting, unit testing, SAST analysis, vulnerability scan, and Docker image build in under 6 minutes.",
+      "Automated database migration scripts using Alembic with rollback validation."
+    ],
+    observabilitySetup: [
+      "Structured JSON application logs formatted for ingestion into central logging stack.",
+      "Prometheus metrics tracking agent worker completion rates, queue latency, and database connection pool health."
+    ],
+    challengesAndRCA: [
+      {
+        challenge: "Unindexed JSONB lead payloads in PostgreSQL caused heavy CPU spikes up to 95% during concurrent agent batch writes.",
+        solution: "Analyzed execution plans using `EXPLAIN ANALYZE`, created GIN indexes on frequent payload paths, and implemented Redis write-behind caching, reducing query time from 1,400ms to 45ms."
+      }
+    ],
+    impactAndResults: [
+      "Zero security vulnerabilities introduced across 85+ production deployment cycles.",
+      "CI/CD pipeline execution time cut from 22 minutes to 6 minutes via layer caching and multi-stage builds.",
+      "Achieved 99.95% system uptime under continuous multi-agent workload."
+    ],
+    // No public repository (professional/proprietary work)
+    interviewDeepDive: {
+      architectureTradeoffs: "Utilized Qdrant for vector search while retaining PostgreSQL for relational data, accepting dual-database synchronization complexity in order to get native 10x vector query acceleration.",
+      failureScenarioAndRecovery: "If Redis task queue drops connection, FastAPI workers automatically fall back to local disk state buffering and attempt exponential backoff reconnection without dropping active user API calls.",
+      costOptimization: "Used Docker multi-stage builds to drop container memory overhead by 60%, allowing 3x more agent worker instances on the same host instances.",
+      scalingStrategy: "Horizontal worker auto-scaling triggered when Redis queue depth exceeds 500 pending jobs."
+    }
+  },
 ];
-
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     categoryName: "Cloud Platforms",
@@ -746,72 +745,82 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
   {
     id: "agile-logic-technovations",
-    company: "Agile logic Technovations",
+    company: "DevOps Consultancy",
     title: "DevOps Engineer",
-    period: "December 2025 – Present (10 months)",
+    period: "December 2025 – Present",
     location: "Ahmedabad, Gujarat, India",
     isCurrent: true,
     highlights: [
-      "Designed and deployed multi-cloud infrastructure across AWS, Azure, and GCP with Terraform, enabling reproducible, version-controlled environments and reducing configuration drift.",
-      "Built and maintained CI/CD pipelines (Jenkins / GitHub Actions / GitLab CI with Git & Bitbucket) integrating automated SAST, SCA, and dependency scanning — shifting security left and catching vulnerabilities before release.",
-      "Containerized applications with Docker and orchestrated workloads on Kubernetes (with Helm), improving deployment consistency and resource utilization across environments.",
-      "Hardened cloud environments with IAM policies, network segmentation, secrets management, and vulnerability assessments, embedding security into infrastructure (DevSecOps).",
-      "Implemented monitoring, logging, and alerting with Prometheus, Grafana, and ELK to improve service visibility and shorten incident response.",
-      "Supported MLOps workflows — containerizing and deploying ML models to Kubernetes and integrating model serving into CI/CD."
+      "Architected multi-cloud infrastructure on AWS, Azure, and GCP using modular Terraform, standardizing environment provisioning and eliminating manual configuration drift across development, staging, and production.",
+      "Engineered CI/CD pipelines with Jenkins, GitHub Actions, and GitLab CI — embedding SonarQube SAST and Snyk SCA quality gates that block vulnerable code before merge.",
+      "Containerized and orchestrated production workloads on Kubernetes with Helm, enforcing resource limits, rolling updates, and pod anti-affinity for high availability.",
+      "Hardened cloud security posture by implementing least-privilege IAM policies, network segmentation, secrets rotation, and automated vulnerability scanning across all environments.",
+      "Built observability stack with Prometheus, Grafana dashboards, and ELK-based centralized logging — reducing mean time to detect issues and enabling structured incident response.",
+      "Integrated ML model serving into Kubernetes-based CI/CD, containerizing inference workloads and automating deployment pipelines for data science teams."
     ],
-    technologiesUsed: ["AWS", "Azure", "GCP", "Terraform", "Kubernetes", "Docker", "Helm", "Jenkins", "GitHub Actions", "GitLab CI", "Bitbucket", "Prometheus", "Grafana", "ELK", "DevSecOps", "MLOps"]
+    technologiesUsed: ["AWS", "Azure", "GCP", "Terraform", "Kubernetes", "Docker", "Helm", "Jenkins", "GitHub Actions", "GitLab CI", "Bitbucket", "Prometheus", "Grafana", "ELK", "SonarQube", "Snyk"]
   },
   {
     id: "azilen-technologies",
-    company: "Azilen Technologies",
-    title: "Information Technology Engineer",
-    period: "August 2024 – November 2025 (1 year 4 months)",
-    location: "India",
-    isCurrent: false,
-    highlights: [
-      "Administered hybrid cloud and on-prem infrastructure (Windows/Linux servers, virtualization) for development teams — establishing the operational foundation for later DevOps automation.",
-      "Automated repetitive system tasks with shell scripting, improving provisioning consistency and cutting manual effort.",
-      "Partnered with engineering teams to troubleshoot networking, access, and deployment issues, minimizing downtime."
-    ],
-    technologiesUsed: ["Hybrid Cloud", "Linux", "Windows Server", "Virtualization", "Shell Scripting", "Networking", "System Administration", "Troubleshooting"]
-  },
-  {
-    id: "aruhat-technologies",
-    company: "Aruhat Technologies Pvt. Ltd.",
-    title: "IT / Network & Systems Specialist",
-    period: "June 2023 – July 2024 (1 year 2 months)",
-    location: "Ahmedabad, India",
-    isCurrent: false,
-    highlights: [
-      "Implemented network segmentation and access controls across client infrastructure, strengthening enterprise security posture.",
-      "Led migration to a new network architecture, improving scalability and reliability for business-critical workloads.",
-      "Administered virtualization environments and Windows/Linux servers; performed vulnerability assessments and remediation."
-    ],
-    technologiesUsed: ["Network Architecture", "Network Segmentation", "Access Control", "Virtualization", "Linux", "Windows Server", "Vulnerability Assessment"]
-  },
-  {
-    id: "abp-network",
-    company: "ABP Network",
-    title: "IT Support Specialist",
-    period: "July 2022 – May 2023 (11 months)",
+    company: "Technology Services Company",
+    title: "IT Infrastructure Engineer",
+    period: "August 2024 – November 2025",
     location: "Ahmedabad, Gujarat, India",
     isCurrent: false,
     highlights: [
-      "Delivered comprehensive technical assistance to ensure the seamless operation of computer systems, networks, and software within the broadcast media organization.",
-      "Maintained hardware and software systems, and supported end-users with technical needs under tight operational SLAs.",
-      "Prioritized timely problem resolution, system reliability, and user satisfaction to enhance overall productivity and business continuity."
+      "Administered hybrid cloud and on-premises infrastructure spanning Windows and Linux servers, managing virtualization platforms for engineering development teams.",
+      "Automated repetitive provisioning and maintenance tasks with Bash and PowerShell scripts, standardizing server configuration and reducing manual effort.",
+      "Collaborated with engineering teams to diagnose and resolve networking, access control, and deployment issues — improving system uptime and developer productivity.",
+      "Documented infrastructure processes and onboarding procedures, establishing repeatable runbooks for common operational tasks."
     ],
-    technologiesUsed: ["IT Support", "Network Troubleshooting", "System Maintenance", "Hardware & Software", "SLA Management", "High Availability"]
+    technologiesUsed: ["Linux", "Windows Server", "Virtualization", "Shell Scripting", "Networking", "Active Directory", "System Administration"]
+  },
+  {
+    id: "aruhat-technologies",
+    company: "IT Solutions Company",
+    title: "Junior Network Engineer",
+    period: "June 2023 – July 2024",
+    location: "Ahmedabad, Gujarat, India",
+    isCurrent: false,
+    highlights: [
+      "Designed and implemented network segmentation and firewall access controls across client infrastructure, closing security audit findings and reducing attack surface.",
+      "Led migration to a modernized network architecture, improving scalability, redundancy, and reliability for business-critical workloads.",
+      "Administered virtualization environments (VMware/Hyper-V) and managed Windows/Linux servers for enterprise clients.",
+      "Performed vulnerability assessments using Nessus and remediated identified risks, strengthening the overall security posture across client environments."
+    ],
+    technologiesUsed: ["Network Architecture", "Firewalls", "VLANs", "Network Segmentation", "VMware", "Hyper-V", "Linux", "Windows Server", "Nessus", "Vulnerability Assessment"]
+  },
+  {
+    id: "abp-network",
+    company: "Media & Broadcasting Company",
+    title: "Junior IT Engineer",
+    period: "July 2022 – May 2023",
+    location: "Ahmedabad, Gujarat, India",
+    isCurrent: false,
+    highlights: [
+      "Monitored and maintained production broadcast and office IT infrastructure, ensuring 24/7 availability for live news operations.",
+      "Resolved network, server, and endpoint issues under tight SLAs, prioritizing rapid incident resolution to maintain broadcast continuity.",
+      "Supported routine system upgrades, patch management, and hardware lifecycle operations across the broadcast facility."
+    ],
+    technologiesUsed: ["IT Infrastructure", "Network Troubleshooting", "System Maintenance", "Patch Management", "SLA Management", "Hardware Support"]
   }
 ];
 
 export const EDUCATION: EducationItem[] = [
   {
-    id: "ganpat-university",
+    id: "ganpat-university-msc",
     institution: "Ganpat University Department of Computer Science",
-    degree: "Degree in IT (IMS)",
+    degree: "M.Sc. IT (IMS)",
     specialization: "Server Administration & Infrastructure Management Services",
-    period: "2017 – 2021",
+    period: "2020 – 2022",
+    location: "Gujarat, India"
+  },
+  {
+    id: "ganpat-university-bsc",
+    institution: "Ganpat University Department of Computer Science",
+    degree: "B.Sc. IT (IMS)",
+    specialization: "Server Administration & Infrastructure Management Services",
+    period: "2017 – 2020",
     location: "Gujarat, India"
   }
 ];
@@ -828,11 +837,11 @@ export const CERTIFICATIONS: Certification[] = [
   },
   {
     id: "gcp-coursera",
-    title: "Architecting with Google Cloud Platform",
+    title: "Architecting with Google Cloud Platform (Certificate Course)",
     issuer: "Google Cloud / Coursera",
     credentialUrl: "/certifications/google-cloud/gcp-fundamentals-core-infrastructure.pdf",
     badgeIcon: "Cloud",
-    category: "Cloud Architecture",
+    category: "Cloud Architecture — Certificate Course",
     subCertificates: [
       {
         title: "Google Cloud Platform Fundamentals: Core Infrastructure",
@@ -868,12 +877,12 @@ export const CERTIFICATIONS: Certification[] = [
   },
   {
     id: "tryhackme-specializations",
-    title: "Practical Cybersecurity & Penetration Testing",
+    title: "Practical Cybersecurity & Penetration Testing (Learning Paths)",
     issuer: "TryHackMe",
     credentialUrl: "/certifications/tryhackme/THM-JBPWIRPKXK.pdf",
     credentialId: "Top 3% Worldwide",
     badgeIcon: "Target",
-    category: "Offensive & Defensive Security",
+    category: "Offensive & Defensive Security — Learning Paths",
     subCertificates: [
       {
         title: "Jr Penetration Tester Learning Path",
@@ -920,7 +929,7 @@ export const CERTIFICATIONS: Certification[] = [
     credentialUrl: "/certifications/certified-cyber-warriors.pdf",
     credentialId: "0041084",
     badgeIcon: "ShieldAlert",
-    category: "Cybersecurity & Defense"
+    category: "Cybersecurity — Workshop Certificate"
   },
   {
     id: "sigma-engineering",
@@ -928,21 +937,21 @@ export const CERTIFICATIONS: Certification[] = [
     issuer: "Sigma Institute of Engineering",
     credentialUrl: "/certifications/sigma-institute-engineering.pdf",
     badgeIcon: "Network",
-    category: "Network Infrastructure"
+    category: "Networking — Workshop Certificate"
   },
   {
     id: "cisco-cybersecurity",
     title: "Introduction to Cybersecurity",
     issuer: "Cisco Networking Academy",
     badgeIcon: "Lock",
-    category: "Security Engineering"
+    category: "Security — Course Completion"
   },
   {
     id: "cisco-networking",
     title: "Networking Basics",
     issuer: "Cisco Networking Academy",
     badgeIcon: "Network",
-    category: "Network Infrastructure"
+    category: "Networking — Course Completion"
   }
 ];
 

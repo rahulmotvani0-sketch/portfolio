@@ -1,62 +1,77 @@
-# Rahul Motvani - DevOps & Cloud Infrastructure Engineer
+# Rahul Motvani — DevOps & Cloud Infrastructure Engineer
 
 ## Identity & Contact
 - **Name:** Rahul Motvani
-- **Current Role:** DevOps / DevSecOps Engineer at Azilen Technologies Pvt Ltd
-- **Experience:** 4.5+ years
-- **Location Availability:** Remote / Global (US, UK, EU, Canada, Australia, Singapore, UAE)
+- **Current Role:** DevOps Engineer
+- **Experience:** 4+ years across infrastructure, networking, security, and DevOps
+- **Location:** Ahmedabad, India · Open to Remote
+- **Availability:** Remote / Global (US, UK, EU, Canada, Australia, Singapore, UAE)
 - **Email:** rahulmotvani8@gmail.com
 - **LinkedIn:** https://www.linkedin.com/in/rahul-motvani-720b8b18a/
 - **GitHub:** https://github.com/rahulmotvani0-sketch
-- **TryHackMe:** https://tryhackme.com/p/rahulmotvani8gma
 - **Portfolio:** https://rahul.techiking.com
 
 ## Summary
-DevOps & DevSecOps Engineer with 4.5+ years of hands-on experience designing, automating, securing, and operating cloud infrastructure across AWS, Azure, and GCP. Specializing in Kubernetes, Terraform IaC, DevSecOps pipeline integration (SonarQube/Snyk), and Site Reliability Engineering (SRE).
+DevOps engineer who builds and secures cloud infrastructure and delivery pipelines — grounded in networking, systems administration, and security before moving into automation and cloud. I work with AWS (primary), Azure, and GCP; Terraform for infrastructure as code; Kubernetes and Docker for container orchestration; CI/CD with shift-left DevSecOps (SonarQube, Snyk, Gitleaks); and Prometheus, Grafana, and ELK for observability.
 
 ## Key Skills
-- **Cloud Platforms:** AWS, Microsoft Azure, Google Cloud Platform (GCP)
-- **Infrastructure as Code (IaC):** Terraform, Configuration Management
+- **Cloud Platforms:** AWS (primary), Microsoft Azure, Google Cloud Platform (GCP)
+- **Infrastructure as Code:** Terraform (modular, remote state, drift detection)
 - **Containers & Orchestration:** Docker, Kubernetes (K8s), Helm
-- **CI/CD & Automation:** Git, GitHub Actions, Bitbucket Pipelines, Deployment Automation
-- **DevSecOps & Security:** Snyk, SonarQube, Wazuh SIEM, Nessus, Secret Management
-- **Observability & SRE:** Prometheus, Grafana, Incident Response, RCA
-- **Networking & Security:** TCP/IP, Nginx, Traefik, DNS, Firewalls
-- **OS & Scripting:** Linux, Bash Shell Scripting, Python Automation
-- **Databases:** PostgreSQL, Redis, MySQL, MongoDB
+- **CI/CD & Automation:** Jenkins, GitHub Actions, GitLab CI, Bitbucket Pipelines
+- **DevSecOps & Security:** SonarQube (SAST), Snyk (SCA), Gitleaks, Checkov, Nessus, Wazuh
+- **Observability & SRE:** Prometheus, Grafana, ELK, Loki, Alertmanager, structured logging
+- **Networking:** TCP/IP, Nginx, DNS, VLANs, VPN, Firewalls, Routing & Switching
+- **OS & Scripting:** Linux (Ubuntu/RHEL), Bash, Python
+- **Databases:** PostgreSQL, Redis, DynamoDB
 
-## Project Case Studies
-Detailed case studies are available at the following URLs:
+## Project Case Studies (Code-Backed — GitHub Repos)
 
-- **SARA-II — AI Assistant Infrastructure & Platform Engineering**
-  https://rahul.techiking.com/projects/sara-ii
-  High-concurrency, event-driven infrastructure platform supporting local and cloud LLM runtime isolation and TTS pipelines. Technologies: Docker, Python, FastAPI, vLLM, Qdrant, Redis, Nginx, Prometheus.
+- **Secure Serverless REST API on AWS with WAFv2 & Keyless OIDC**
+  https://rahul.techiking.com/projects/aws-serverless-secure-api
+  GitHub: https://github.com/rahulmotvani0-sketch/aws-serverless-secure-api
+  Production-grade serverless API provisioned with Terraform, protected by AWS WAFv2, deployed via keyless GitHub Actions OIDC. Technologies: AWS Lambda, API Gateway, WAFv2, DynamoDB, Terraform, Checkov, Python.
 
-- **LeadPulse AI — Autonomous B2B Revenue Intelligence Platform**
-  https://rahul.techiking.com/projects/leadpulse-ai
-  Multi-agent AI data engine with DevSecOps pipelines. Technologies: FastAPI, React, PostgreSQL, Qdrant, Redis, Docker, Snyk, SonarQube.
+- **Enterprise DevSecOps CI/CD Template & Supply Chain Security**
+  https://rahul.techiking.com/projects/devsecops-secure-cicd-template
+  GitHub: https://github.com/rahulmotvani0-sketch/devsecops-secure-cicd-template
+  Reusable shift-left security pipeline: SAST (Semgrep), SCA (Trivy), IaC (Checkov), secret scanning (Gitleaks), SBOM (Syft), keyless Cosign image signing. Technologies: GitHub Actions, Semgrep, Trivy, Checkov, Cosign, Docker.
 
-- **Bitbucket Infrastructure Migration & Platform Modernization**
-  https://rahul.techiking.com/projects/bitbucket-migration
-  Zero-downtime migration of enterprise Bitbucket platform with PostgreSQL upgrade and Java compatibility modernization. Technologies: Docker, PostgreSQL, Java 17, Bash, Linux.
+- **Multi-Node Kubernetes Platform with GitOps & SRE Observability**
+  https://rahul.techiking.com/projects/kubernetes-gitops-observability-platform
+  GitHub: https://github.com/rahulmotvani0-sketch/kubernetes-gitops-observability-platform
+  3-node Kind cluster with ArgoCD GitOps (App-of-Apps), Prometheus + Loki observability, HPA, and chaos engineering scripts. Technologies: Kubernetes, ArgoCD, Prometheus, Grafana, Loki, Helm, Docker.
 
-- **SonarQube Migration & DevSecOps Quality Gate Pipeline**
-  https://rahul.techiking.com/projects/sonarqube-devsecops
-  Shift-left DevSecOps automation integrating SonarQube SAST, Snyk vulnerability scanning, and automated quality gates. Technologies: SonarQube, Snyk, Bitbucket Pipelines, Docker.
+## Project Case Studies (Professional Work — No Public Repo)
 
 - **Terraform Multi-Cloud Infrastructure Automation & GitOps**
   https://rahul.techiking.com/projects/terraform-iac-cloud
-  Modular IaC framework automating multi-region AWS, Azure, and GCP provisioning with state locking and security compliance. Technologies: Terraform, AWS, Azure, GCP, Kubernetes, Checkov.
+  Modular IaC framework automating AWS, Azure, and GCP provisioning with remote state locking and Checkov security compliance. Technologies: Terraform, AWS, Azure, GCP, Checkov, TFLint.
+
+- **Bitbucket Infrastructure Migration & Platform Modernization**
+  https://rahul.techiking.com/projects/bitbucket-migration
+  Zero-downtime migration of enterprise Bitbucket platform across 200+ repositories with PostgreSQL 10→15 upgrade. Technologies: Docker, PostgreSQL, Java 17, Bash, Linux.
+
+- **SonarQube Migration & DevSecOps Quality Gate Pipeline**
+  https://rahul.techiking.com/projects/sonarqube-devsecops
+  Shift-left DevSecOps automation integrating SonarQube SAST, Snyk SCA, and quality gates across engineering teams. Technologies: SonarQube, Snyk, Bitbucket Pipelines, Docker.
+
+## Personal Projects
+
+- **SARA-II — AI Assistant Infrastructure (Personal Project)**
+  https://rahul.techiking.com/projects/sara-ii
+  Event-driven LLM infrastructure platform with Docker containers, Prometheus observability, and circuit-breaker failover. Technologies: Docker, Python, FastAPI, vLLM, Redis, Prometheus.
+
+- **LeadPulse AI (Personal Project)**
+  https://rahul.techiking.com/projects/leadpulse-ai
+  Multi-agent AI data engine with DevSecOps pipelines. Technologies: FastAPI, PostgreSQL, Qdrant, Redis, Docker, Snyk, SonarQube.
 
 ## Certifications & Achievements
-- TryHackMe — Top 3% Global Ranking
-- Certified Network Security Specialist (CNSS) - ICSI
-- Introduction to Cybersecurity - Cisco Networking Academy
-- Networking Basics - Cisco Networking Academy
-- Google Cloud Certificate Course - Coursera
+- **Certification:** Certified Network Security Specialist (CNSS) — ICSI, U.K.
+- **Achievement:** TryHackMe — Top 3% Global Ranking (6 learning paths completed)
+- **Certificate Course:** Architecting with Google Cloud Platform — Google Cloud / Coursera (5 courses)
+- **Course Completions:** Introduction to Cybersecurity, Networking Basics — Cisco Networking Academy
 
-## Frequently Asked Questions
-- What is your primary tech stack for Cloud Infrastructure?
-- Do you have experience with DevSecOps?
-- Are you available for remote work?
-- What monitoring and observability tools do you use?
+## Education
+- M.Sc. IT (IMS) — Ganpat University (2020–2022)
+- B.Sc. IT (IMS) — Ganpat University (2017–2020)
