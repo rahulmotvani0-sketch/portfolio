@@ -12,12 +12,12 @@
 - **Portfolio:** https://rahul.techiking.com
 
 ## Summary
-DevOps engineer who builds and secures cloud infrastructure and delivery pipelines — grounded in networking, systems administration, and security before moving into automation and cloud. I work with AWS (primary), Azure, and GCP; Terraform for infrastructure as code; Kubernetes and Docker for container orchestration; CI/CD with shift-left DevSecOps (SonarQube, Snyk, Gitleaks); and Prometheus, Grafana, and ELK for observability.
+DevOps engineer who builds and secures cloud infrastructure and delivery pipelines — grounded in networking, systems administration, and security before moving into automation and cloud. I work across Azure, AWS, and GCP; Terraform for infrastructure as code; Kubernetes and Docker for container orchestration; CI/CD with shift-left DevSecOps (SonarQube, Snyk, Gitleaks); and Prometheus, Grafana, and ELK for observability.
 
 ## Key Skills
-- **Cloud Platforms:** AWS (primary), Microsoft Azure, Google Cloud Platform (GCP)
+- **Cloud Platforms:** Microsoft Azure (AKS, VNet, Key Vault, Entra ID, Monitor), AWS (EC2, EKS, S3, Lambda, IAM), GCP (GKE)
 - **Infrastructure as Code:** Terraform (modular, remote state, drift detection)
-- **Containers & Orchestration:** Docker, Kubernetes (K8s), Helm
+- **Containers & Orchestration:** Docker, Kubernetes (K8s), Helm, ArgoCD (GitOps)
 - **CI/CD & Automation:** Jenkins, GitHub Actions, GitLab CI, Bitbucket Pipelines
 - **DevSecOps & Security:** SonarQube (SAST), Snyk (SCA), Gitleaks, Checkov, Nessus, Wazuh
 - **Observability & SRE:** Prometheus, Grafana, ELK, Loki, Alertmanager, structured logging
