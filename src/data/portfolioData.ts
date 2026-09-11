@@ -83,16 +83,17 @@ export interface EducationItem {
 
 export const CANDIDATE_INFO = {
   name: "Rahul Motvani",
-  primaryTitle: "DevOps Engineer | AWS · Kubernetes · Terraform · CI/CD | DevSecOps & Cloud Security",
+  primaryTitle: "DevOps Engineer | Azure · AWS · Kubernetes · Terraform · CI/CD | DevSecOps & Cloud Security",
   secondaryTitles: ["Platform Engineer", "Cloud Infrastructure Engineer", "DevSecOps Specialist", "Site Reliability Engineer"],
   totalExperience: "4+ Years",
   currentRole: "DevOps Engineer",
   currentCompany: "",
   location: "Ahmedabad, Gujarat, India",
   tagline: "Secure, automated cloud infrastructure — from networking and systems through security into DevOps and cloud.",
-  heroDescription: "DevOps engineer who builds and secures cloud infrastructure and delivery pipelines — grounded in networking, systems administration, and security before moving into automation and cloud. I work with AWS (primary), Azure, and GCP; Terraform for infrastructure as code; Kubernetes and Docker for container orchestration; CI/CD with shift-left DevSecOps (SonarQube, Snyk, Gitleaks); and Prometheus, Grafana, and ELK for observability.",
+  heroDescription: "DevOps engineer who builds and secures cloud infrastructure and delivery pipelines — grounded in networking, systems administration, and security before moving into automation and cloud. I work across Azure, AWS, and GCP; Terraform for infrastructure as code; Kubernetes and Docker for container orchestration; CI/CD with shift-left DevSecOps (SonarQube, Snyk, Gitleaks); and Prometheus, Grafana, and ELK for observability.",
   targetRoles: [
     "DevOps Engineer",
+    "Azure DevOps Engineer",
     "DevSecOps Engineer",
     "Site Reliability Engineer (SRE)",
     "Platform Engineer",
@@ -110,7 +111,8 @@ export const CANDIDATE_INFO = {
   resumeLastUpdated: "September 2026",
   atsKeywords: [
     "AWS", "EC2", "S3", "RDS", "Lambda", "ECS", "EKS", "API Gateway", "WAF", "IAM",
-    "Azure", "GCP", "Multi-Cloud", "Terraform", "Kubernetes", "Docker", "Helm", "Linux",
+    "Azure", "AKS", "Azure VNet", "NSG", "Azure Key Vault", "Entra ID", "Azure Monitor", "Azure RBAC",
+    "GCP", "Multi-Cloud", "Terraform", "Kubernetes", "Docker", "Helm", "ArgoCD", "GitOps", "Linux",
     "CI/CD", "Jenkins", "GitHub Actions", "GitLab CI", "Git", "Bitbucket", "Python", "Bash",
     "PostgreSQL", "Redis", "Prometheus", "Grafana", "ELK", "Loki", "Monitoring", "Logging",
     "Observability", "SRE", "DevSecOps", "SAST", "DAST", "SCA", "Snyk", "SonarQube",
@@ -1006,7 +1008,7 @@ export const ACHIEVEMENTS = [
 export const FAQS = [
   {
     question: "What is your primary tech stack for Cloud Infrastructure?",
-    answer: "My primary stack revolves around AWS (with Azure and GCP) for cloud, Terraform for Infrastructure as Code, Kubernetes and Docker for container orchestration, and Jenkins, GitHub Actions, or GitLab CI for CI/CD pipelines — with SonarQube and Snyk wired in for shift-left DevSecOps."
+    answer: "My stack spans Azure, AWS, and GCP for cloud; Terraform for Infrastructure as Code; Kubernetes (AKS, EKS, GKE) and Docker for container orchestration; Jenkins, GitHub Actions, or GitLab CI for CI/CD pipelines — with SonarQube and Snyk wired in for shift-left DevSecOps."
   },
   {
     question: "Do you have experience with DevSecOps?",

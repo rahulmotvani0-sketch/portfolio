@@ -10,9 +10,10 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rahul.techiking.com"),
   title: "Rahul Motvani | DevOps & Cloud Infrastructure Engineer",
   description:
-    "DevOps, DevSecOps, and SRE Engineer with 4+ years building secure, automated, and reliable cloud infrastructure on AWS (with Azure and GCP) — Kubernetes, Terraform, CI/CD, and shift-left security.",
+    "DevOps and DevSecOps Engineer with 4+ years building secure, automated cloud infrastructure across Azure, AWS, and GCP — Terraform IaC, Kubernetes orchestration, CI/CD pipelines, shift-left security, and SRE observability.",
   keywords: [
     "DevOps Engineer",
+    "Azure DevOps Engineer",
     "DevSecOps Engineer",
     "Site Reliability Engineer",
     "SRE",
@@ -21,17 +22,24 @@ export const metadata: Metadata = {
     "Infrastructure as Code",
     "Terraform",
     "Kubernetes",
+    "AKS",
     "Docker",
+    "Helm",
+    "ArgoCD",
     "AWS",
     "Azure",
     "GCP",
     "CI/CD",
     "Jenkins",
     "GitHub Actions",
+    "GitLab CI",
     "Cloud Security",
     "Container Security",
+    "SonarQube",
+    "Snyk",
     "Prometheus",
     "Grafana",
+    "ELK",
   ],
   authors: [{ name: "Rahul Motvani" }],
   creator: "Rahul Motvani",
@@ -41,18 +49,26 @@ export const metadata: Metadata = {
     url: "https://rahul.techiking.com",
     title: "Rahul Motvani | DevOps & Cloud Infrastructure Engineer",
     description:
-      "DevOps, DevSecOps, and SRE Engineer building secure, automated, and reliable cloud infrastructure.",
+      "DevOps and DevSecOps Engineer with 4+ years across Azure, AWS, and GCP — Terraform, Kubernetes, CI/CD, shift-left security, and SRE observability. Open to remote international roles.",
     siteName: "Rahul Motvani Portfolio",
+    images: [
+      {
+        url: "https://rahul.techiking.com/profile.jpg",
+        width: 400,
+        height: 400,
+        alt: "Rahul Motvani — DevOps & Cloud Infrastructure Engineer",
+      },
+    ],
   },
   twitter: {
-    card: "summary_large_image",
+    card: "summary",
     title: "Rahul Motvani | DevOps & Cloud Infrastructure Engineer",
     description:
-      "DevOps, DevSecOps, and SRE Engineer building secure, automated, and reliable cloud infrastructure.",
-    creator: "@rahulmotvani",
+      "DevOps and DevSecOps Engineer with 4+ years across Azure, AWS, and GCP — Terraform, Kubernetes, CI/CD, shift-left security, and SRE observability.",
+    images: ["https://rahul.techiking.com/profile.jpg"],
   },
   alternates: {
-    canonical: "https://rahul.techiking.com",
+    canonical: "https://rahul.techiking.com/",
   },
 };
 

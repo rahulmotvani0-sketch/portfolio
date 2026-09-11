@@ -13,10 +13,12 @@ export function getProfilePageSchema() {
       "image": "https://rahul.techiking.com/profile.jpg",
       "jobTitle": CANDIDATE_INFO.primaryTitle,
       "email": `mailto:${CANDIDATE_INFO.contact.email}`,
-      "worksFor": {
-        "@type": "Organization",
-        "name": CANDIDATE_INFO.currentCompany
-      },
+      ...(CANDIDATE_INFO.currentCompany ? {
+        "worksFor": {
+          "@type": "Organization",
+          "name": CANDIDATE_INFO.currentCompany
+        }
+      } : {}),
       "alumniOf": {
         "@type": "EducationalOrganization",
         "name": "Ganpat University Department of Computer Science"
