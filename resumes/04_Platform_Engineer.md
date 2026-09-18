@@ -3,7 +3,7 @@
 
 Ahmedabad, India · Open to Remote
 rahulmotvani8@gmail.com · +91 89807 80003
-[LinkedIn](https://www.linkedin.com/in/rahul-motvani-720b8b18a/) · [GitHub](https://github.com/rahulmotvani0-sketch) · [Portfolio](https://rahul.techiking.com)
+[LinkedIn](https://www.linkedin.com/in/rahulmotvani/) · [GitHub](https://github.com/rahulmotvani0-sketch) · [Portfolio](https://rahul.techiking.com)
 
 ---
 
