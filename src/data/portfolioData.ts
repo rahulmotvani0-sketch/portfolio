@@ -83,14 +83,14 @@ export interface EducationItem {
 
 export const CANDIDATE_INFO = {
   name: "Rahul Motvani",
-  primaryTitle: "DevOps Engineer | Azure · AWS · Kubernetes · Terraform · CI/CD | DevSecOps & Cloud Security",
+  primaryTitle: "DevOps Engineer | Cloud Infrastructure & Reliability Automation",
   secondaryTitles: ["Platform Engineer", "Cloud Infrastructure Engineer", "DevSecOps Specialist", "Site Reliability Engineer"],
   totalExperience: "4+ Years",
   currentRole: "DevOps Engineer",
-  currentCompany: "",
+  currentCompany: "Agile Logic Technovation",
   location: "Ahmedabad, Gujarat, India",
   tagline: "Secure, automated cloud infrastructure — from networking and systems through security into DevOps and cloud.",
-  heroDescription: "DevOps engineer who builds and secures cloud infrastructure and delivery pipelines — grounded in networking, systems administration, and security before moving into automation and cloud. I work across Azure, AWS, and GCP; Terraform for infrastructure as code; Kubernetes and Docker for container orchestration; CI/CD with shift-left DevSecOps (SonarQube, Snyk, Gitleaks); and Prometheus, Grafana, and ELK for observability.",
+  heroDescription: "DevOps Engineer with 4+ years of experience architecting, automating, and operating secure, highly available cloud infrastructure across AWS, Azure, and GCP. Specializing in Infrastructure as Code (Terraform), CI/CD pipeline automation (GitHub Actions, GitLab CI), Kubernetes orchestration, shift-left DevSecOps security, and full-stack observability (Prometheus, Grafana, ELK). Proven track record of reducing deployment times, optimizing cloud costs, and establishing resilient infrastructure for scalable enterprise applications.",
   targetRoles: [
     "DevOps Engineer",
     "Azure DevOps Engineer",
@@ -103,7 +103,7 @@ export const CANDIDATE_INFO = {
   targetLocations: "US, UK, Europe, Canada, Australia, Singapore, UAE & Global Remote Roles",
   contact: {
     email: "rahulmotvani8@gmail.com",
-    linkedin: "https://www.linkedin.com/in/rahul-motvani-720b8b18a/",
+    linkedin: "https://www.linkedin.com/in/rahulmotvani/",
     github: "https://github.com/rahulmotvani0-sketch",
     tryhackme: "https://tryhackme.com/p/rahulmotvani8gma",
     availability: "Immediate / Remote",
@@ -746,65 +746,70 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
 
 export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
   {
-    id: "agile-logic-technovations",
-    company: "DevOps Consultancy",
+    id: "agile-logic-technovation",
+    company: "Agile Logic Technovation",
     title: "DevOps Engineer",
-    period: "December 2025 – Present",
+    period: "Dec 2025 – Present",
     location: "Ahmedabad, Gujarat, India",
     isCurrent: true,
     highlights: [
-      "Architected multi-cloud infrastructure on AWS, Azure, and GCP using modular Terraform, standardizing environment provisioning and eliminating manual configuration drift across development, staging, and production.",
-      "Engineered CI/CD pipelines with Jenkins, GitHub Actions, and GitLab CI — embedding SonarQube SAST and Snyk SCA quality gates that block vulnerable code before merge.",
-      "Containerized and orchestrated production workloads on Kubernetes with Helm, enforcing resource limits, rolling updates, and pod anti-affinity for high availability.",
-      "Hardened cloud security posture by implementing least-privilege IAM policies, network segmentation, secrets rotation, and automated vulnerability scanning across all environments.",
-      "Built observability stack with Prometheus, Grafana dashboards, and ELK-based centralized logging — reducing mean time to detect issues and enabling structured incident response.",
-      "Integrated ML model serving into Kubernetes-based CI/CD, containerizing inference workloads and automating deployment pipelines for data science teams."
+      "Architected and operated secure, highly available cloud infrastructure across AWS, Azure, and GCP, supporting internal platforms and client technology transformations with reproducible, version-controlled Terraform provisioning.",
+      "Designed and optimized automated CI/CD deployment pipelines using GitHub Actions and GitLab CI, accelerating release cycles with automated build, test, security scanning, and zero-downtime deployment stages.",
+      "Managed containerization and orchestration workflows using Docker and Kubernetes, ensuring seamless scalability, optimal resource allocation, and consistent deployments across microservices architectures.",
+      "Collaborated closely with backend, frontend, and data engineering teams to establish automated testing, Infrastructure as Code (IaC), and secure environment configurations across development, staging, and production.",
+      "Implemented robust monitoring, centralized logging, and alerting systems using Prometheus, Grafana, and the ELK Stack, proactively detecting anomalies, maintaining uptime, and enforcing cloud security best practices.",
+      "Embedded DevSecOps into every pipeline — integrating SAST, DAST, dependency scanning, container-image scanning, and secrets detection as mandatory quality gates before production promotion.",
+      "Provisioned and managed cloud networking including VPC/VNet, subnets, security groups, load balancers, DNS, SSL/TLS certificates, and NAT gateways, enforcing least-privilege access through IAM and RBAC.",
+      "Authored reusable Terraform modules for networking, compute, Kubernetes clusters, and database layers, enabling consistent, reproducible infrastructure provisioning across multiple environments and client platforms.",
+      "Automated operational tasks — environment provisioning, backup verification, certificate rotation, and infrastructure health checks — using Python and Bash scripts, reducing manual effort and improving reliability.",
+      "Led root-cause analysis on infrastructure, networking, and CI/CD incidents, implementing preventive automation and runbooks that reduced recurring issues and improved operational stability.",
+      "Managed infrastructure streams for multiple simultaneous projects, coordinating effectively with remote engineering teams and meeting tight deployment deadlines."
     ],
-    technologiesUsed: ["AWS", "Azure", "GCP", "Terraform", "Kubernetes", "Docker", "Helm", "Jenkins", "GitHub Actions", "GitLab CI", "Bitbucket", "Prometheus", "Grafana", "ELK", "SonarQube", "Snyk"]
+    technologiesUsed: ["AWS", "Azure", "GCP", "Terraform", "GitHub Actions", "GitLab CI", "Docker", "Kubernetes", "Prometheus", "Grafana", "ELK", "Python", "Bash", "IAM", "RBAC", "DevSecOps"]
   },
   {
     id: "azilen-technologies",
-    company: "Technology Services Company",
-    title: "IT Infrastructure Engineer",
-    period: "August 2024 – November 2025",
+    company: "Azilen Technologies Pvt Ltd",
+    title: "IT Technician",
+    period: "Aug 2024 – Nov 2025",
     location: "Ahmedabad, Gujarat, India",
     isCurrent: false,
     highlights: [
-      "Administered hybrid cloud and on-premises infrastructure spanning Windows and Linux servers, managing virtualization platforms for engineering development teams.",
-      "Automated repetitive provisioning and maintenance tasks with Bash and PowerShell scripts, standardizing server configuration and reducing manual effort.",
-      "Collaborated with engineering teams to diagnose and resolve networking, access control, and deployment issues — improving system uptime and developer productivity.",
-      "Documented infrastructure processes and onboarding procedures, establishing repeatable runbooks for common operational tasks."
+      "Administered hybrid cloud and on-premises infrastructure — Windows/Linux servers and virtualization platforms — forming the operational foundation for cloud migration and DevOps automation initiatives.",
+      "Automated repetitive provisioning and configuration tasks using shell scripting and Python, standardizing environment setup and improving deployment consistency.",
+      "Collaborated with engineering teams to troubleshoot networking, access, and deployment issues, ensuring minimal downtime and maintaining service availability.",
+      "Implemented infrastructure monitoring and documentation practices, improving system health visibility and enabling faster incident response.",
+      "Assisted in onboarding new cloud services and supported the transition from manual deployments to CI/CD-driven delivery."
     ],
-    technologiesUsed: ["Linux", "Windows Server", "Virtualization", "Shell Scripting", "Networking", "Active Directory", "System Administration"]
+    technologiesUsed: ["Hybrid Cloud", "Linux", "Windows Server", "Virtualization", "Python", "Shell Scripting", "Networking", "CI/CD"]
   },
   {
     id: "aruhat-technologies",
-    company: "IT Solutions Company",
-    title: "Junior Network Engineer",
-    period: "June 2023 – July 2024",
+    company: "Aruhat Technologies Pvt Ltd",
+    title: "Jr. Network Engineer",
+    period: "Jun 2023 – Jul 2024",
     location: "Ahmedabad, Gujarat, India",
     isCurrent: false,
     highlights: [
-      "Designed and implemented network segmentation and firewall access controls across client infrastructure, closing security audit findings and reducing attack surface.",
-      "Led migration to a modernized network architecture, improving scalability, redundancy, and reliability for business-critical workloads.",
-      "Administered virtualization environments (VMware/Hyper-V) and managed Windows/Linux servers for enterprise clients.",
-      "Performed vulnerability assessments using Nessus and remediated identified risks, strengthening the overall security posture across client environments."
+      "Implemented network segmentation, firewall rules, and access controls across client infrastructure, reducing data breach risk by 30% through defense-in-depth strategies.",
+      "Led a migration to redesigned network architecture — VLAN segmentation, redundant links, and improved routing — strengthening scalability and reliability for business-critical workloads.",
+      "Maintained virtualization environments (VMware, Hyper-V) and Windows/Linux servers; performed vulnerability assessments and remediation to harden security posture.",
+      "Engineered DNS, DHCP, VPN, SSL/TLS, and firewall configurations for multi-site deployments, ensuring secure, reliable connectivity."
     ],
-    technologiesUsed: ["Network Architecture", "Firewalls", "VLANs", "Network Segmentation", "VMware", "Hyper-V", "Linux", "Windows Server", "Nessus", "Vulnerability Assessment"]
+    technologiesUsed: ["Network Architecture", "Firewalls", "VLANs", "Network Segmentation", "VMware", "Hyper-V", "Linux", "Windows Server", "Nessus", "DNS", "DHCP", "VPN"]
   },
   {
     id: "abp-network",
-    company: "Media & Broadcasting Company",
+    company: "ABP News (ABP Network)",
     title: "Junior IT Engineer",
-    period: "July 2022 – May 2023",
+    period: "Jul 2022 – May 2023",
     location: "Ahmedabad, Gujarat, India",
     isCurrent: false,
     highlights: [
-      "Monitored and maintained production broadcast and office IT infrastructure, ensuring 24/7 availability for live news operations.",
-      "Resolved network, server, and endpoint issues under tight SLAs, prioritizing rapid incident resolution to maintain broadcast continuity.",
-      "Supported routine system upgrades, patch management, and hardware lifecycle operations across the broadcast facility."
+      "Ensured 24/7 availability of production broadcast and office IT infrastructure, resolving network, server, and endpoint issues under SLA commitments in a mission-critical environment.",
+      "Managed server patching, routine upgrades, and Linux/Windows system administration, maintaining compliance with organizational security standards."
     ],
-    technologiesUsed: ["IT Infrastructure", "Network Troubleshooting", "System Maintenance", "Patch Management", "SLA Management", "Hardware Support"]
+    technologiesUsed: ["IT Infrastructure", "Linux", "Windows Server", "System Administration", "Patch Management", "Network Troubleshooting", "SLA Management"]
   }
 ];
 
@@ -828,6 +833,13 @@ export const EDUCATION: EducationItem[] = [
 ];
 
 export const CERTIFICATIONS: Certification[] = [
+  {
+    id: "in-progress-certs",
+    title: "AWS Solutions Architect / Azure Administrator (AZ-104) / CKA",
+    issuer: "AWS / Microsoft / CNCF (In Progress)",
+    badgeIcon: "Cloud",
+    category: "Cloud & Kubernetes (In Progress)"
+  },
   {
     id: "icsi-cnss",
     title: "Certified Network Security Specialist (CNSS)",

@@ -24,14 +24,14 @@ export function Hero() {
                 <a href="#projects">Explore My Work</a>
               </Button>
               <Button variant="outline" size="lg" asChild>
-                <a href="/Rahul_Motvani_Resume.pdf" download="Rahul_Motvani_Resume.pdf">
+                <a href="/rahul_motvani_resume_fyerx.pdf" download="rahul_motvani_resume_fyerx.pdf">
                   <Download className="mr-2 h-4 w-4" />
                   Download Resume (PDF)
                 </a>
               </Button>
             </div>
             <div className="flex items-center gap-4 mt-8">
-              <a href="https://www.linkedin.com/in/rahul-motvani-720b8b18a/" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
+              <a href="https://www.linkedin.com/in/rahulmotvani/" target="_blank" rel="noreferrer" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 <Linkedin className="h-6 w-6" />
                 <span className="sr-only">LinkedIn</span>
               </a>

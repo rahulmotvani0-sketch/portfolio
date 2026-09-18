@@ -36,16 +36,16 @@ export default function ResumeModal({ isOpen, onClose }: ResumeModalProps) {
 
           <div className="flex items-center gap-2 sm:gap-3 flex-wrap">
             <a
-              href="/Rahul_Motvani_Resume.pdf"
-              download="Rahul_Motvani_Resume.pdf"
+              href="/rahul_motvani_resume_fyerx.pdf"
+              download="rahul_motvani_resume_fyerx.pdf"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 text-xs font-bold transition-colors cursor-pointer shadow-md"
             >
               <Download className="w-3.5 h-3.5" />
               <span>Download PDF</span>
             </a>
             <a
-              href="/Rahul_Motvani_Resume.docx"
-              download="Rahul_Motvani_Resume.docx"
+              href="/rahul_motvani_resume_fyerx.docx"
+              download="rahul_motvani_resume_fyerx.docx"
               className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-xs font-semibold transition-colors cursor-pointer"
             >
               <Download className="w-3.5 h-3.5 text-cyan-400" />
