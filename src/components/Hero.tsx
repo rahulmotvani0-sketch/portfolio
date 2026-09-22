@@ -67,27 +67,28 @@ export default function Hero({ onOpenResume }: HeroProps) {
                 />
               </div>
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-white tracking-tight leading-none">
-                {CANDIDATE_INFO.name} <span className="hidden">— Cloud & DevOps Engineer</span>
+                {CANDIDATE_INFO.name} <span className="hidden">— DevOps & Cloud Infrastructure Engineer</span>
               </h1>
               <div className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-emerald-400 via-cyan-300 to-blue-400 bg-clip-text text-transparent">
                 {CANDIDATE_INFO.primaryTitle}
               </div>
-              <p className="text-sm font-mono text-slate-400">
-                Target Roles: Platform Engineer • Cloud Infrastructure Engineer • Site Reliability Engineer
+              <p className="text-xs sm:text-sm font-mono text-slate-400">
+                DevOps • SRE • DevSecOps • AWS & Azure Cloud Infrastructure • AI-Enabled Operations
               </p>
             </div>
 
             {/* Value Proposition */}
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
-              Architecting, securing, and operating production cloud infrastructure across AWS, Azure, and GCP. 
-              Specializing in <span className="text-emerald-400 font-semibold">Kubernetes</span>, <span className="text-cyan-400 font-semibold">Terraform IaC</span>, <span className="text-emerald-400 font-semibold">SonarQube & Snyk DevSecOps</span>, and high-availability SRE pipelines.
+              Architecting, securing, and operating high-volume enterprise SaaS infrastructure across <span className="text-emerald-400 font-semibold">AWS</span> (ECS, Lambda, DynamoDB, ALB, API GW) and <span className="text-cyan-400 font-semibold">Azure</span> (AKS, App Insights, Azure Monitor). 
+              Specializing in <span className="text-emerald-400 font-semibold">Terraform IaC</span>, <span className="text-cyan-400 font-semibold">Kubernetes & Helm</span>, <span className="text-emerald-400 font-semibold">GitHub Actions & Jenkins CI/CD</span>, <span className="text-purple-400 font-semibold">SonarQube & Snyk DevSecOps</span>, supply-chain security (Cosign, Syft), Prometheus SRE observability, and AI-enabled operations.
             </p>
 
             {/* Quick Tech Badges */}
             <div className="flex flex-wrap gap-2 pt-1">
               {[
-                "AWS", "Azure", "GCP", "Kubernetes", "Terraform", 
-                "Docker", "SonarQube", "Snyk", "Bitbucket", "PostgreSQL", "Prometheus"
+                "AWS (ECS/Lambda)", "Azure (AKS)", "Terraform", "Kubernetes", "Helm",
+                "Docker Swarm", "GitHub Actions", "Jenkins", "Prometheus & Grafana", "ELK & Loki",
+                "SonarQube & Snyk", "Trivy & Checkov", "Cosign & Syft (SBOM)", "AIOps & LLM Infra"
               ].map((tech) => (
                 <span 
                   key={tech}

@@ -147,7 +147,7 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
             </ul>
           </section>
           
-          <section className="grid md:grid-cols-2 gap-6">
+          <section className="grid md:grid-cols-3 gap-6">
             <div className="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
               <h3 className="text-xl font-bold text-white mb-4">Security</h3>
               <ul className="space-y-2 list-disc list-inside text-slate-300 text-sm">
@@ -158,6 +158,12 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
               <h3 className="text-xl font-bold text-white mb-4">Observability</h3>
               <ul className="space-y-2 list-disc list-inside text-slate-300 text-sm">
                 {project.observabilitySetup.map((obs, i) => <li key={i}>{obs}</li>)}
+              </ul>
+            </div>
+            <div className="bg-slate-900/50 rounded-xl p-6 border border-slate-800">
+              <h3 className="text-xl font-bold text-white mb-4">Reliability & HA</h3>
+              <ul className="space-y-2 list-disc list-inside text-slate-300 text-sm">
+                {(project.reliabilityHighlights || []).map((rel, i) => <li key={i}>{rel}</li>)}
               </ul>
             </div>
           </section>
