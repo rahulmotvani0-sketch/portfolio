@@ -20,36 +20,42 @@ interface RecruiterMatrixProps {
 }
 
 export default function RecruiterMatrix({ onOpenResume }: RecruiterMatrixProps) {
-  const [selectedPerspective, setSelectedPerspective] = useState<'all' | 'devsecops' | 'sre' | 'iac'>('all');
+  const [selectedPerspective, setSelectedPerspective] = useState<'all' | 'devsecops' | 'sre' | 'iac' | 'aiops'>('all');
 
   const highlights = {
     all: [
-      "4+ years of hands-on experience across infrastructure, networking, security, container orchestration, IaC, and DevSecOps.",
-      "Proven track record migrating legacy database & VCS platforms (Bitbucket Data Center, PostgreSQL) with zero data loss.",
-      "Shift-left security integration: Automated SAST (SonarQube) and SCA (Snyk) into CI/CD pipelines.",
-      "Modular multi-cloud IaC provisioning using Terraform across AWS, Azure, and GCP.",
-      "Incident response & observability: Prometheus, Grafana, structured logging, and blameless RCA."
+      "4+ years of hands-on experience architecting and operating high-volume enterprise SaaS cloud infrastructure.",
+      "Dual AWS (ECS, Lambda, DynamoDB, ALB, API GW, WAFv2) and Azure (AKS, App Insights, Azure Monitor, RBAC) cloud capabilities.",
+      "Modular Infrastructure as Code with Terraform & AWS CDK, automated remote state locking (S3/DynamoDB), and 6-hour drift detection.",
+      "Shift-left DevSecOps & Supply Chain Security: SonarQube, Snyk, Trivy, Gitleaks, Anchore Syft (SBOM), and Sigstore Cosign keyless signing.",
+      "Enterprise SRE & Observability: Prometheus, Grafana RED metrics, Loki distributed tracing, Alertmanager, and blameless RCA."
     ],
     devsecops: [
-      "Automated Quality Gates blocking releases with CVSS > 7.0 or unvetted secrets (Gitleaks).",
-      "Snyk container image auditing and open-source license risk verification.",
-      "SonarQube static application security testing (SAST) integrated into Bitbucket & GitHub Actions.",
-      "TryHackMe Top 3% global rank with practical network penetration testing & Linux hardening background.",
-      "Compliance enforcement: CIS Benchmarks, non-root Docker runtime, and least-privilege IAM policies."
+      "Automated Quality Gates blocking releases with CVSS > 7.0, OWASP Top 10 vulnerabilities, or hardcoded secrets (Gitleaks).",
+      "Software Composition Analysis (SCA) via Snyk and Trivy for container base images and open-source packages.",
+      "SLSA Level 3 supply-chain security: Anchore Syft SBOM generation (SPDX/CycloneDX) and Sigstore Cosign keyless image signing.",
+      "TryHackMe Top 3% global rank with practical network penetration testing, WAFv2 ruleset tuning, and Linux hardening.",
+      "Compliance enforcement: CIS AWS/Azure Benchmarks, non-root container runtimes, and least-privilege IAM/RBAC policies."
     ],
     sre: [
-      "Prometheus & Grafana metric dashboards tracking SLOs, error budgets, and MTTR.",
-      "Bitbucket Data Center high-availability container setup with zero-downtime database upgrades.",
-      "Root Cause Analysis (RCA) expertise resolving complex PostgreSQL CPU spikes and GPU VRAM OOM errors.",
-      "High-availability Kubernetes deployments with automated pod scaling and resource limits.",
-      "Blameless post-mortems and automated incident recovery playbooks."
+      "Prometheus & Grafana metric dashboards tracking SLI/SLO bounds, error budgets, and MTTR reduction.",
+      "Bitbucket Data Center & microservice high-availability (HA) container setups with zero-downtime database engine upgrades.",
+      "Blameless Root Cause Analysis (RCA) expertise resolving complex PostgreSQL CPU spikes and memory fragmentation.",
+      "Kubernetes (AKS/EKS) autoscaling using HPA, PodAntiAffinity multi-zone scheduling, and resource limits.",
+      "Automated incident recovery playbooks and ArgoCD GitOps self-healing within 15 seconds."
     ],
     iac: [
-      "Modular Terraform framework for multi-region AWS and Azure resource provisioning.",
-      "GitOps workflow: PR-driven `terraform plan` execution with Checkov static security analysis.",
-      "Remote state locking and state management via AWS S3 and DynamoDB.",
-      "Cloud cost optimization: Auto-tagging and scheduled non-production resource teardown.",
-      "Eliminated manual configuration drift across Dev, Staging, and Production environments."
+      "Modular Terraform & AWS CDK framework for multi-region AWS and Azure resource provisioning.",
+      "GitOps workflow: PR-driven `terraform plan` execution with Checkov IaC policy-as-code analysis.",
+      "Remote state locking and state management via encrypted AWS S3 and DynamoDB.",
+      "Cloud cost optimization: Auto-tagging and scheduled non-production resource teardown saving 28% monthly cloud spend.",
+      "Eliminated 100% of manual configuration drift across Dev, Staging, and Production environments."
+    ],
+    aiops: [
+      "AIOps & Intelligent Observability: Automated log anomaly detection and AI-assisted root cause analysis.",
+      "LLM & AI workload infrastructure: vLLM and Ollama container runtime isolation, TTFT latency tracking, and Qdrant vector DB.",
+      "High Availability (HA) multi-provider fallback and circuit breaking preventing 5xx gateway timeouts.",
+      "Agentic SDLC integration for automated test generation, script writing, and incident response runbook generation."
     ]
   };
 
@@ -194,7 +200,7 @@ export default function RecruiterMatrix({ onOpenResume }: RecruiterMatrixProps) 
                 </div>
                 
                 <div className="flex flex-wrap gap-1.5">
-                  {(['all', 'devsecops', 'sre', 'iac'] as const).map((key) => (
+                  {(['all', 'devsecops', 'sre', 'iac', 'aiops'] as const).map((key) => (
                     <button
                       key={key}
                       onClick={() => setSelectedPerspective(key)}
@@ -208,6 +214,7 @@ export default function RecruiterMatrix({ onOpenResume }: RecruiterMatrixProps) 
                       {key === 'devsecops' && "DevSecOps Focus"}
                       {key === 'sre' && "SRE & Reliability"}
                       {key === 'iac' && "Cloud & IaC Focus"}
+                      {key === 'aiops' && "AIOps & AI Infra"}
                     </button>
                   ))}
                 </div>

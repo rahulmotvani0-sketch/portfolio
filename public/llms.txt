@@ -1,77 +1,87 @@
-# Rahul Motvani — DevOps & Cloud Infrastructure Engineer
+# Rahul Motvani — DevOps / SRE / DevSecOps & Cloud Infrastructure Engineer
 
 ## Identity & Contact
 - **Name:** Rahul Motvani
-- **Current Role:** DevOps Engineer
-- **Experience:** 4+ years across infrastructure, networking, security, and DevOps
-- **Location:** Ahmedabad, India · Open to Remote
-- **Availability:** Remote / Global (US, UK, EU, Canada, Australia, Singapore, UAE)
+- **Primary Role:** Production DevOps Engineer (DevOps / SRE / DevSecOps / Cloud Infrastructure / AI-Enabled Operations)
+- **Experience:** 4+ years architecting, securing, and operating production enterprise SaaS cloud infrastructure
+- **Location:** Ahmedabad, India · Open to Global Remote Roles
+- **Availability:** Immediate / Remote
 - **Email:** rahulmotvani8@gmail.com
 - **LinkedIn:** https://www.linkedin.com/in/rahulmotvani/
 - **GitHub:** https://github.com/rahulmotvani0-sketch
 - **Portfolio:** https://rahul.techiking.com
 
 ## Summary
-DevOps engineer who builds and secures cloud infrastructure and delivery pipelines — grounded in networking, systems administration, and security before moving into automation and cloud. I work across Azure, AWS, and GCP; Terraform for infrastructure as code; Kubernetes and Docker for container orchestration; CI/CD with shift-left DevSecOps (SonarQube, Snyk, Gitleaks); and Prometheus, Grafana, and ELK for observability.
+Production-focused DevOps, SRE, DevSecOps, and Cloud Infrastructure Engineer operating high-volume multi-tenant enterprise SaaS platforms across AWS (ECS, Lambda, DynamoDB, ALB, API Gateway, CloudWatch, IAM, VPC) and Azure (AKS, Application Insights, Azure Monitor, networking, RBAC). Specializing in Infrastructure as Code (Terraform, AWS CDK), container orchestration (Kubernetes, Docker Swarm, Helm), CI/CD automation (GitHub Actions, Jenkins, GitLab CI), shift-left DevSecOps (OWASP Top 10, SAST, DAST, SCA, Trivy, Snyk, SonarQube, Checkov, Gitleaks, SBOM, Cosign, Syft), enterprise SRE (Prometheus, Grafana, ELK/Loki, Alertmanager, SLI/SLO, MTTR, RCA), and AI-enabled operations (AIOps, intelligent observability, automated RCA).
 
-## Key Skills
-- **Cloud Platforms:** Microsoft Azure (AKS, VNet, Key Vault, Entra ID, Monitor), AWS (EC2, EKS, S3, Lambda, IAM), GCP (GKE)
-- **Infrastructure as Code:** Terraform (modular, remote state, drift detection)
-- **Containers & Orchestration:** Docker, Kubernetes (K8s), Helm, ArgoCD (GitOps)
-- **CI/CD & Automation:** Jenkins, GitHub Actions, GitLab CI, Bitbucket Pipelines
-- **DevSecOps & Security:** SonarQube (SAST), Snyk (SCA), Gitleaks, Checkov, Nessus, Wazuh
-- **Observability & SRE:** Prometheus, Grafana, ELK, Loki, Alertmanager, structured logging
-- **Networking:** TCP/IP, Nginx, DNS, VLANs, VPN, Firewalls, Routing & Switching
-- **OS & Scripting:** Linux (Ubuntu/RHEL), Bash, Python
-- **Databases:** PostgreSQL, Redis, DynamoDB
+## Standardized 10-Point Project Breakdown
+Every project in the portfolio is evaluated across 10 explicit dimensions:
+1. Problem: Operational bottleneck or vulnerability in high-throughput SaaS environments.
+2. Architecture: End-to-end dataflow and system topology.
+3. Technologies: Full tech stack (AWS, Azure, Terraform, K8s, CI/CD, Observability, Security, AI).
+4. My Role: Explicit personal responsibility and lead engineering scope.
+5. Implementation: Detailed breakdown of what was configured and delivered.
+6. Security: OWASP Top 10, SAST, DAST, SCA, IAM/RBAC, secrets detection, SBOM, and Sigstore Cosign keyless signing.
+7. Observability: Prometheus, Grafana RED metrics, Loki distributed tracing, Alertmanager, CloudWatch, and Application Insights.
+8. Automation: IaC (Terraform modules, AWS CDK), automated testing, CI/CD pipelines, and GitOps drift reconciliation.
+9. Reliability: High Availability (HA), HPA autoscaling, SLI/SLO bounds, MTTR reduction, blameless RCA, and self-healing.
+10. Results / Metrics: Quantifiable technical and business metrics (e.g., 99.99% availability, sub-15ms p95 latency, 68% MTTR triage reduction, zero-downtime database upgrades).
 
 ## Project Case Studies (Code-Backed — GitHub Repos)
 
-- **Secure Serverless REST API on AWS with WAFv2 & Keyless OIDC**
+- **AWS Serverless Secure API — WAFv2, API Gateway & Keyless OIDC**
   https://rahul.techiking.com/projects/aws-serverless-secure-api
   GitHub: https://github.com/rahulmotvani0-sketch/aws-serverless-secure-api
-  Production-grade serverless API provisioned with Terraform, protected by AWS WAFv2, deployed via keyless GitHub Actions OIDC. Technologies: AWS Lambda, API Gateway, WAFv2, DynamoDB, Terraform, Checkov, Python.
+  Production-grade URL Analytics API provisioned with Terraform, secured via AWS WAFv2 and IAM least-privilege, deployed via keyless GitHub Actions OIDC.
+  Technologies: AWS Lambda (ARM64), API Gateway v2, AWS WAFv2, DynamoDB, AWS IAM, CloudWatch, Terraform, GitHub Actions, OIDC, Checkov, Gitleaks.
 
-- **Enterprise DevSecOps CI/CD Template & Supply Chain Security**
+- **Enterprise DevSecOps CI/CD Template & Supply-Chain Security**
   https://rahul.techiking.com/projects/devsecops-secure-cicd-template
   GitHub: https://github.com/rahulmotvani0-sketch/devsecops-secure-cicd-template
-  Reusable shift-left security pipeline: SAST (Semgrep), SCA (Trivy), IaC (Checkov), secret scanning (Gitleaks), SBOM (Syft), keyless Cosign image signing. Technologies: GitHub Actions, Semgrep, Trivy, Checkov, Cosign, Docker.
+  Reusable shift-left security pipeline enforcing OWASP Top 10 SAST (Semgrep), SCA (Trivy), IaC (Checkov), secret scanning (Gitleaks), SBOM (Syft), and keyless Cosign container signing.
+  Technologies: GitHub Actions, Jenkins, GitLab CI, Semgrep, Trivy, Checkov, Gitleaks, Anchore Syft, Sigstore Cosign, Docker, SARIF.
 
-- **Multi-Node Kubernetes Platform with GitOps & SRE Observability**
+- **Kubernetes GitOps Observability Platform — ArgoCD, Prometheus & Loki**
   https://rahul.techiking.com/projects/kubernetes-gitops-observability-platform
   GitHub: https://github.com/rahulmotvani0-sketch/kubernetes-gitops-observability-platform
-  3-node Kind cluster with ArgoCD GitOps (App-of-Apps), Prometheus + Loki observability, HPA, and chaos engineering scripts. Technologies: Kubernetes, ArgoCD, Prometheus, Grafana, Loki, Helm, Docker.
+  Reproducible 3-node Kubernetes platform featuring declarative ArgoCD GitOps (App-of-Apps), Prometheus & Loki SRE observability (RED metrics & distributed log tracing), and chaos self-healing.
+  Technologies: Kubernetes (AKS / Kind), ArgoCD, Helm, Prometheus, Grafana, Loki, Promtail, Alertmanager, NGINX Ingress, HPA, Redis.
 
-## Project Case Studies (Professional Work — No Public Repo)
+## Project Case Studies (Professional Case Studies)
 
-- **Terraform Multi-Cloud Infrastructure Automation & GitOps**
+- **Terraform Multi-Cloud IaC — AWS, Azure & GitOps Drift Automation**
   https://rahul.techiking.com/projects/terraform-iac-cloud
-  Modular IaC framework automating AWS, Azure, and GCP provisioning with remote state locking and Checkov security compliance. Technologies: Terraform, AWS, Azure, GCP, Checkov, TFLint.
+  Modular IaC framework automating multi-region AWS (ECS/EKS, VPC, ALB, RDS) and Azure (AKS, VNet, RBAC) provisioning with remote state locking and 6-hour drift automation.
+  Technologies: Terraform, Terraform Modules, AWS CDK, AWS, Azure, Checkov, TFLint, S3 + DynamoDB, GitOps.
 
-- **Bitbucket Infrastructure Migration & Platform Modernization**
+- **Bitbucket Infrastructure Migration — Zero-Downtime HA Modernization**
   https://rahul.techiking.com/projects/bitbucket-migration
-  Zero-downtime migration of enterprise Bitbucket platform across 200+ repositories with PostgreSQL 10→15 upgrade. Technologies: Docker, PostgreSQL, Java 17, Bash, Linux.
+  Zero-downtime migration of enterprise Bitbucket platform across 200+ repos with PostgreSQL 10→15 upgrade and Docker Swarm HA containerization.
+  Technologies: Bitbucket Data Center, Docker, Docker Swarm, PostgreSQL 15, Java 17, Bash, Linux, Rsync.
 
-- **SonarQube Migration & DevSecOps Quality Gate Pipeline**
+- **SonarQube & Snyk DevSecOps Quality Gate Pipeline**
   https://rahul.techiking.com/projects/sonarqube-devsecops
-  Shift-left DevSecOps automation integrating SonarQube SAST, Snyk SCA, and quality gates across engineering teams. Technologies: SonarQube, Snyk, Bitbucket Pipelines, Docker.
+  Shift-left DevSecOps automation integrating SonarQube SAST, Snyk SCA vulnerability scanning, and quality gates across enterprise CI/CD workflows.
+  Technologies: SonarQube, Snyk, Jenkins, GitLab CI, Bitbucket Pipelines, OWASP Top 10, Gitleaks, Docker, PostgreSQL.
 
-## Personal Projects
+## AI-Enabled Operations & Infrastructure Projects
 
-- **SARA-II — AI Assistant Infrastructure (Personal Project)**
+- **SARA-II — AI Infrastructure & AIOps Runtime Isolation**
   https://rahul.techiking.com/projects/sara-ii
-  Event-driven LLM infrastructure platform with Docker containers, Prometheus observability, and circuit-breaker failover. Technologies: Docker, Python, FastAPI, vLLM, Redis, Prometheus.
+  High-concurrency AI infrastructure platform supporting vLLM/Ollama runtime isolation, TTFT latency tracking, vector DB (Qdrant), and AIOps intelligent observability.
+  Technologies: vLLM, Ollama, FastAPI, Docker, Qdrant, Redis, Prometheus, Grafana, AIOps, Intelligent Observability.
 
-- **LeadPulse AI (Personal Project)**
+- **LeadPulse AI — Multi-Agent Data Engine & Automated RCA**
   https://rahul.techiking.com/projects/leadpulse-ai
-  Multi-agent AI data engine with DevSecOps pipelines. Technologies: FastAPI, PostgreSQL, Qdrant, Redis, Docker, Snyk, SonarQube.
+  Multi-agent AI data engine with PostgreSQL payload indexing, Snyk/SonarQube quality gates, and automated RCA for database query optimization.
+  Technologies: FastAPI, React, PostgreSQL, Qdrant, Redis, Docker Multi-Stage, Snyk, SonarQube.
 
 ## Certifications & Achievements
-- **Certification:** Certified Network Security Specialist (CNSS) — ICSI, U.K.
-- **Achievement:** TryHackMe — Top 3% Global Ranking (6 learning paths completed)
+- **Certification:** Certified Network Security Specialist (CNSS) — ICSI, U.K. (ID: 19306985)
+- **Achievement:** TryHackMe — Top 3% Global Ranking (Practical Network & Linux Hardening)
 - **Certificate Course:** Architecting with Google Cloud Platform — Google Cloud / Coursera (5 courses)
 - **Course Completions:** Introduction to Cybersecurity, Networking Basics — Cisco Networking Academy
 
 ## Education
-- M.Sc. IT (IMS) — Ganpat University (2020–2022)
-- B.Sc. IT (IMS) — Ganpat University (2017–2020)
+- M.Sc. IT (IMS) — Server Administration & Infrastructure Management Services, Ganpat University (2020–2022)
+- B.Sc. IT (IMS) — Server Administration & Infrastructure Management Services, Ganpat University (2017–2020)

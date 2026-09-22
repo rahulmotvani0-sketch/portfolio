@@ -136,8 +136,8 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </ul>
               </div>
 
-              {/* Security, Automation & Observability 3-Column Grid */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+              {/* Security, Automation, Observability & Reliability 4-Column Grid */}
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 
                 {/* Security */}
                 <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
@@ -172,7 +172,7 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 {/* Observability */}
                 <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
                   <div className="flex items-center gap-2 text-purple-400 font-mono text-xs font-bold uppercase">
-                    <Activity className="w-4 h-4" /> SRE Observability
+                    <Activity className="w-4 h-4" /> Observability & Telemetry
                   </div>
                   <ul className="space-y-1.5 text-xs text-slate-300">
                     {project.observabilitySetup.map((obs, i) => (
@@ -184,13 +184,28 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                   </ul>
                 </div>
 
+                {/* Reliability */}
+                <div className="p-4 rounded-xl bg-slate-950/80 border border-slate-800 space-y-2">
+                  <div className="flex items-center gap-2 text-amber-400 font-mono text-xs font-bold uppercase">
+                    <ShieldCheck className="w-4 h-4" /> Reliability & HA
+                  </div>
+                  <ul className="space-y-1.5 text-xs text-slate-300">
+                    {(project.reliabilityHighlights || []).map((rel, i) => (
+                      <li key={i} className="flex items-start gap-1.5">
+                        <span className="text-amber-400 font-mono">•</span>
+                        <span>{rel}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
               </div>
 
               {/* Root Cause Analysis (RCA) & Complex Problem Solved */}
               {project.challengesAndRCA.length > 0 && (
                 <div className="p-5 rounded-xl bg-amber-500/5 border border-amber-500/20 space-y-3">
                   <h3 className="text-xs font-mono font-bold text-amber-400 uppercase tracking-wider flex items-center gap-2">
-                    <AlertTriangle className="w-4 h-4" /> Troubleshooting & Root Cause Analysis (RCA) Story
+                    <AlertTriangle className="w-4 h-4" /> Incident Troubleshooting & Root Cause Analysis (RCA)
                   </h3>
                   {project.challengesAndRCA.map((item, i) => (
                     <div key={i} className="space-y-2 text-xs sm:text-sm">
@@ -208,9 +223,9 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
               {/* Quantifiable Results & Impact */}
               <div className="p-5 rounded-xl bg-emerald-500/5 border border-emerald-500/20 space-y-3">
                 <h3 className="text-xs font-mono font-bold text-emerald-400 uppercase tracking-wider flex items-center gap-2">
-                  <CheckCircle2 className="w-4 h-4" /> Measured Technical & Business Impact
+                  <CheckCircle2 className="w-4 h-4" /> Measured Technical & Business Impact (Results & Metrics)
                 </h3>
-                <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3">
                   {project.impactAndResults.map((result, idx) => (
                     <div key={idx} className="p-3 rounded-lg bg-slate-950/80 border border-emerald-500/30 flex items-start gap-2">
                       <CheckCircle2 className="w-4 h-4 text-emerald-400 shrink-0 mt-0.5" />
