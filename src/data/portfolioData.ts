@@ -374,6 +374,86 @@ export const PROJECTS: ProjectCaseStudy[] = [
     }
   },
   {
+    id: "vault-secrets-operator-k8s",
+    title: "Zero-Secrets GitOps: Dynamic Secrets with HashiCorp Vault & ESO",
+    subtitle: "Enterprise cloud-native secret management reference architecture featuring on-demand dynamic PostgreSQL credential minting with HashiCorp Vault and seamless synchronization via External Secrets Operator (ESO), achieving 100% Zero Secrets in Git.",
+    category: "DevSecOps",
+    role: "Lead DevSecOps & Cloud Security Architect",
+    badgeText: "HashiCorp Vault / External Secrets Operator / Kubernetes / PostgreSQL / GitOps / DevSecOps",
+    problem: "Traditional Kubernetes deployments store static database credentials base64-encoded in etcd or commit encrypted blobs into Git repositories (Sealed Secrets/SOPS). This leads to audit nightmares, static credentials living indefinitely, high blast radius during container compromises, and manual rotation across hundreds of microservices.",
+    businessContext: "Engineered as an enterprise DevSecOps standard for production SaaS platforms, eliminating static credentials and guaranteeing that even if a Git repository or container is breached, no long-lived database credentials or decryption keys are exposed.",
+    architectureDescription: "Configured HashiCorp Vault with the Database Secrets Engine connected to a PostgreSQL database. Vault issues short-lived, on-demand credentials with strict TTLs and auto-drops database roles on lease expiration. Kubernetes workloads consume these credentials using the External Secrets Operator (ESO), which authenticates to Vault via Kubernetes ServiceAccount tokens. ESO synchronizes dynamic credentials into native Kubernetes Secret objects, completely removing the need for intrusive Vault sidecars or proprietary application SDKs.",
+    diagramNodes: [
+      { title: "GitOps Repository", sub: "Zero Secrets in Git / CRDs Only", type: "client" },
+      { title: "Kubernetes Cluster", sub: "Control Plane & Workloads", type: "gateway" },
+      { title: "External Secrets Operator", sub: "K8s JWT Auth Controller", type: "security" },
+      { title: "HashiCorp Vault", sub: "Dynamic Database Engine", type: "security" },
+      { title: "PostgreSQL Database", sub: "Dynamic Roles with 1h TTL", type: "database" },
+      { title: "Consumer Microservices", sub: "Native K8s Secret Injection", type: "compute" }
+    ],
+    technologies: [
+      "HashiCorp Vault",
+      "External Secrets Operator (ESO)",
+      "Kubernetes (EKS / Kind)",
+      "PostgreSQL",
+      "GitOps",
+      "Helm",
+      "Bash",
+      "Gitleaks",
+      "TruffleHog",
+      "Docker"
+    ],
+    implementationSteps: [
+      "Provisioned HashiCorp Vault and External Secrets Operator (ESO) via Helm with automated CRD management.",
+      "Configured Vault Database Secrets Engine with PostgreSQL connection plugin and dynamic role creation statements.",
+      "Configured Vault Kubernetes Authentication method validating ESO ServiceAccount JWT tokens against the K8s API server.",
+      "Defined least-privilege Vault HCL policy restricting ESO token generation to authorized database role paths.",
+      "Authored GitOps-safe SecretStore and ExternalSecret CRDs specifying dynamic credential synchronization intervals.",
+      "Deployed consumer microservices consuming auto-rotated native Kubernetes Secrets without requiring code changes or sidecar agents."
+    ],
+    securityConsiderations: [
+      "Zero Secrets in Git: Version control contains only declarative path references, completely eliminating accidental credential commits.",
+      "Short-Lived Dynamic Credentials: Database users are created on-demand with 1-hour TTLs and auto-revoked by Vault on lease expiry.",
+      "Least-Privilege RBAC: Vault policies and Kubernetes ServiceAccount bindings restrict secrets generation strictly to authorized namespaces.",
+      "Reduced Blast Radius: Breaching a pod exposes only an ephemeral database user tied strictly to that pod's operational window.",
+      "Automated Secret Leak Audits: Integrated Gitleaks and TruffleHog CI checks enforcing zero plaintext or encrypted credentials in source control."
+    ],
+    automationHighlights: [
+      "One-command turnkey bootstrap script (`make setup-vault`) provisioning Postgres, Vault, ESO, and dynamic auth in under 2 minutes.",
+      "Automated continuous credential synchronization: ESO periodically refreshes and updates Kubernetes secrets before TTL expiration.",
+      "Automated zero-secrets verification script auditing running pods, dynamic database user roles, and Git repository cleanliness."
+    ],
+    observabilitySetup: [
+      "Vault audit logging tracking every secret read, dynamic credential issuance, lease renewal, and role revocation.",
+      "External Secrets Operator Prometheus metrics tracking sync status, reconciliation errors, and provider request latency.",
+      "Kubernetes Events alerting on SecretStore connection failures or unauthorized path access."
+    ],
+    reliabilityHighlights: [
+      "Decoupled Architecture: Existing application pods continue operating unaffected from native secrets even during transient Vault network partitions.",
+      "Zero Sidecar Overhead: Eliminates Vault Agent sidecar containers, reducing memory footprint by ~100MB per pod and speeding up pod startup.",
+      "Graceful Secret Rotation: ESO updates native Kubernetes secrets seamlessly without requiring pod restarts when paired with config watchers."
+    ],
+    challengesAndRCA: [
+      {
+        challenge: "Preventing application disruption during dynamic database credential lease rotation.",
+        solution: "Configured Vault default TTL to 1h with ESO refresh interval set to 15m, ensuring credentials are refreshed well before expiration, paired with idempotent connection retry loops in application clients."
+      }
+    ],
+    impactAndResults: [
+      "Eliminated 100% of static database credentials and achieved true Zero Secrets in GitOps repositories.",
+      "Reduced pod memory overhead by 100% compared to traditional Vault Agent Injector sidecars.",
+      "Decreased credential rotation blast radius from days of manual engineering effort to fully automated zero-touch rotation.",
+      "Passed all enterprise SOC2 / ISO 27001 secret management audit requirements for dynamic access and ephemeral credentials."
+    ],
+    githubUrl: "https://github.com/rahulmotvani0-sketch/vault-secrets-operator-k8s",
+    interviewDeepDive: {
+      architectureTradeoffs: "Selected External Secrets Operator over HashiCorp Vault Agent sidecars because ESO is a cluster-wide controller that avoids adding 1 container per pod, eliminating memory bloat and init-container startup delays. Selected dynamic database credentials over static KV secrets because dynamic users expire automatically, drastically minimizing blast radius.",
+      failureScenarioAndRecovery: "If HashiCorp Vault experiences temporary downtime, existing Kubernetes pods continue serving traffic using the native Secrets already written in etcd until lease expiry. ESO enters an exponential backoff retry loop without deleting the existing secret.",
+      costOptimization: "Zero licensing costs utilizing open-source HashiCorp Vault and External Secrets Operator, and reduced node compute resources by eliminating sidecars.",
+      scalingStrategy: "External Secrets Operator easily scales across hundreds of namespaces using ClusterSecretStores, and HashiCorp Vault scales horizontally with Raft consensus storage across multiple availability zones."
+    }
+  },
+  {
     id: "terraform-iac-cloud",
     title: "Terraform Multi-Cloud IaC — AWS, Azure & GitOps Drift Automation",
     subtitle: "Modular Infrastructure as Code (IaC) framework automating multi-region AWS and Azure provisioning with remote state locking, Checkov security compliance, and drift detection.",

@@ -10,11 +10,17 @@
 | 1 | AWS Serverless Secure API | Code-backed | Yes | 1st |
 | 2 | DevSecOps Secure CI/CD Template | Code-backed | Yes | 2nd |
 | 3 | Kubernetes GitOps Observability Platform | Code-backed | Yes | 3rd |
-| 4 | Terraform Multi-Cloud IaC | Professional case study | No | 4th |
-| 5 | Bitbucket Server Migration & Upgrade | Professional case study | No | 5th |
-| 6 | SonarQube DevSecOps Pipeline | Professional case study | No | 6th |
-| 7 | SARA-II (Personal Project) | Personal project | No | 7th |
-| 8 | LeadPulse AI (Personal Project) | Personal project | No | 8th |
+| 4 | Zero-Secrets Vault & ESO (Lab 7) | Code-backed | Yes | 4th |
+| 5 | Linux Shell Automation Engine (Lab 1) | Code-backed | Yes | Standalone Repo |
+| 6 | Distroless Container Hardening (Lab 2) | Code-backed | Yes | Standalone Repo |
+| 7 | K8s HA & Autoscaling (Lab 6) | Code-backed | Yes | Standalone Repo |
+| 8 | Istio Zero-Trust Service Mesh (Lab 10) | Code-backed | Yes | Standalone Repo |
+| 9 | Velero Disaster Recovery & Backup (Lab 12)| Code-backed | Yes | Standalone Repo |
+| 10 | Terraform Multi-Cloud IaC | Professional case study | No | 5th |
+| 11 | Bitbucket Server Migration & Upgrade | Professional case study | No | 6th |
+| 12 | SonarQube DevSecOps Pipeline | Professional case study | No | 7th |
+| 13 | SARA-II (Personal Project) | Personal project | No | 8th |
+| 14 | LeadPulse AI (Personal Project) | Personal project | No | 9th |
 
 ---
 
