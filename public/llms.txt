@@ -47,6 +47,20 @@ Every project in the portfolio is evaluated across 10 explicit dimensions:
   Reproducible 3-node Kubernetes platform featuring declarative ArgoCD GitOps (App-of-Apps), Prometheus & Loki SRE observability (RED metrics & distributed log tracing), and chaos self-healing.
   Technologies: Kubernetes (AKS / Kind), ArgoCD, Helm, Prometheus, Grafana, Loki, Promtail, Alertmanager, NGINX Ingress, HPA, Redis.
 
+- **Zero-Secrets GitOps: Dynamic Secrets with HashiCorp Vault & ESO**
+  https://rahul.techiking.com/projects/vault-secrets-operator-k8s
+  GitHub: https://github.com/rahulmotvani0-sketch/vault-secrets-operator-k8s
+  Enterprise cloud-native secret management reference architecture featuring on-demand dynamic PostgreSQL credential minting with HashiCorp Vault and synchronization via External Secrets Operator (ESO), achieving 100% Zero Secrets in Git.
+  Technologies: HashiCorp Vault, External Secrets Operator (ESO), Kubernetes, PostgreSQL, GitOps, Helm, Bash, Gitleaks, TruffleHog.
+
+## Cloud-Native Production Labs
+- **Distroless Container Hardening:** https://github.com/rahulmotvani0-sketch/docker-multistage-production-hardening (Distroless, non-root, read-only rootfs, Trivy)
+- **K8s High Availability & Autoscaling:** https://github.com/rahulmotvani0-sketch/k8s-autoscaling-high-availability (HPA v2, PodAntiAffinity, PDB)
+- **Istio Zero-Trust Service Mesh:** https://github.com/rahulmotvani0-sketch/istio-service-mesh-zero-trust (STRICT mTLS, L7 AuthorizationPolicy, Canary)
+- **Velero Disaster Recovery & Backup:** https://github.com/rahulmotvani0-sketch/velero-disaster-recovery-backup (Automated volume snapshots, S3/GCS, RTO < 15m)
+- **Linux SRE Automation Engine:** https://github.com/rahulmotvani0-sketch/linux-shell-automation-engine (System monitoring, rotating backups, SHA-256)
+
+
 ## Project Case Studies (Professional Case Studies)
 
 - **Terraform Multi-Cloud IaC — AWS, Azure & GitOps Drift Automation**
