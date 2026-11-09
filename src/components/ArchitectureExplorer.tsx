@@ -15,7 +15,7 @@ import {
 } from "lucide-react";
 
 export default function ArchitectureExplorer() {
-  const [activeDiagram, setActiveDiagram] = useState<'devsecops' | 'ai' | 'migration' | 'iac'>('devsecops');
+  const [activeDiagram, setActiveDiagram] = useState<'devsecops' | 'istio' | 'velero' | 'ai' | 'migration' | 'iac'>('devsecops');
 
   const diagramData = {
     devsecops: {
@@ -34,6 +34,40 @@ export default function ArchitectureExplorer() {
         "Fails build immediately if SonarQube quality gate rejects pull request.",
         "Snyk vulnerability database checked during every build execution.",
         "Gitleaks secret scanner prevents credentials from being committed."
+      ]
+    },
+    istio: {
+      title: "Istio Service Mesh Zero-Trust Architecture",
+      subtitle: "SPIFFE cryptographically verified mTLS, default-deny L7 AuthorizationPolicies, and traffic routing via Envoy sidecars.",
+      nodes: [
+        { label: "1. Ingress Gateway", icon: Network, sub: "TLS 1.3 / Istio Ingress", color: "border-blue-500/40 text-blue-400" },
+        { label: "2. Envoy Sidecar", icon: Lock, sub: "PeerAuthentication (STRICT mTLS)", color: "border-emerald-500/40 text-emerald-400" },
+        { label: "3. AuthPolicy Engine", icon: ShieldCheck, sub: "Deny-All by Default", color: "border-rose-500/40 text-rose-400" },
+        { label: "4. Service Identity", icon: Cpu, sub: "SPIFFE X.509 SVID Token", color: "border-purple-500/40 text-purple-400" },
+        { label: "5. VirtualService", icon: GitBranch, sub: "90/10 Canary Traffic Split", color: "border-amber-500/40 text-amber-400" },
+        { label: "6. Production Pods", icon: Server, sub: "Isolated Backend Microservices", color: "border-cyan-500/40 text-cyan-400" }
+      ],
+      highlights: [
+        "Enforces STRICT mutual TLS across 100% of inter-pod communications.",
+        "Zero-Trust AuthorizationPolicy explicitly whitelists only trusted service account principals.",
+        "Canary routing via VirtualService enables progressive zero-downtime rollouts with automated rollback."
+      ]
+    },
+    velero: {
+      title: "Velero Kubernetes Disaster Recovery Pipeline",
+      subtitle: "Automated snapshotting, scheduled backups, and catastrophic namespace disaster recovery to object storage.",
+      nodes: [
+        { label: "1. Velero Schedule", icon: Server, sub: "Daily & On-Demand Cron", color: "border-blue-500/40 text-blue-400" },
+        { label: "2. K8s API Snapshot", icon: Layers, sub: "Namespaces, Deployments & CRDs", color: "border-cyan-500/40 text-cyan-400" },
+        { label: "3. CSI Volume Snapshot", icon: Database, sub: "AWS EBS / Azure Disk Volume", color: "border-amber-500/40 text-amber-400" },
+        { label: "4. Immutable S3 Bucket", icon: Lock, sub: "Encrypted Cloud Storage Tier", color: "border-emerald-500/40 text-emerald-400" },
+        { label: "5. Disaster Drill", icon: ShieldCheck, sub: "Simulated Namespace Outage", color: "border-rose-500/40 text-rose-400" },
+        { label: "6. Restored Cluster", icon: CheckCircle2, sub: "Full State Recovery (RTO < 30s)", color: "border-purple-500/40 text-purple-400" }
+      ],
+      highlights: [
+        "Recovers complete stateful cluster namespaces including PersistentVolumeClaims in under 30 seconds.",
+        "Cross-cloud restore capability allows migrating workloads between AWS EKS and Azure AKS.",
+        "Automated disaster recovery drill verified with zero data corruption."
       ]
     },
     ai: {
@@ -114,6 +148,8 @@ export default function ArchitectureExplorer() {
           <div className="mt-6 md:mt-0 flex flex-wrap gap-2">
             {[
               { id: 'devsecops', label: 'DevSecOps CI/CD' },
+              { id: 'istio', label: 'Istio Zero-Trust Mesh' },
+              { id: 'velero', label: 'Velero Disaster Recovery' },
               { id: 'ai', label: 'SARA-II AI Infra' },
               { id: 'migration', label: 'Bitbucket Migration' },
               { id: 'iac', label: 'Terraform GitOps' }
