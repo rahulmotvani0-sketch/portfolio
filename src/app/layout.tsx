@@ -10,7 +10,7 @@ export const metadata: Metadata = {
   metadataBase: new URL("https://rahul.techiking.com"),
   title: "Rahul Motvani | DevOps & Cloud Infrastructure Engineer",
   description:
-    "DevOps and DevSecOps Engineer with 4+ years building secure, automated cloud infrastructure across Azure, AWS, and GCP — Terraform IaC, Kubernetes orchestration, CI/CD pipelines, shift-left security, and SRE observability.",
+    "DevOps and DevSecOps Engineer with 4+ years across IT operations, networking, and cloud infrastructure; building secure, automated environments across Azure, AWS, and GCP — Terraform IaC, Kubernetes orchestration, CI/CD pipelines, shift-left security, and SRE observability.",
   keywords: [
     "DevOps Engineer",
     "Azure DevOps Engineer",
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     url: "https://rahul.techiking.com",
     title: "Rahul Motvani | DevOps & Cloud Infrastructure Engineer",
     description:
-      "DevOps and DevSecOps Engineer with 4+ years across Azure, AWS, and GCP — Terraform, Kubernetes, CI/CD, shift-left security, and SRE observability. Open to remote international roles.",
+      "DevOps and DevSecOps Engineer with 4+ years across IT operations and infrastructure, working with Azure and AWS — Terraform, Kubernetes, CI/CD, shift-left security, and SRE observability. Open to remote international roles.",
     siteName: "Rahul Motvani Portfolio",
     images: [
       {
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
     card: "summary",
     title: "Rahul Motvani | DevOps & Cloud Infrastructure Engineer",
     description:
-      "DevOps and DevSecOps Engineer with 4+ years across Azure, AWS, and GCP — Terraform, Kubernetes, CI/CD, shift-left security, and SRE observability.",
+      "DevOps and DevSecOps Engineer with 4+ years across IT operations and infrastructure, working with Azure and AWS — Terraform, Kubernetes, CI/CD, shift-left security, and SRE observability.",
     images: ["https://rahul.techiking.com/profile.jpg"],
   },
   alternates: {

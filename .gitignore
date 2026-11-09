@@ -37,3 +37,8 @@ yarn-error.log*
 next-env.d.ts
 rahul.techiking.com-audit/
 /projects/
+
+# agent scratch
+.claude/
+.devsecops/
+Claude outputs/

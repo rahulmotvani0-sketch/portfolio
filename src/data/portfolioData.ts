@@ -65,6 +65,7 @@ export interface Certification {
   credentialId?: string;
   badgeIcon: string;
   category: string;
+  issuedOn?: string;
   subCertificates?: {
     title: string;
     credentialUrl: string;
@@ -84,7 +85,7 @@ export interface EducationItem {
 
 export const CANDIDATE_INFO = {
   name: "Rahul Motvani",
-  primaryTitle: "DevOps Engineer | Production SaaS, DevSecOps & SRE",
+  primaryTitle: "DevOps Engineer | AWS, Kubernetes, Terraform & CI/CD",
   secondaryTitles: [
     "Production DevOps Engineer",
     "Azure & AWS DevOps Engineer",
@@ -92,12 +93,12 @@ export const CANDIDATE_INFO = {
     "Site Reliability Engineer (SRE)",
     "AI-enabled Operations Engineer"
   ],
-  totalExperience: "4+ Years",
+  totalExperience: "4+ Years in IT & Infrastructure",
   currentRole: "DevOps Engineer",
   currentCompany: "Agile Logic Technovation",
-  location: "Ahmedabad, Gujarat, India",
+  location: "Nijhar, Gujarat, India",
   tagline: "Production-focused DevOps, SRE, DevSecOps & Cloud Infrastructure Engineer operating high-volume enterprise SaaS platforms.",
-  heroDescription: "DevOps Engineer with 4+ years of experience architecting, securing, and operating production cloud infrastructure across AWS (ECS, Lambda, DynamoDB, ALB, API Gateway, CloudWatch, IAM, VPC) and Azure (AKS, Application Insights, Azure Monitor, networking, RBAC). Specializing in Infrastructure as Code (Terraform, AWS CDK), container orchestration (Kubernetes, Docker Swarm, Helm), CI/CD automation (GitHub Actions, Jenkins, GitLab CI), shift-left DevSecOps (OWASP Top 10, SAST, DAST, SCA, Trivy, Snyk, SonarQube, Checkov, Gitleaks, SBOM), enterprise SRE (Prometheus, Grafana, ELK/Loki, Alertmanager, SLI/SLO, MTTR, RCA), and AI-enabled operations (AIOps, intelligent observability, automated RCA). Proven track record of operating resilient multi-tenant SaaS environments with zero-downtime migrations, automated self-healing, and strict supply-chain security.",
+  heroDescription: "DevOps Engineer with 4+ years across IT operations, networking, systems administration, and cloud infrastructure. In a dedicated DevOps role since December 2025, working with AWS and Azure, Terraform, Docker, Kubernetes, and CI/CD. Focused on repeatable deployments, pipeline security, monitoring, and practical incident response.",
   targetRoles: [
     "DevOps Engineer",
     "Azure DevOps Engineer",
@@ -441,7 +442,7 @@ export const PROJECTS: ProjectCaseStudy[] = [
     ],
     impactAndResults: [
       "Eliminated 100% of static database credentials and achieved true Zero Secrets in GitOps repositories.",
-      "Reduced pod memory overhead by 100% compared to traditional Vault Agent Injector sidecars.",
+      "Eliminated per-pod sidecar memory overhead compared to traditional Vault Agent Injector sidecars by shifting to an operator-reconciled secret sync pattern.",
       "Decreased credential rotation blast radius from days of manual engineering effort to fully automated zero-touch rotation.",
       "Passed all enterprise SOC2 / ISO 27001 secret management audit requirements for dynamic access and ephemeral credentials."
     ],
@@ -991,7 +992,7 @@ export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
     location: "Ahmedabad, Gujarat, India",
     isCurrent: false,
     highlights: [
-      "Implemented network segmentation, firewall rules, and access controls across client infrastructure, reducing data breach risk by 30% through defense-in-depth strategies.",
+      "Implemented network segmentation, firewall rules, and access controls across client infrastructure, strengthening defense-in-depth security posture and isolating critical services.",
       "Led a migration to redesigned network architecture — VLAN segmentation, redundant links, and improved routing — strengthening scalability and reliability for business-critical workloads.",
       "Maintained virtualization environments (VMware, Hyper-V) and Windows/Linux servers; performed vulnerability assessments and remediation to harden security posture.",
       "Engineered DNS, DHCP, VPN, SSL/TLS, and firewall configurations for multi-site deployments, ensuring secure, reliable connectivity."
@@ -1034,11 +1035,14 @@ export const EDUCATION: EducationItem[] = [
 
 export const CERTIFICATIONS: Certification[] = [
   {
-    id: "in-progress-certs",
-    title: "AWS Solutions Architect / Azure Administrator (AZ-104) / CKA",
-    issuer: "AWS / Microsoft / CNCF (In Progress)",
-    badgeIcon: "Cloud",
-    category: "Cloud & Kubernetes (In Progress)"
+    id: "tutedude-devops",
+    title: "DevOps Course — Certificate of Completion",
+    issuer: "Tutedude",
+    credentialUrl: "/certifications/certificate_TD-RAHU-DO-1923.pdf",
+    credentialId: "TD-RAHU-DO-1923",
+    issuedOn: "5 November 2026",
+    badgeIcon: "Terminal",
+    category: "DevOps — Course Completion"
   },
   {
     id: "icsi-cnss",

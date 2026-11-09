@@ -27,7 +27,7 @@ export function getProfilePageSchema() {
       "hasCredential": CERTIFICATIONS.map(cert => ({
         "@type": "EducationalOccupationalCredential",
         "name": cert.title,
-        "credentialCategory": "certification",
+        "credentialCategory": cert.category,
         "recognizedBy": {
           "@type": "Organization",
           "name": cert.issuer

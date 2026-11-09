@@ -59,7 +59,7 @@ export default function CertificationsAndAchievements() {
               Professional Credentials & Security Milestones
             </h2>
             <p className="text-sm text-slate-400 mt-1 max-w-2xl">
-              Verified certifications in Cloud Architecture, Practical Cyber Defense & PenTesting, Network Infrastructure, and DevSecOps. Click Quick View on any credential to inspect the verified certificate.
+              Course completion certificates, security credentials, and practical learning paths. Open each document to review its issuer and credential details.
             </p>
           </div>
         </div>
@@ -151,6 +151,9 @@ export default function CertificationsAndAchievements() {
                   <p className="text-xs text-emerald-400 font-mono mt-1">
                     {cert.issuer}
                   </p>
+                  {cert.issuedOn && (
+                    <p className="text-xs text-slate-400 mt-2">Completed {cert.issuedOn}</p>
+                  )}
                 </div>
 
                 {/* Sub Certificates (e.g. Google Cloud Specialization Courses or TryHackMe Specialization Credentials) */}

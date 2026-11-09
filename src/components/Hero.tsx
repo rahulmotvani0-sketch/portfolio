@@ -79,8 +79,7 @@ export default function Hero({ onOpenResume }: HeroProps) {
 
             {/* Value Proposition */}
             <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-2xl font-normal">
-              Architecting, securing, and operating high-volume enterprise SaaS infrastructure across <span className="text-emerald-400 font-semibold">AWS</span> (ECS, Lambda, DynamoDB, ALB, API GW) and <span className="text-cyan-400 font-semibold">Azure</span> (AKS, App Insights, Azure Monitor). 
-              Specializing in <span className="text-emerald-400 font-semibold">Terraform IaC</span>, <span className="text-cyan-400 font-semibold">Kubernetes & Helm</span>, <span className="text-emerald-400 font-semibold">GitHub Actions & Jenkins CI/CD</span>, <span className="text-purple-400 font-semibold">SonarQube & Snyk DevSecOps</span>, supply-chain security (Cosign, Syft), Prometheus SRE observability, and AI-enabled operations.
+              {CANDIDATE_INFO.heroDescription}
             </p>
 
             {/* Quick Tech Badges */}
