@@ -6,7 +6,7 @@ Nijhar, Gujarat, India • +91 89807 80003 • rahulmotvani8@gmail.com
 ---
 
 ### PROFESSIONAL SUMMARY
-DevOps and Cloud Infrastructure Engineer with 4+ years across production infrastructure, Linux systems administration, enterprise networking, and cloud delivery. Dedicated DevOps Engineer since December 2025, operating enterprise multi-cloud workloads across AWS and Azure using Terraform, Kubernetes, Helm, and Argo CD. Deep background in practical cybersecurity (ICSI Certified Network Security Specialist, Top 3% globally on TryHackMe), embedding automated SAST/SCA security gates, container hardening, and secret rotation directly into CI/CD pipelines. Proven track record in establishing resilient SRE observability stacks (Prometheus, Grafana, Loki, Alertmanager) to enforce SLI/SLO bounds and reduce MTTR.
+DevOps and Cloud Infrastructure Engineer with 4+ years of experience across production cloud infrastructure, Kubernetes, Linux systems administration, enterprise networking, and automated delivery. Specializing in AWS and Azure, Terraform IaC, Docker, Kubernetes, Helm, and Argo CD GitOps. Deep background in practical cybersecurity (ICSI Certified Network Security Specialist, Top 3% globally on TryHackMe), embedding automated SAST/SCA security gates, container hardening, and secret rotation directly into CI/CD pipelines. Proven track record in establishing resilient SRE observability stacks (Prometheus, Grafana, Loki, Alertmanager) to enforce SLI/SLO bounds and reduce MTTR.
 
 ---
 
@@ -22,7 +22,7 @@ DevOps and Cloud Infrastructure Engineer with 4+ years across production infrast
 ### PROFESSIONAL WORK EXPERIENCE
 
 #### **DevOps Engineer** | *Agile Logic Technovation* | Ahmedabad, India  
-*Dec 2025 – Present*
+*Present*
 - Architect and manage multi-cloud infrastructure across AWS and Azure utilizing modular Terraform with remote state locking, eliminating configuration drift across Dev, Staging, and Production.
 - Deploy and maintain containerized microservices on Kubernetes (EKS/AKS) and ECS using Helm and Argo CD GitOps, implementing rolling deployment strategies, Horizontal Pod Autoscaling (HPA), and Pod Disruption Budgets to sustain 99.9% uptime.
 - Design reusable, shift-left DevSecOps pipelines in GitHub Actions and Jenkins, enforcing automated secret scanning (Gitleaks), SAST (Semgrep), container vulnerability scanning (Trivy), and IaC checks (Checkov) as blocking PR quality gates.

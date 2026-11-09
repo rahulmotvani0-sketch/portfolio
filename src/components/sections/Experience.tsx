@@ -6,7 +6,7 @@ const experiences = [
   {
     role: "DevOps Engineer",
     company: "DevOps Consultancy",
-    period: "Dec 2025 – Present (10 months)",
+    period: "Present",
     highlights: [
       "Designed and deployed multi-cloud infrastructure across AWS, Azure, and GCP with Terraform, enabling reproducible, version-controlled environments.",
       "Built and maintained CI/CD pipelines (Jenkins / GitHub Actions / GitLab CI with Git & Bitbucket) integrating automated SAST, SCA, and dependency scanning.",

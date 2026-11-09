@@ -45,7 +45,6 @@ Portfolio: rahul.techiking.com
 * **Title**: `DevOps Engineer`
 * **Employment type**: `Full-time`
 * **Location**: `Ahmedabad, Gujarat, India` (or Hybrid/Remote)
-* **Start Date**: `December 2025`
 * **Currently working here**: `Yes`
 * **Description**:
 ```text

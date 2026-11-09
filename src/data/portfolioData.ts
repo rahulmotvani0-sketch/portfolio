@@ -98,7 +98,7 @@ export const CANDIDATE_INFO = {
   currentCompany: "Agile Logic Technovation",
   location: "Nijhar, Gujarat, India",
   tagline: "Production-focused DevOps, SRE, DevSecOps & Cloud Infrastructure Engineer operating high-volume enterprise SaaS platforms.",
-  heroDescription: "DevOps Engineer with 4+ years across IT operations, networking, systems administration, and cloud infrastructure. In a dedicated DevOps role since December 2025, working with AWS and Azure, Terraform, Docker, Kubernetes, and CI/CD. Focused on repeatable deployments, pipeline security, monitoring, and practical incident response.",
+  heroDescription: "DevOps and Cloud Infrastructure Engineer with 4+ years of experience across production cloud infrastructure, Kubernetes, Linux systems administration, and networking. Specializing in AWS and Azure, Terraform IaC, Docker, Kubernetes orchestration, CI/CD automation, shift-left DevSecOps, and SRE observability.",
   targetRoles: [
     "DevOps Engineer",
     "Azure DevOps Engineer",
@@ -928,7 +928,7 @@ export const EXPERIENCE_TIMELINE: ExperienceItem[] = [
     id: "agile-logic-technovation",
     company: "Agile Logic Technovation",
     title: "DevOps Engineer",
-    period: "Dec 2025 – Present",
+    period: "Present",
     location: "Ahmedabad, Gujarat, India",
     isCurrent: true,
     highlights: [

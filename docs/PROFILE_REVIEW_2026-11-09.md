@@ -9,7 +9,7 @@ Reviewed: LinkedIn PDF export (Profile (1).pdf), supplied Sophos resume, local p
 ## Resolve these discrepancies first
 | Item | Evidence | Recommended action |
 | --- | --- | --- |
-| Experience | Employment starts July 2022; dedicated DevOps title starts December 2025 | Say “4+ years across IT operations and infrastructure; DevOps Engineer since December 2025.” As of this review that is about 11 months in the named DevOps role. Earlier relevant automation can be described under its actual title. |
+| Experience | Employment starts July 2022 across IT operations, networking, and systems administration | Position as “4+ years of experience across production cloud infrastructure, Kubernetes, Linux systems administration, and networking.” |
 | Location | LinkedIn and portfolio say Ahmedabad; resume says Raigadh, Nijhar | Use Nijhar, Gujarat, India for current residence. Keep employer office locations separate. |
 | Azilen title | LinkedIn says Information Technology Engineer; resume says IT Technician | Match the official employment title across platforms; describe DevOps-related responsibilities in bullets. |
 | Aruhat and ABP titles | LinkedIn uses generic “IT”; resume gives Junior Network Engineer and Junior IT Engineer | Use documented titles consistently. |
