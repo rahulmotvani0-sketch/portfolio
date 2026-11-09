@@ -101,6 +101,42 @@ export default function SreSandbox() {
       ],
       automatedAction: "Scaled connection pooling via PgBouncer, enabled Redis caching, and purged idle database sessions.",
       resolutionTime: "4.3s"
+    },
+    {
+      id: "velero-dr",
+      name: "Velero Catastrophic Namespace DR Restore",
+      severity: "CRITICAL",
+      component: "Kubernetes Production Namespace",
+      triggerDescription: "Simulated accidental deletion of production namespace with active stateful workloads.",
+      logs: [
+        "[00:00.050] [CHAOS] Simulated disaster drill: `kubectl delete namespace production` executed.",
+        "[00:00.600] [ALERT] PagerDuty critical alert: Production cluster endpoints returning HTTP 503.",
+        "[00:01.100] [AUTOPLAYBOOK] DR Controller initiated Velero restore from latest S3 snapshot...",
+        "[00:01.800] [VELERO] Restoring PVCs, StatefulSets, Secrets, and Istio VirtualServices...",
+        "[00:02.700] [K8S] 48/48 cluster objects reconciled. EBS CSI volumes re-attached and mounted.",
+        "[00:03.400] [HEALTH] Health check probe passed (200 OK). Traffic routed back through Ingress.",
+        "[00:04.000] [RCA SUMMARY] Namespace fully restored in under 30s. Zero permanent data loss."
+      ],
+      automatedAction: "Automated Velero disaster recovery restoration from immutable S3 backup with zero manual intervention.",
+      resolutionTime: "4.0s"
+    },
+    {
+      id: "istio-mesh-security",
+      name: "Istio Zero-Trust Plaintext Interception Blocked",
+      severity: "HIGH",
+      component: "Istio Envoy Service Mesh",
+      triggerDescription: "Rogue pod attempted plaintext HTTP communication bypassing TLS encryption and SPIFFE identity.",
+      logs: [
+        "[00:00.080] [INGRESS] Rogue client pod attempted TCP connection on port 8080 to backend-api",
+        "[00:00.450] [ENVOY] Inspecting TLS handshake: No SPIFFE client certificate presented",
+        "[00:00.900] [ISTIO] STRICT mTLS Policy Enforced: Connection terminated with SSL_ERROR_ZERO_RETURN",
+        "[00:01.400] [AUTHZ] Evaluating AuthorizationPolicy: Matching default 'deny-all-by-default' rule",
+        "[00:02.100] [SECURITY] Event logged: Connection from unauthorized principal rejected with HTTP 403",
+        "[00:02.800] [ALERT] Telemetry streamed to Prometheus & Wazuh SIEM for security attribution",
+        "[00:03.300] [RCA SUMMARY] Zero-Trust perimeter held. Plaintext lateral movement blocked at mesh boundary."
+      ],
+      automatedAction: "Istio PeerAuthentication strictly rejected plaintext traffic and enforced deny-all authorization.",
+      resolutionTime: "3.3s"
     }
   ];
 

@@ -49,6 +49,7 @@ export default function Navbar({ onOpenResume }: NavbarProps) {
   const navLinks = [
     { name: "Home", href: "#", onClick: scrollToHome },
     { name: "Summary", href: "#recruiter-summary" },
+    { name: "Terminal", href: "#interactive-terminal" },
     { name: "Projects", href: "#projects" },
     { name: "Architecture", href: "#architecture" },
     { name: "Skills", href: "#skills" },

@@ -15,6 +15,7 @@ import dynamic from 'next/dynamic';
 
 const ArchitectureExplorer = dynamic(() => import('@/components/ArchitectureExplorer'), { ssr: false });
 const SreSandbox = dynamic(() => import('@/components/SreSandbox'), { ssr: false });
+const InteractiveTerminal = dynamic(() => import('@/components/InteractiveTerminal'), { ssr: false });
 const ResumeModal = dynamic(() => import('@/components/ResumeModal'), { ssr: false });
 const FAQSection = dynamic(() => import('@/components/FAQSection'));
 
@@ -51,6 +52,7 @@ export default function Home() {
       <main className="relative print:hidden">
         <Hero onOpenResume={() => setIsResumeOpen(true)} />
         <RecruiterMatrix onOpenResume={() => setIsResumeOpen(true)} />
+        <InteractiveTerminal />
         <ProjectsSection />
         <ArchitectureExplorer />
         <SkillsSection />
