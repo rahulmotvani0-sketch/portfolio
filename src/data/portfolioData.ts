@@ -26,6 +26,7 @@ export interface ProjectCaseStudy {
   impactAndResults: string[];
   githubUrl?: string;
   liveDemoUrl?: string;
+  architectureImage?: string;
   interviewDeepDive: {
     architectureTradeoffs: string;
     failureScenarioAndRecovery: string;
@@ -130,6 +131,87 @@ export const CANDIDATE_INFO = {
 };
 
 export const PROJECTS: ProjectCaseStudy[] = [
+  {
+    id: "kubernetes-zero-trust-admission-shield",
+    title: "Kubernetes Zero-Trust Admission Shield & eBPF Runtime Guard",
+    subtitle: "Enterprise-grade in-cluster supply chain security enforcing Sigstore Cosign cryptographic verification, Kyverno Pod Security Standards (Restricted), and kernel-level Cilium Tetragon eBPF telemetry.",
+    category: "DevSecOps",
+    role: "Lead DevSecOps & Platform Engineer",
+    badgeText: "Kubernetes / Kyverno / Sigstore Cosign / Tetragon eBPF / PSS Restricted",
+    problem: "Traditional container security relies either entirely on static pre-deployment image scanning (leaving clusters vulnerable to unvetted registry tampering) or purely on runtime monitoring (alerting security teams only after malicious payloads have already executed in user space).",
+    businessContext: "Engineered as an enterprise defense-in-depth security reference architecture to enforce fail-closed cryptographic admission gates at the Kubernetes API level while maintaining zero-overhead kernel syscall observability through eBPF.",
+    architectureDescription: "Combines Kyverno validating admission webhooks with Sigstore Cosign keyless cryptographic verification to ensure only signed container images with verified transparency logs can be scheduled. Pod Security Standards (Restricted profile) enforce unprivileged execution (runAsNonRoot), read-only root filesystems, and drop all Linux capabilities. At runtime, Cilium Tetragon eBPF probes hook directly into kernel tracepoints (sys_execve) to intercept unauthorized shell executions (/bin/sh, /bin/bash) and namespace breakouts without node restarts or sidecar overhead.",
+    diagramNodes: [
+      { title: "Git Commit / CI/CD", sub: "Sigstore Signed Artifacts", type: "client" },
+      { title: "K8s API Server", sub: "Admission Webhook Intercept", type: "gateway" },
+      { title: "Kyverno Policy Engine", sub: "Signature & PSS Validation", type: "security" },
+      { title: "Worker Nodes / Pods", sub: "Non-Root & Read-Only RootFS", type: "compute" },
+      { title: "Tetragon eBPF Sensor", sub: "sys_execve Kernel Hooks", type: "observability" },
+      { title: "Security Telemetry", sub: "JSON Event Stream & Alerts", type: "security" }
+    ],
+    technologies: [
+      "Kubernetes v1.30+",
+      "Kyverno",
+      "Sigstore Cosign",
+      "Cilium Tetragon",
+      "eBPF",
+      "Docker",
+      "Bash",
+      "Linux Kernel",
+      "Minikube / Kind",
+      "GitOps",
+      "Pod Security Standards"
+    ],
+    implementationSteps: [
+      "Authored Kyverno ClusterPolicies verifying keyless cryptographic container signatures against Sigstore Fulcio/Rekor public transparency log.",
+      "Enforced Pod Security Standards (PSS Restricted profile) blocking runAsRoot, mandating readOnlyRootFilesystem, and dropping ALL Linux capabilities.",
+      "Engineered Cilium Tetragon eBPF TracingPolicy definitions hooking kernel tracepoint sys_execve to monitor unauthorized interactive shells (/bin/sh, /bin/bash) and sensitive credential reads.",
+      "Built automated cluster bootstrap script (setup-cluster.sh) and end-to-end attack simulation suite (simulate-admission-attacks.sh) validating fail-closed policy enforcement.",
+      "Delivered reproducible local testing environment compatible with Minikube, Kind, and cloud-managed Kubernetes engines (EKS/AKS/GKE)."
+    ],
+    securityConsiderations: [
+      "Cryptographic supply-chain integrity: Unsigned images or images signed by untrusted OIDC issuers are rejected at admission before container runtime pulls the layers.",
+      "Pod Security Standards (PSS Restricted): Eliminates privilege escalation, prevents host namespace sharing (hostPID, hostIPC, hostNetwork), and isolates container processes.",
+      "Read-only root filesystem: Forces container immutability, preventing runtime attackers from downloading and persisting rootkits or droppers.",
+      "Kernel-level observability: eBPF probes execute in kernel space, ensuring attackers who compromise a container cannot tamper with or bypass runtime security logging."
+    ],
+    automationHighlights: [
+      "Turnkey setup-cluster.sh bash script automating Kyverno and Tetragon Helm deployments and CRD initialization in under 3 minutes.",
+      "Automated simulate-admission-attacks.sh CLI script executing 5 targeted security attack vectors with pass/fail terminal reports.",
+      "Declarative Kyverno policy manifests modularized for seamless GitOps integration with ArgoCD or Flux."
+    ],
+    observabilitySetup: [
+      "Real-time Tetragon JSON structured event stream exporting kernel-level process executions, arguments, and container namespaces.",
+      "Kyverno AdmissionReport and PolicyReport CRDs providing in-cluster compliance audits directly accessible via kubectl.",
+      "Structured security audit logs formatted for ingestion into SIEM platforms (Elasticsearch, OpenSearch, Wazuh)."
+    ],
+    reliabilityHighlights: [
+      "Fail-closed admission webhook architecture preventing unverified workloads from running even during partial policy failures.",
+      "Zero application sidecar overhead: eBPF operates natively within the Linux kernel, avoiding container resource bloat.",
+      "Tuned webhook failure policies with namespace exclusions for critical cluster infrastructure (kube-system)."
+    ],
+    challengesAndRCA: [
+      {
+        challenge: "Ensuring Kyverno admission webhooks do not cause cluster deadlocks or block essential kube-system controllers during node restarts.",
+        solution: "Implemented granular namespaceSelector exclusions for system namespaces and configured webhook failurePolicy appropriately to protect control plane stability while enforcing strict admission on all workload namespaces."
+      }
+    ],
+    impactAndResults: [
+      "Enforced 100% cryptographic container verification at API admission before workload scheduling.",
+      "Successfully blocked 100% of unsigned, root-executing, and privilege-escalating container admission requests across automated attack simulations.",
+      "Delivered zero-overhead kernel-level runtime visibility with Cilium Tetragon eBPF tracing syscalls without node reboots or application sidecars.",
+      "Published production-grade open-source reference architecture with complete setup automation and testing suite."
+    ],
+    githubUrl: "https://github.com/rahulmotvani0-sketch/kubernetes-zero-trust-admission-shield",
+    liveDemoUrl: "https://github.com/rahulmotvani0-sketch/kubernetes-zero-trust-admission-shield#readme",
+    architectureImage: "/images/kubernetes_zerotrust_ebpf_infographic.jpg",
+    interviewDeepDive: {
+      architectureTradeoffs: "Selected Kyverno over OPA/Gatekeeper for Kubernetes-native declarative YAML policies without requiring Rego programming expertise; adopted Cilium Tetragon for runtime protection due to raw kernel eBPF hooks offering minimal CPU overhead compared to ptrace or legacy user-space daemon monitoring.",
+      failureScenarioAndRecovery: "If the Kyverno webhook becomes unreachable or admission webhooks fail, configured namespace selectors ensure kube-system control plane traffic remains operational; webhooks can be temporarily bypassed by cluster administrators using scoped emergency break-glass service accounts.",
+      costOptimization: "100% open-source tooling (Kyverno, Sigstore, Tetragon) operating on existing Kubernetes nodes with zero commercial license fees and minimal resource overhead (~50m CPU per node).",
+      scalingStrategy: "Kyverno admission webhooks scale horizontally via ReplicaSets behind the Kubernetes API server; Tetragon runs as an efficient kernel-hooked DaemonSet on every worker node regardless of cluster size."
+    }
+  },
   {
     id: "aws-serverless-secure-api",
     title: "AWS Serverless Secure API — WAFv2, API Gateway & Keyless OIDC",

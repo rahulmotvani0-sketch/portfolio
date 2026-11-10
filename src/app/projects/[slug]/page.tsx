@@ -129,6 +129,28 @@ export default async function ProjectPage({ params }: { params: Promise<{ slug: 
           <section>
             <h2 className="text-2xl font-bold text-white mb-6 border-b border-slate-800 pb-2">Architecture & Solution</h2>
             <p className="text-slate-300 leading-relaxed mb-6">{project.architectureDescription}</p>
+
+            {project.architectureImage && (
+              <div className="my-8 rounded-xl overflow-hidden border border-slate-800 bg-slate-900/60 p-4 space-y-2">
+                <div className="text-xs font-mono text-emerald-400 flex items-center justify-between">
+                  <span>SYSTEM ARCHITECTURE &amp; DEFENSE LAYERS INFOGRAPHIC</span>
+                  <a
+                    href={project.architectureImage}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-xs text-slate-400 hover:text-emerald-300 underline"
+                  >
+                    View High-Resolution ↗
+                  </a>
+                </div>
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={project.architectureImage}
+                  alt={`${project.title} Architecture`}
+                  className="w-full h-auto rounded-lg border border-slate-800"
+                />
+              </div>
+            )}
             
             <h3 className="text-xl font-semibold text-white mt-8 mb-4">Technologies Used</h3>
             <div className="flex flex-wrap gap-2 mb-8">

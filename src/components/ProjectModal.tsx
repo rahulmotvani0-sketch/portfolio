@@ -250,6 +250,28 @@ export default function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </p>
               </div>
 
+              {project.architectureImage && (
+                <div className="rounded-xl overflow-hidden border border-slate-800 bg-slate-950 p-3 space-y-2">
+                  <div className="text-xs font-mono text-emerald-400 flex items-center justify-between px-1">
+                    <span>ARCHITECTURAL INFOGRAPHIC &amp; DEFENSE LAYERS</span>
+                    <a
+                      href={project.architectureImage}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-[11px] text-slate-400 hover:text-emerald-300 underline"
+                    >
+                      Open Full Res ↗
+                    </a>
+                  </div>
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={project.architectureImage}
+                    alt={`${project.title} Architecture`}
+                    className="w-full h-auto rounded-lg border border-slate-800/80"
+                  />
+                </div>
+              )}
+
               {/* Visual Node Diagram Flow */}
               <div className="p-6 rounded-2xl bg-slate-950/90 border border-slate-800 space-y-6">
                 <div className="text-xs font-mono text-slate-400 text-center pb-2 border-b border-slate-800">

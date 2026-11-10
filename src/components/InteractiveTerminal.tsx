@@ -73,6 +73,22 @@ Cosign Signature: Verified with Rekor public ledger (OIDC Subject: github.com/ra
 Syft SBOM generated: spdx-json format stored in build artifacts.`
   },
   {
+    category: "DevSecOps",
+    label: "Kyverno & eBPF Admission Shield",
+    command: "kubectl apply -f test-workloads/attack-privilege-escalation.yaml",
+    description: "Simulates an unauthorized container breakout blocked by Kyverno admission & Tetragon eBPF.",
+    output: `Error from server: admission webhook "validate.kyverno.svc" denied the request:
+
+Policy 'disallow-privileged-containers' violation:
+  - privileged-pod-exploit: Privileged containers are strictly forbidden under PSS Restricted profile.
+  - runAsNonRoot: Pod must specify 'securityContext.runAsNonRoot: true'.
+  - readOnlyRootFilesystem: Container root filesystem must be read-only.
+
+[eBPF TETRAGON TELEMETRY]
+sensor: sys_execve | process: /bin/sh | namespace: default | action: SIGKILL
+[SHIELD ACTIVE] Exploit blocked at API admission gate before pod scheduling. Zero kernel breakout permitted.`
+  },
+  {
     category: "Terraform",
     label: "Terraform Drift Check",
     command: "terraform plan -detailed-exitcode -compact-warnings",
