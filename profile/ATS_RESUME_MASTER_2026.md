@@ -48,7 +48,7 @@ DevOps and Cloud Infrastructure Engineer with 4+ years of experience across prod
 *Jul 2022 – May 2023*
 - Maintained 24/7 operational reliability for 50+ Linux and Windows broadcast production servers, resolving high-priority hardware, network, and application incidents within SLA limits.
 - Executed monthly security patch management, kernel updates, and scheduled server maintenance windows to preserve 100% compliance with corporate IT security baselines.
-- Authored incident triage runbooks and assisted senior engineers in diagnosing broadcast feed network latency and storage bottlenecks.
+- Authored incident triage runbooks and collaborated with the engineering team in diagnosing broadcast feed network latency and storage bottlenecks.
 
 ---
 

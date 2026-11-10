@@ -137,3 +137,4 @@ Stars do not happen inside GitHub alone—they come from **sharing real technica
    - `vmware-tanzu/velero`
    - `argoproj/argo-rollouts`
    Every merged PR permanently displays your avatar on their contributor graphs, driving developers back to your profile.
+
